@@ -33,7 +33,7 @@
         <div class="title-box-d">
             <h3 class="title-d">Search Property</h3>
         </div>
-        <span class="close-box-collapse right-boxed ion-ios-close"></span>
+        <span class="close-box-collapse right-boxed fa fa-times"></span>
         <div class="box-collapse-wrap form">
             <form class="form-a">
                 <div class="row">
@@ -130,7 +130,7 @@
                 <span></span>
                 <span></span>
             </button>
-            <a class="navbar-brand text-brand" href="index.html">Real<span class="color-b">Property</span></a>
+            <a class="navbar-brand text-brand" href="{{ url('/') }}">Real<span class="color-b">Property</span></a>
             <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none"
                 data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
                 <span class="fa fa-search" aria-hidden="true"></span>
@@ -138,13 +138,13 @@
             <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
+                        <a class="nav-link active" href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="property-grid.html">Property</a>
+                        <a class="nav-link" href="{{ url('/properties') }}">Property</a>
                     </li>
                     {{--<li class="nav-item">
                         <a class="nav-link" href="blog-grid.html">Blog</a>
@@ -279,13 +279,13 @@
                     <nav class="nav-footer">
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a href="#">Home</a>
+                                <a href="{{ url('/') }}">Home</a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="#">About</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">Property</a>
+                                <a href="{{ url('/properties') }}">Property</a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="#">Contact</a>
@@ -332,7 +332,7 @@
         </div>
     </footer><!-- End  Footer -->
 
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <a href="" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
     <div id="preloader"></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

@@ -96,7 +96,7 @@
                             </div>
                             <div class="title-link">
                                 <a href="property-grid.html">All Property
-                                    <span class="ion-ios-arrow-forward"></span>
+                                    <span class="fa fa-chevron-right"></span>
                                 </a>
                             </div>
                         </div>

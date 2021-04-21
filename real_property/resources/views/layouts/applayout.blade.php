@@ -332,8 +332,12 @@
         </div>
     </footer><!-- End  Footer -->
 
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <div id="preloader"></div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{{ asset('js/vendorjs/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/vendorjs/scrollreveal/scrollreveal.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 
 </body>

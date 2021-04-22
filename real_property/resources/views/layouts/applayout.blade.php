@@ -162,7 +162,7 @@
                         </div>
                     </li>--}}
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="{{ url('/contactus') }}">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -200,10 +200,10 @@
                         <div class="w-footer-a">
                             <ul class="list-unstyled">
                                 <li class="color-a">
-                                    <span class="color-text-a">Phone .</span> contact@gmail.com
+                                    <span class="color-text-a">Phone .</span> +94771234567
                                 </li>
                                 <li class="color-a">
-                                    <span class="color-text-a">Email .</span> +94771234567
+                                    <span class="color-text-a">Email .</span> contact@gmail.com
                                 </li>
                             </ul>
                         </div>
@@ -288,7 +288,7 @@
                                 <a href="{{ url('/properties') }}">Property</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">Contact</a>
+                                <a href="{{ url('/contactus') }}">Contact</a>
                             </li>
                         </ul>
                     </nav>

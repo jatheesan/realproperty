@@ -27,3 +27,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/properties',[PageController::class,'getproperties']);
 Route::get('/contactus',[PageController::class,'getcontact']);
+Route::get('/aboutus',[PageController::class,'getabout']);

@@ -51,8 +51,8 @@
                                 <div class="col-lg-8">
                                     <div class="intro-body">
                                         <h1 class="intro-title mb-4">
-                                            Find Your<br>
-                                            <span class="color-b">Dream </span> Property
+                                            Find your<br>
+                                            <span class="color-b">perfect </span> home land
                                         </h1>
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                 <h2 class="title-a">Latest Properties</h2>
                             </div>
                             <div class="title-link">
-                                <a href="property-grid.html">All Property
+                                <a href="{{ url('/properties') }}">All Property
                                     <span class="fa fa-chevron-right"></span>
                                 </a>
                             </div>
@@ -294,7 +294,7 @@
                     <div class="col-md-12">
                         <div class="title-wrap d-flex justify-content-between">
                             <div class="title-box">
-                                <h2 class="title-a">Testimonials</h2>
+                                <h2 class="title-a">What Our Fantastic Clients Say</h2>
                             </div>
                         </div>
                     </div>

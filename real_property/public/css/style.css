@@ -327,7 +327,7 @@ body {
   }
   
   .title-box-d {
-    padding-bottom: 1.8rem;
+    padding-bottom: 1rem;
     margin-bottom: 1rem;
     position: relative;
   }
@@ -340,10 +340,31 @@ body {
   .title-box-d .title-d:after {
     content: '';
     position: absolute;
-    width: 70px;
+    width: 200px;
     height: 4px;
     background-color: #2eca6a;
     bottom: 20px;
+    left: 0;
+  }
+
+  .sub-title-box-d {
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .sub-title-box-d .sub-title-d {
+    font-weight: 600;
+    font-size: 1.6rem;
+  }
+
+  .sub-title-box-d .sub-title-d:after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 2px;
+    background-color: #2eca6a;
+    bottom: 10px;
     left: 0;
   }
   
@@ -1895,11 +1916,11 @@ body {
   
   .sinse-box .sinse-title span:after {
     content: ' ';
-    width: 35px;
+    width: 30px;
     height: 2px;
     background-color: #000000;
     position: absolute;
-    bottom: -15px;
+    bottom: -25px;
   }
   
   .sinse-box p {

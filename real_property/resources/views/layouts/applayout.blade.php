@@ -141,7 +141,7 @@
                         <a class="nav-link active" href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="{{ url('/aboutus') }}">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/properties') }}">Property</a>
@@ -282,7 +282,7 @@
                                 <a href="{{ url('/') }}">Home</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#">About</a>
+                                <a href="{{ url('/aboutus') }}">About</a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="{{ url('/properties') }}">Property</a>

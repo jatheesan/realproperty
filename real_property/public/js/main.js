@@ -42,7 +42,7 @@
     margin: -1,
     items: 1,
     nav: true,
-    navText: ['<i class="ion-ios-arrow-back" aria-hidden="true"></i>', '<i class="ion-ios-arrow-forward" aria-hidden="true"></i>'],
+    navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
     autoplay: true,
     autoplayTimeout: 3000,
     autoplayHoverPause: true
@@ -111,7 +111,7 @@
     loop: true,
     margin: 0,
     nav: true,
-    navText: ['<i class="ion-ios-arrow-back" aria-hidden="true"></i>', '<i class="ion-ios-arrow-forward" aria-hidden="true"></i>'],
+    navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
     responsive: {
       0: {
         items: 1,
@@ -143,7 +143,7 @@
     nav: true,
     animateOut: 'fadeOut',
     animateIn: 'fadeInUp',
-    navText: ['<i class="ion-ios-arrow-back" aria-hidden="true"></i>', '<i class="ion-ios-arrow-forward" aria-hidden="true"></i>'],
+    navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
     autoplayTimeout: 4000,
     autoplayHoverPause: true,
     responsive: {

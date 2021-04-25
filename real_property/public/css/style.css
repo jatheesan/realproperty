@@ -21,6 +21,10 @@ body {
   h6 {
     color: #000000;
   }
+
+  hr{
+    border-top: 2px solid #2eca6a; 
+  }
   
   a {
     color: #000000;
@@ -324,6 +328,11 @@ body {
     font-size: 20px;
     padding-left: 4px;
     vertical-align: middle;
+  }
+
+  .title-e {
+    font-weight: 600;
+    font-size: 2rem;
   }
   
   .title-box-d {
@@ -1427,6 +1436,10 @@ body {
   .gallery-property {
     margin-bottom: 3rem;
   }
+
+  .property-image {
+    height: 37.5rem !important;
+  }
   
   .property-price {
     margin: 0 auto;
@@ -1454,6 +1467,10 @@ body {
     .property-agent {
       margin-top: 2.5rem;
     }
+
+    .property-image {
+      height: 12.5rem !important;
+    }
   }
   
   .property-agent .title-agent {
@@ -1472,6 +1489,10 @@ body {
   @media (max-width: 991px) {
     .property-contact {
       margin-top: 2.5rem;
+    }
+
+    .property-image {
+      height: 18.75rem !important;
     }
   }
   

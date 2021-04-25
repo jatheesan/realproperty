@@ -113,7 +113,7 @@
                                 <div class="card-overlay-a-content">
                                     <div class="card-header-a">
                                         <h2 class="card-title-a">
-                                            <a href="property-single.html">206 Mount
+                                            <a href="{{ url('/single-property') }}">206 Mount
                                                 <br /> road Jaffna</a>
                                         </h2>
                                     </div>
@@ -121,7 +121,7 @@
                                         <div class="price-box d-flex">
                                             <span class="price-a">Sales | 49 million</span>
                                         </div>
-                                        <a href="#" class="link-a">Click here to view
+                                        <a href="{{ url('/single-property') }}" class="link-a">Click here to view
                                             <span class="ion-ios-arrow-forward"></span>
                                         </a>
                                     </div>
@@ -157,7 +157,7 @@
                                 <div class="card-overlay-a-content">
                                     <div class="card-header-a">
                                         <h2 class="card-title-a">
-                                            <a href="property-single.html">157 West
+                                            <a href="{{ url('/single-property') }}">157 West
                                                 <br /> Central Park</a>
                                         </h2>
                                     </div>
@@ -165,7 +165,7 @@
                                         <div class="price-box d-flex">
                                             <span class="price-a">Sales | 55 million</span>
                                         </div>
-                                        <a href="property-single.html" class="link-a">Click here to view
+                                        <a href="{{ url('/single-property') }}" class="link-a">Click here to view
                                             <span class="ion-ios-arrow-forward"></span>
                                         </a>
                                     </div>
@@ -201,7 +201,7 @@
                                 <div class="card-overlay-a-content">
                                     <div class="card-header-a">
                                         <h2 class="card-title-a">
-                                            <a href="property-single.html">245 John hill
+                                            <a href="{{ url('/single-property') }}">245 John hill
                                                 <br />Park Vavuniya 49</a>
                                         </h2>
                                     </div>
@@ -209,7 +209,7 @@
                                         <div class="price-box d-flex">
                                             <span class="price-a">Rent | 25,000 Rs per day</span>
                                         </div>
-                                        <a href="property-single.html" class="link-a">Click here to view
+                                        <a href="{{ url('/single-property') }}" class="link-a">Click here to view
                                             <span class="ion-ios-arrow-forward"></span>
                                         </a>
                                     </div>
@@ -249,7 +249,7 @@
                                 <div class="card-overlay-a-content">
                                     <div class="card-header-a">
                                         <h2 class="card-title-a">
-                                            <a href="property-single.html">204 Montal
+                                            <a href="{{ url('/single-property') }}">204 Montal
                                                 <br /> Road Mannar</a>
                                         </h2>
                                     </div>
@@ -257,7 +257,7 @@
                                         <div class="price-box d-flex">
                                             <span class="price-a">Sales | 36 Million</span>
                                         </div>
-                                        <a href="property-single.html" class="link-a">Click here to view
+                                        <a href="{{ url('/single-property') }}" class="link-a">Click here to view
                                             <span class="ion-ios-arrow-forward"></span>
                                         </a>
                                     </div>

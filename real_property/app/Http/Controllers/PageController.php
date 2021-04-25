@@ -20,4 +20,9 @@ class PageController extends Controller
     {
         return view('pages.about');
     }
+
+    public function getsingleproperty()
+    {
+        return view('pages.single-property');
+    }
 }

@@ -37,17 +37,46 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
+
+                    <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property popup-gallery">
                         <div class="carousel-item-b">
-                            <img class="property-image" src="{{ asset('images/single-property/single-prop-1.jpeg') }}" alt="">
+                        {{--<img class="property-image" src="{{ asset('images/single-property/single-prop-1.jpeg') }}" alt="">
+                            <a href="{{ asset('images/single-property/single-prop-1.jpeg') }}" data-effect="mfp-zoom-in" title="">
+                                <img src="{{ asset('images/single-property/single-prop-1.jpeg') }}" class="property-image">
+                            </a>--}}
+                            <a data-toggle="modal" data-target="#GListModalGallery"><img src="{{ asset('images/single-property/single-prop-1.jpeg') }}" class="property-image" alt="" /></a>
                         </div>
                         <div class="carousel-item-b">
-                            <img class="property-image" src="{{ asset('images/single-property/single-prop-3.jpeg') }}" alt="">
+                            {{--<img class="property-image" src="{{ asset('images/single-property/single-prop-3.jpeg') }}" alt="">--}}
+                            <a data-toggle="modal" data-target="#GListModalGallery"><img src="{{ asset('images/single-property/single-prop-3.jpeg') }}" class="property-image" alt="" /></a>
                         </div>
                         <div class="carousel-item-b">
-                            <img class="property-image" src="{{ asset('images/single-property/single-prop-5.jpeg') }}" alt="">
+                            {{--<img class="property-image" src="{{ asset('images/single-property/single-prop-5.jpeg') }}" alt="">--}}
+                            <a data-toggle="modal" data-target="#GListModalGallery"><img src="{{ asset('images/single-property/single-prop-5.jpeg') }}" class="property-image" alt="" /></a>
                         </div>
                     </div>
+
+                    <!-- modalGallery -->
+                    <div class="modal" id="GListModalGallery" tabindex="-1" role="dialog" aria-labelledby="GListModalGalleryLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span
+                                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="owl-modal">
+                                        <div class="item"><img src="{{ asset('images/single-property/single-prop-1.jpeg') }}" alt="" /></div>
+                                        <div class="item"><img src="{{ asset('images/single-property/single-prop-3.jpeg') }}" alt="" /></div>
+                                        <div class="item"><img src="{{ asset('images/single-property/single-prop-5.jpeg') }}" alt="" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /modalGallery -->
+
+
                     <div class="row justify-content-between">
                         <div class="col-md-5 col-lg-4">
                             <div class="property-price d-flex justify-content-center foo">
@@ -197,11 +226,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-lg-4">
+                        {{--<div class="col-md-6 col-lg-4">
                             <img src="{{ asset('images/agent/agent-4.jpg') }}" alt="" class="img-fluid">
-                        </div>
+                        </div>--}}
                         <div class="col-md-6 col-lg-4">
                             <div class="property-agent">
+                                <br>
                                 <h4 class="title-agent">Anabella Geller</h4>
                                 <p class="color-text-a">
                                     Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula
@@ -210,14 +240,14 @@
                                     pretium ut lacinia in, elementum id enim.
                                 </p>
                                 <ul class="list-unstyled">
-                                    <li class="d-flex justify-content-between">
+                                    {{--<li class="d-flex justify-content-between">
                                         <strong>Phone:</strong>
                                         <span class="color-text-a">+94214568932</span>
                                     </li>
                                     <li class="d-flex justify-content-between">
                                         <strong>Mobile:</strong>
                                         <span class="color-text-a">+94771378737</span>
-                                    </li>
+                                    </li>--}}
                                     <li class="d-flex justify-content-between">
                                         <strong>Email:</strong>
                                         <span class="color-text-a">annabella@example.com</span>
@@ -258,17 +288,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 col-lg-4">
+                        <div class="col-md-12 col-lg-8">
                             <div class="property-contact">
                                 <form class="form-a">
                                     <div class="row">
-                                        <div class="col-md-12 mb-1">
+                                        <div class="col-md-12 col-lg-6 mb-1">
                                             <div class="form-group">
                                                 <input type="text" class="form-control form-control-lg form-control-a"
                                                     id="inputName" placeholder="Name *" required>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 mb-1">
+                                        <div class="col-md-12 col-lg-6 mb-1">
                                             <div class="form-group">
                                                 <input type="email" class="form-control form-control-lg form-control-a"
                                                     id="inputEmail1" placeholder="Email *" required>

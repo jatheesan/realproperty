@@ -119,6 +119,61 @@
     }
   });
 
+  $('#property-single-carousel .carousel-item-b a').on('click', function() {
+        var theSrc = $(this).find('img').attr('src');
+        var owlModal = $('#owl-modal');
+        owlModal.empty();
+        var item = $('<div>', {'class' : 'item'}).appendTo(owlModal);
+        $('<img>', {'src' : theSrc}).appendTo(item);
+
+        // Add others images
+        $('#owl-onpage .item a').each(function (i,e) {
+            var otherSrc = $(e).find('img').attr('src');
+            var item = $('<div>', {'class' : 'item'}).appendTo(owlModal);
+            $('<img>', {'src' : otherSrc}).appendTo(item);
+        });
+
+        // Call the carousel after clicked on 'a'
+        owlModal.owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: true,
+            pagination: false,
+            navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
+            responsive: {
+              0: {
+                items: 1,
+              }
+            }
+        });
+
+        $('#GListModalGallery').unbind().on('hidden.bs.modal', function () {
+            owlModal.data('owlCarousel').destroy();
+        });
+  });
+
+  $('.popup-gallery').magnificPopup({
+		delegate: '.owl-item:not(.cloned) a',
+		type: 'image',
+		removalDelay: 500, //delay removal by X to allow out-animation
+    closeOnContentClick: false,
+		closeBtnInside: false,
+		mainClass: 'mfp-with-zoom mfp-img-mobile',
+		image: {
+			verticalFit: true
+		},
+		gallery: {
+			enabled: true
+		},
+		zoom: {
+			enabled: true,
+			duration: 300,
+			opener: function(element) {
+				return element.find('img');
+			}
+		}
+	});
+
   /*--/ News owl /--*/
   $('#new-carousel').owlCarousel({
     loop: true,

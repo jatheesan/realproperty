@@ -19,8 +19,8 @@
 
     <!-- Styles -->
     <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link href="{{ asset('js/vendorjs/owl.carousel/assets/owl.carousel.css') }}" rel="stylesheet">
-    <link href="{{ asset('js/vendorjs/animate.css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/animate.css/animate.min.css') }}" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
@@ -336,8 +336,8 @@
     <div id="preloader"></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="{{ asset('js/vendorjs/owl.carousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/vendorjs/scrollreveal/scrollreveal.min.js') }}"></script>
+    <script src="{{ asset('vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('vendor/scrollreveal/scrollreveal.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 
 </body>

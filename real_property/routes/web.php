@@ -14,9 +14,9 @@ use App\Http\Controllers\PageController;
 | contains the "web" middleware group. Now create something great!
 */
 
-// Route::get('/', function () {
-//     return view('layouts.applayout');
-// });
+Route::get('/admin', function () {
+   return view('backendpages.dashboard');
+});
 Route::get('/', function () {
     return view('home');
 });

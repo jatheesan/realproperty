@@ -32,8 +32,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon rotate-n-0">
+                    <i class="fas fa-hotel"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">BoxRoom4Rent</div>
             </a>
@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('admin') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -57,7 +57,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            {{--<li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -89,7 +89,7 @@
                         <a class="collapse-item" href="utilities-other.html">Other</a>
                     </div>
                 </div>
-            </li>
+            </li>--}}
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -109,19 +109,19 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <a href="#!" class="collapse-item" data-toggle="modal" data-target="#modal1">{{ __('Sign In') }}</a>
+                        <a href="#!" class="collapse-item" data-toggle="modal" data-target="#modal2">{{ __('Sign Up') }}</a>
+                        <a href="#!" class="collapse-item" data-toggle="modal" data-target="#modal3">{{ __('Forgot Password') }}</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
+                        <a class="collapse-item" href="{{ url('/error') }}">404 Page</a>
                         <a class="collapse-item" href="blank.html">Blank Page</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            {{--<li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
@@ -135,7 +135,7 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <hr class="sidebar-divider d-none d-md-block">--}}
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -415,6 +415,197 @@
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal-->
+    <div class="modal" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="container">
+            <!-- Outer Row -->
+            <div class="row justify-content-center">
+                <div class="col-xl-10 col-lg-12 col-md-9">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-6 d-none d-lg-block bg-login-image" style="background-image: url('{{ asset('images/properties/prop-9.jpg')}}');" ></div>
+                                <div class="col-lg-6">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        </div>
+                                        <form class="user">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control form-control-user"
+                                                    id="exampleInputEmail" aria-describedby="emailHelp"
+                                                    placeholder="Enter Email Address...">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control form-control-user"
+                                                    id="exampleInputPassword" placeholder="Password">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox small">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                    <label class="custom-control-label" for="customCheck">Remember
+                                                        Me</label>
+                                                </div>
+                                            </div>
+                                            <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                                Login
+                                            </a>
+                                            <hr>
+                                            {{--<a href="index.html" class="btn btn-google btn-user btn-block">
+                                                <i class="fab fa-google fa-fw"></i> Login with Google
+                                            </a>
+                                            <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                                <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                            </a>--}}
+                                        </form>
+                                        <div class="text-center">
+                                            <a href="#!" class="small" data-dismiss="modal" data-toggle="modal" data-target="#modal3">{{ __('Forgot Password?') }}</a>
+                                        </div>
+                                        <div class="text-center">
+                                            <a href="#!" class="small" data-dismiss="modal" data-toggle="modal" data-target="#modal2">{{ __('Create an Account!') }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal-->
+    <div class="modal" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="container">
+            <!-- Outer Row -->
+            <div class="row justify-content-center">
+                <div class="col-xl-10 col-lg-12 col-md-9">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-5 d-none d-lg-block bg-register-image" style="background-image: url('{{ asset('images/properties/prop-9.jpg')}}');"></div>
+                                <div class="col-lg-7">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                        </div>
+                                        <form class="user">
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user"
+                                                        id="exampleFirstName" placeholder="First Name">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control form-control-user"
+                                                        id="exampleLastName" placeholder="Last Name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control form-control-user"
+                                                    id="exampleInputEmail" placeholder="Email Address">
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="password" class="form-control form-control-user"
+                                                        id="exampleInputPassword" placeholder="Password">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="password" class="form-control form-control-user"
+                                                        id="exampleRepeatPassword" placeholder="Repeat Password">
+                                                </div>
+                                            </div>
+                                            <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                                Register Account
+                                            </a>
+                                            {{--<hr>
+                                            <a href="index.html" class="btn btn-google btn-user btn-block">
+                                                <i class="fab fa-google fa-fw"></i> Register with Google
+                                            </a>
+                                            <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                                <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                            </a>--}}
+                                        </form>
+                                        <hr>
+                                        <div class="text-center">
+                                            <a href="#!" class="small" data-dismiss="modal" data-toggle="modal" data-target="#modal3">{{ __('Forgot Password?') }}</a>
+                                        </div>
+                                        <div class="text-center">
+                                            <a href="#!" class="small" data-dismiss="modal" data-toggle="modal" data-target="#modal1">{{ __('Already have an account? Login!') }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Forget Password-->
+    <div class="modal" id="modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="container">
+            <!-- Outer Row -->
+            <div class="row justify-content-center">
+
+                <div class="col-xl-10 col-lg-12 col-md-9">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
+                                <div class="col-lg-6">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-2">Forgot Your Password?</h1>
+                                            <p class="mb-4">We get it, stuff happens. Just enter your email address
+                                                below
+                                                and we'll send you a link to reset your password!</p>
+                                        </div>
+                                        <form class="user">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control form-control-user"
+                                                    id="exampleInputEmail" aria-describedby="emailHelp"
+                                                    placeholder="Enter Email Address...">
+                                            </div>
+                                            <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                                Reset Password
+                                            </a>
+                                        </form>
+                                        <hr>
+                                        <div class="text-center">
+                                            <a href="#!" class="small" data-dismiss="modal" data-toggle="modal" data-target="#modal2">{{ __('Create an Account!') }}</a>
+                                        </div>
+                                        <div class="text-center">
+                                            <a href="#!" class="small" data-dismiss="modal" data-toggle="modal" data-target="#modal1">{{ __('Already have an account? Login!') }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>

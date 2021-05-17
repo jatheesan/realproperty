@@ -10923,7 +10923,8 @@
   }
   
   .bg-login-image {
-    background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
+    /* background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800"); */
+    /* background: url( {{ asset('images/properties/prop-5.jpg') }} ); */
     background-position: center;
     background-size: cover;
   }

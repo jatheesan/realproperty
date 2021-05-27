@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PropartyTypesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,23 @@ Route::get('/admin', function () {
  Route::get('/error', function () {
     return view('backendpages.404');
  });
+
+
+Route::group([
+    'prefix' => 'proparty_types',
+], function () {
+    Route::get('/', [PropartyTypesController::class, 'index'])
+         ->name('proparty_types.proparty_type.index');
+    Route::get('/create', [PropartyTypesController::class, 'create'])
+         ->name('proparty_types.proparty_type.create');
+    Route::get('/show/{propartyType}', [PropartyTypesController::class, 'show'])
+         ->name('proparty_types.proparty_type.show')->where('id', '[0-9]+');
+    Route::get('/{propartyType}/edit', [PropartyTypesController::class, 'edit'])
+         ->name('proparty_types.proparty_type.edit')->where('id', '[0-9]+');
+    Route::post('/', [PropartyTypesController::class, 'store'])
+         ->name('proparty_types.proparty_type.store');
+    Route::put('proparty_type/{propartyType}', [PropartyTypesController::class, 'update'])
+         ->name('proparty_types.proparty_type.update')->where('id', '[0-9]+');
+    Route::delete('/proparty_type/{propartyType}', [PropartyTypesController::class, 'destroy'])
+         ->name('proparty_types.proparty_type.destroy')->where('id', '[0-9]+');
+});

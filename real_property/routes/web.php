@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PropartyTypesController;
-
+use App\Http\Controllers\PropartiesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,4 +55,23 @@ Route::group([
          ->name('proparty_types.proparty_type.update')->where('id', '[0-9]+');
     Route::delete('/proparty_type/{propartyType}', [PropartyTypesController::class, 'destroy'])
          ->name('proparty_types.proparty_type.destroy')->where('id', '[0-9]+');
+});
+
+Route::group([
+    'prefix' => 'proparties',
+], function () {
+    Route::get('/', [PropartiesController::class, 'index'])
+         ->name('proparties.proparty.index');
+    Route::get('/create', [PropartiesController::class, 'create'])
+         ->name('proparties.proparty.create');
+    Route::get('/show/{proparty}', [PropartiesController::class, 'show'])
+         ->name('proparties.proparty.show')->where('id', '[0-9]+');
+    Route::get('/{proparty}/edit', [PropartiesController::class, 'edit'])
+         ->name('proparties.proparty.edit')->where('id', '[0-9]+');
+    Route::post('/', [PropartiesController::class, 'store'])
+         ->name('proparties.proparty.store');
+    Route::put('proparty/{proparty}',  [PropartiesController::class, 'update'])
+         ->name('proparties.proparty.update')->where('id', '[0-9]+');
+    Route::delete('/proparty/{proparty}', [PropartiesController::class, 'destroy'])
+         ->name('proparties.proparty.destroy')->where('id', '[0-9]+');
 });

@@ -6,7 +6,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PropartyTypesController;
 use App\Http\Controllers\PropartiesController;
 use App\Http\Controllers\RoomsController;
-
+use App\Http\Controllers\OwnersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -95,4 +95,23 @@ Route::group([
          ->name('rooms.room.update')->where('id', '[0-9]+');
     Route::delete('/room/{room}', [RoomsController::class, 'destroy'])
          ->name('rooms.room.destroy')->where('id', '[0-9]+');
+});
+
+Route::group([
+    'prefix' => 'owners',
+], function () {
+    Route::get('/', [OwnersController::class, 'index'])
+         ->name('owners.owner.index');
+    Route::get('/create', [OwnersController::class, 'create'])
+         ->name('owners.owner.create');
+    Route::get('/show/{owner}', [OwnersController::class, 'show'])
+         ->name('owners.owner.show')->where('id', '[0-9]+');
+    Route::get('/{owner}/edit', [OwnersController::class, 'edit'])
+         ->name('owners.owner.edit')->where('id', '[0-9]+');
+    Route::post('/', [OwnersController::class, 'store'])
+         ->name('owners.owner.store');
+    Route::put('owner/{owner}', [OwnersController::class, 'update'])
+         ->name('owners.owner.update')->where('id', '[0-9]+');
+    Route::delete('/owner/{owner}', [OwnersController::class, 'destroy'])
+         ->name('owners.owner.destroy')->where('id', '[0-9]+');
 });

@@ -850,16 +850,16 @@
             "is-date": false,
             "date-format": "",
             "cast-as": "",
-            "placeholder": "Enter property enquiry contact here...",
+            "placeholder": "Enter property enquiry email here...",
             "delimiter": "; ",
             "range": [],
             "foreign-relation": null,
             "foreign-constraint": null,
             "on-store": null,
             "on-update": null,
-            "api-key": "enquiry_contact",
+            "api-key": "enquiry_email",
             "is-api-visible": true,
-            "api-description": "The property enquiry contact of the model."
+            "api-description": "The property enquiry email of the model."
         },
         {
             "name": "sale_condition",

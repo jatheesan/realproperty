@@ -85,12 +85,16 @@ Route::group([
          ->name('rooms.room.index');
     Route::get('/create', [RoomsController::class, 'create'])
          ->name('rooms.room.create');
+    Route::any('/multicreate', [RoomsController::class, 'multicreate'])
+         ->name('rooms.room.multicreate');
     Route::get('/show/{room}', [RoomsController::class, 'show'])
          ->name('rooms.room.show')->where('id', '[0-9]+');
     Route::get('/{room}/edit', [RoomsController::class, 'edit'])
          ->name('rooms.room.edit')->where('id', '[0-9]+');
     Route::post('/', [RoomsController::class, 'store'])
          ->name('rooms.room.store');
+    Route::post('/multistore', [RoomsController::class, 'multistore'])
+         ->name('rooms.room.multistore');
     Route::put('room/{room}', [RoomsController::class, 'update'])
          ->name('rooms.room.update')->where('id', '[0-9]+');
     Route::delete('/room/{room}', [RoomsController::class, 'destroy'])

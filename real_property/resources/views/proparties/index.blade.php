@@ -93,6 +93,7 @@
                                             <th>date Revoked</th>
                                             <th>Owner</th>
                                             <th>Is Publish</th>
+                                            <th>Room</th>
                                             
                                         </tr>
                                     </thead>
@@ -135,8 +136,8 @@
                                             <td>{{ $proparty->display_address }}</td>
                                             <td>{{ $proparty->condition_of_property }}</td>
                                             <td>{{ implode(', ', $proparty->furnished_property) }}</td>
-                                            <td>{{ implode('; ', $proparty->accessability) }}</td>
-                                            <td>{{ implode('; ', $proparty->heating_type) }}</td>
+                                            <td>{{ implode(', ', $proparty->accessability) }}</td>
+                                            <td>{{ implode(', ', $proparty->heating_type) }}</td>
                                             <td>{{ ($proparty->is_burglar_alarm) ? 'Yes' : 'No' }}</td>
                                             <td>{{ ($proparty->is_cctv) ? 'Yes' : 'No' }}</td>
                                             <td>{{ $proparty->bill }}</td>
@@ -167,7 +168,22 @@
                                             <td>{{ $proparty->date_revoked }}</td>
                                             <td>{{ $proparty->owner }}</td>
                                             <td>{{ ($proparty->is_publish) ? 'Yes' : 'No' }}</td>
+                                            <td>
+                                                
+                                                <form action="{{ route('rooms.room.multicreate') }}" method="POST">
+                                                {{ csrf_field() }}
+                                                    <input type="hidden" name="id" value="{{ $proparty->id }}">
 
+                                                    <input type="submit" class="btn btn-success" value="Add room">
+                                                </form>
+
+                                                {{--<button type="button" class="btn btn-success" data-toggle="modal" data-target="#createroom">
+                                                    Add Room
+                                                </button>
+                                                <a href="{{ route('rooms.room.multicreate') }}" class="btn btn-success" title="Create New Room">
+                                                    Add Room
+                                                </a>--}}
+                                            </td>
                                             
                                         </tr>
                                     @php $i++; @endphp
@@ -189,5 +205,111 @@
             </div>
         </div>
     </div>
+
+<!-- Modal -->
+{{--<div class="modal fade" id="createroom" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Create New Rooms</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('rooms.room.store') }}" method="POST">
+                    @csrf
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th>Room Name</th>
+                                <th>Room Length</th>
+                                <th>Room Width</th>
+                                <th>Room Dimention Unit</th>
+                                <th>Room Dimention display</th>
+                                <th>Room Area Unit</th>
+                                <th>Property Id</th>
+                                <th>dd</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="form-control" name="room_name" type="text" id="room_name"
+                                        minlength="1">
+                                    {!! $errors->first('room_name', '<p class="help-block">:message</p>') !!}
+                                </td>
+                                <td>
+                                    <input class="form-control" name="room_length" type="number" id="room_length"
+                                        step="0.01" placeholder="(eg:-10000.01)">
+                                    {!! $errors->first('room_length', '<p class="help-block">:message</p>') !!}
+                                </td>
+                                <td>
+                                    <input class="form-control" name="room_width" type="number" id="room_width"
+                                        step="0.01" placeholder="(eg:-10000.01)">
+                                    {!! $errors->first('room_width', '<p class="help-block">:message</p>') !!}
+                                </td>
+                                <td>
+                                    <select class="form-control" id="room_dimention_unit" name="room_dimention_unit">
+                                        <option value="" style="display: none;" disabled selected>dimention unit
+                                        </option>
+                                        @foreach (['m' => 'Metres',
+                                        'cm' => 'Centimetres',
+                                        'mm' => 'Millimetres',
+                                        'feet' => 'Feet',
+                                        'inche' => 'Inches'] as $key => $text)
+                                        <option value="{{ $key }}">
+                                            {{ $text }}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                    {!! $errors->first('room_dimention_unit', '<p class="help-block">:message</p>') !!}
+                                </td>
+                                <td>
+                                    <input class="form-control" name="room_dimention_display" type="text"
+                                        id="room_dimention_display" minlength="1" placeholder="dimention display">
+                                    {!! $errors->first('room_dimention_display', '<p class="help-block">:message</p>')
+                                    !!}
+                                </td>
+                                <td>
+                                    <select class="form-control" id="room_area_unit" name="room_area_unit">
+                                        <option value="" style="display: none;" disabled selected>room area unit
+                                        </option>
+                                        @foreach (['sq m' => 'sq m',
+                                        'sq cm' => 'sq cm',
+                                        'sq mm' => 'sq mm',
+                                        'sq ft' => 'sq ft',
+                                        'sq inch' => 'sq inch'] as $key => $text)
+                                        <option value="{{ $key }}">
+                                            {{ $text }}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                    {!! $errors->first('room_area_unit', '<p class="help-block">:message</p>') !!}
+                                </td>
+                                <td>
+                                    <input class="form-control" name="property_id" type="text" id="property_id"
+                                        value="{{ $proparty->id }}" min="0" max="4294967295" required="true"
+                                        placeholder="property id">
+                                    {!! $errors->first('property_id', '<p class="help-block">:message</p>') !!}
+                                </td>
+                                <td>
+                                    ddd
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="btn btn-info" type="submit" value="Add room">
+                                </td>
+                                <button class="btn btn-info" type="submit">Add room</button>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>--}}
   
 @endsection

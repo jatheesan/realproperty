@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Proparty;
 use App\Models\PropartyType;
+use App\Models\Owner;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -31,8 +32,9 @@ class PropartiesController extends Controller
     public function create()
     {
         $propertytypes = PropartyType::pluck('type_name','type_id')->all();
-        
-        return view('proparties.create', compact('propertytypes'));
+        $owners = Owner::pluck('name','id')->all();
+
+        return view('proparties.create', compact('propertytypes', 'owners'));
     }
 
     /**
@@ -84,8 +86,9 @@ class PropartiesController extends Controller
     {
         $proparty = Proparty::findOrFail($id);
         $propertytypes = PropartyType::pluck('type_name','type_id')->all();
+        $owners = Owner::pluck('name','id')->all();
 
-        return view('proparties.edit', compact('proparty','propertytypes'));
+        return view('proparties.edit', compact('proparty','propertytypes','owners'));
     }
 
     /**

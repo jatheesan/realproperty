@@ -60,8 +60,9 @@ class CreatePropartiesTable extends Migration
             $table->date('date_intake')->nullable();
             $table->date('date_published')->nullable();
             $table->date('date_revoked')->nullable();
-            $table->string('owner')->nullable();
+            $table->integer('owner')->unsigned()->nullable()->index();
             $table->boolean('is_publish')->nullable();
+            //$table->string('owner')->nullable();
 
         });
     }

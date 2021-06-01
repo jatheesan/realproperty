@@ -3,7 +3,7 @@
     <label for="catagery" class="col-md-2 control-label">Catagery</label>
     <div class="col-md-10">
         <select class="form-control" id="catagery" name="catagery">
-        	    
+            <option value="" style="display: none;" {{ old('catagery', optional($proparty)->catagery ?: '') == '' ? 'selected' : '' }} disabled selected>Select catagery here...</option>
         	@foreach (['for sale' => 'For Sale',
 'for let' => 'For Let',
 'shared accommodation' => 'Shared Accommodation'] as $key => $text)
@@ -21,7 +21,7 @@
     <label for="type" class="col-md-2 control-label">Property Type</label>
     <div class="col-md-10">
         <select class="form-control" id="type" name="type">
-        	    <option value="" style="display: none;" {{ old('type', optional($proparty)->type ?: '') == '' ? 'selected' : '' }} disabled selected>Enter type here...</option>
+        	    <option value="" style="display: none;" {{ old('type', optional($proparty)->type ?: '') == '' ? 'selected' : '' }} disabled selected>Select type here...</option>
         	@foreach ($propertytypes as $key => $propertytype)
 			    <option value="{{ $key }}" {{ old('type', optional($proparty)->type) == $key ? 'selected' : '' }}>
 			    	{{ $propertytype }}
@@ -37,7 +37,7 @@
     <label for="age" class="col-md-2 control-label">Property Age</label>
     <div class="col-md-10">
         <select class="form-control" id="age" name="age">
-        	    
+            <option value="" style="display: none;" {{ old('age', optional($proparty)->age ?: '') == '' ? 'selected' : '' }} disabled selected>Select age here...</option>
         	@foreach (['Mid 90' => 'Mid 90',
 'Mid 40' => 'Mid 40',
 'New' => 'New',
@@ -56,7 +56,7 @@
     <label for="minimum_term" class="col-md-2 control-label">Minimum Term</label>
     <div class="col-md-10">
         <select class="form-control" id="minimum_term" name="minimum_term">
-        	    
+            <option value="" style="display: none;" {{ old('minimum_term', optional($proparty)->minimum_term ?: '') == '' ? 'selected' : '' }} disabled selected>Select minimum term here...</option>
         	@foreach (['1 month' => '1 Month',
 '3 month' => '2 Month',
 '1 year' => '1 Year',
@@ -140,7 +140,7 @@
     <label for="condition_of_property" class="col-md-2 control-label">Condition of Property</label>
     <div class="col-md-10">
         <select class="form-control" id="condition_of_property" name="condition_of_property">
-        	    
+            <option value="" style="display: none;" {{ old('condition_of_property', optional($proparty)->condition_of_property ?: '') == '' ? 'selected' : '' }} disabled selected>Select condition of property here...</option>   
         	@foreach (['Require Painting' => 'Require Painting',
 'Fully Decorated' => 'Fully Decorated'] as $key => $text)
 			    <option value="{{ $key }}" {{ old('condition_of_property', optional($proparty)->condition_of_property) == $key ? 'selected' : '' }}>
@@ -237,7 +237,7 @@
     <label for="bill" class="col-md-2 control-label">Bill</label>
     <div class="col-md-10">
         <select class="form-control" id="bill" name="bill">
-        	    
+        <option value="" style="display: none;" {{ old('bill', optional($proparty)->bill ?: '') == '' ? 'selected' : '' }} disabled selected>Select bill here...</option>   
         	@foreach (['Included' => 'Included',
 'Excluded' => 'Excluded',
 'Shared' => 'Shared'] as $key => $text)
@@ -427,7 +427,7 @@
     <label for="rent_frequency" class="col-md-2 control-label">Rent Frequency</label>
     <div class="col-md-10">
         <select class="form-control" id="rent_frequency" name="rent_frequency">
-        	    
+            <option value="" style="display: none;" {{ old('rent_frequency', optional($proparty)->rent_frequency ?: '') == '' ? 'selected' : '' }} disabled selected>Select rent frequency here...</option>    
         	@foreach (['Monthly' => 'Monthly',
 'Quarter' => 'Quarter',
 'Half' => 'Half',
@@ -514,10 +514,26 @@
     </div>
 </div>
 
-<div class="form-group {{ $errors->has('owner') ? 'has-error' : '' }}">
+{{--<div class="form-group {{ $errors->has('owner') ? 'has-error' : '' }}">
     <label for="owner" class="col-md-2 control-label">Owner</label>
     <div class="col-md-10">
         <input class="form-control" name="owner" type="text" id="owner" value="{{ old('owner', optional($proparty)->owner) }}" minlength="1" placeholder="Enter owner here...">
+        {!! $errors->first('owner', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>--}}
+
+<div class="form-group {{ $errors->has('owner') ? 'has-error' : '' }}">
+    <label for="owner" class="col-md-2 control-label">Owner</label>
+    <div class="col-md-10">
+        <select class="form-control" id="owner" name="owner">
+        	    <option value="" style="display: none;" {{ old('owner', optional($proparty)->owner ?: '') == '' ? 'selected' : '' }} disabled selected>Select owner here...</option>
+        	@foreach ($owners as $key => $own)
+			    <option value="{{ $key }}" {{ old('owner', optional($proparty)->owner) == $key ? 'selected' : '' }}>
+			    	{{ $own }}
+			    </option>
+			@endforeach
+        </select>
+        
         {!! $errors->first('owner', '<p class="help-block">:message</p>') !!}
     </div>
 </div>

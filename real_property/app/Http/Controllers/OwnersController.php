@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Owner;
+use App\Models\Proparty;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -35,6 +36,18 @@ class OwnersController extends Controller
     }
 
     /**
+     * Show the form for creating a new owner.
+     *
+     * @return Illuminate\View\View
+     */
+    public function ownercreate(Request $request)
+    {
+        
+        $pro_id = $request->input('id');
+        return view('owners.ownercreate', compact('pro_id'));
+    }
+
+    /**
      * Store a new owner in the storage.
      *
      * @param Illuminate\Http\Request $request
@@ -51,6 +64,50 @@ class OwnersController extends Controller
 
             return redirect()->route('owners.owner.index')
                 ->with('success_message', 'Owner was successfully added.');
+        } catch (Exception $exception) {
+
+            return back()->withInput()
+                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
+        }
+    }
+
+    /**
+     * Store a new owner in the storage.
+     *
+     * @param Illuminate\Http\Request $request
+     *
+     * @return Illuminate\Http\RedirectResponse | Illuminate\Routing\Redirector
+     */
+    public function ownerstore(Request $request)
+    {
+        $request->validate([
+        'name' => 'string|min:1|max:255|nullable',
+        'contact_no' => 'string|min:1|nullable',
+        'email' => 'email|min:1|nullable',
+        'adderss' => 'string|min:1|max:255|nullable', 
+        ]);
+
+        try {
+            $owner = new Owner([
+                'name' => $request->get('name'),
+                'contact_no' => $request->get('contact_no'),
+                'email' => $request->get('email'),
+                'address' => $request->get('address')
+            ]);
+            $owner -> save();
+
+            $email =$request -> email;
+            $pro_id =$request -> pro_id;
+            $owner_id = Owner::where('email', '=', $email)->value('id');
+            //dd($owner_id);
+            $property = Proparty::findOrFail($pro_id);
+
+            $property->owner = $owner_id;
+            $property->save();
+            //dd($property);
+
+           return redirect()->route('proparties.proparty.index')
+               ->with('success_message', 'Owner was successfully added.');
         } catch (Exception $exception) {
 
             return back()->withInput()
@@ -148,7 +205,7 @@ class OwnersController extends Controller
                 'name' => 'string|min:1|max:255|nullable',
             'contact_no' => 'string|min:1|nullable',
             'email' => 'email|min:1|nullable',
-            'adderss' => 'string|min:1|max:255|nullable', 
+            'address' => 'string|min:1|max:255|nullable', 
         ];
 
         

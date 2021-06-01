@@ -48,7 +48,7 @@
                                         <th>Name</th>
                                         <th>Contact No</th>
                                         <th>Email</th>
-                                        <th>Adderss</th>
+                                        <th>Address</th>
 
                                         <th></th>
                                     </tr>
@@ -61,7 +61,7 @@
                                         <td>{{ $owner->name }}</td>
                                         <td>{{ $owner->contact_no }}</td>
                                         <td>{{ $owner->email }}</td>
-                                        <td>{{ $owner->adderss }}</td>
+                                        <td>{{ $owner->address }}</td>
 
                                         <td>
 

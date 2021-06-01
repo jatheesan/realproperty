@@ -19,7 +19,7 @@ class CreateOwnersTable extends Migration
             $table->string('name', 255)->nullable();
             $table->string('contact_no')->nullable();
             $table->string('email')->nullable();
-            $table->string('adderss', 255)->nullable();
+            $table->string('address', 255)->nullable();
 
         });
     }

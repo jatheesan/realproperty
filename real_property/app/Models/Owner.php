@@ -31,7 +31,7 @@ class Owner extends Model
                   'name',
                   'contact_no',
                   'email',
-                  'adderss'
+                  'address'
               ];
 
     /**

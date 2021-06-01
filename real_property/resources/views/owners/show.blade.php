@@ -51,7 +51,7 @@
                                 <dt>Email</dt>
                                 <dd>{{ $owner->email }}</dd>
                                 <dt>Adderss</dt>
-                                <dd>{{ $owner->adderss }}</dd>
+                                <dd>{{ $owner->address }}</dd>
                             </dl>
                         </div>
                     </div>

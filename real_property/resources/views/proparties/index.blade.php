@@ -94,7 +94,7 @@
                                             <th>Owner</th>
                                             <th>Is Publish</th>
                                             <th>Room</th>
-                                            
+                                            <th>Owner</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -169,20 +169,21 @@
                                             <td>{{ $proparty->owner }}</td>
                                             <td>{{ ($proparty->is_publish) ? 'Yes' : 'No' }}</td>
                                             <td>
-                                                
                                                 <form action="{{ route('rooms.room.multicreate') }}" method="POST">
                                                 {{ csrf_field() }}
                                                     <input type="hidden" name="id" value="{{ $proparty->id }}">
 
                                                     <input type="submit" class="btn btn-success" value="Add room">
                                                 </form>
+                                            </td>
+                                            <td>
+                                                <form action="{{ route('owners.owner.ownercreate') }}" method="POST">
+                                                {{ csrf_field() }}
+                                                    <input type="hidden" name="id" value="{{ $proparty->id }}">
 
-                                                {{--<button type="button" class="btn btn-success" data-toggle="modal" data-target="#createroom">
-                                                    Add Room
-                                                </button>
-                                                <a href="{{ route('rooms.room.multicreate') }}" class="btn btn-success" title="Create New Room">
-                                                    Add Room
-                                                </a>--}}
+                                                    <input type="submit" class="btn btn-success" value="Add owner">
+                                                </form>
+                                                {{--<a href="{{ route('owners.owner.ownercreate') }}" class="btn btn-success" title="Create Owner">Add Owner</a>--}}
                                             </td>
                                             
                                         </tr>

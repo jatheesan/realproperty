@@ -108,12 +108,16 @@ Route::group([
          ->name('owners.owner.index');
     Route::get('/create', [OwnersController::class, 'create'])
          ->name('owners.owner.create');
+    Route::any('/ownercreate', [OwnersController::class, 'ownercreate'])
+         ->name('owners.owner.ownercreate');
     Route::get('/show/{owner}', [OwnersController::class, 'show'])
          ->name('owners.owner.show')->where('id', '[0-9]+');
     Route::get('/{owner}/edit', [OwnersController::class, 'edit'])
          ->name('owners.owner.edit')->where('id', '[0-9]+');
     Route::post('/', [OwnersController::class, 'store'])
          ->name('owners.owner.store');
+    Route::post('/ownerstore', [OwnersController::class, 'ownerstore'])
+         ->name('owners.owner.ownerstore');
     Route::put('owner/{owner}', [OwnersController::class, 'update'])
          ->name('owners.owner.update')->where('id', '[0-9]+');
     Route::delete('/owner/{owner}', [OwnersController::class, 'destroy'])

@@ -23,11 +23,11 @@
     </div>
 </div>
 
-<div class="form-group {{ $errors->has('adderss') ? 'has-error' : '' }}">
-    <label for="adderss" class="col-md-2 control-label">Adderss</label>
+<div class="form-group {{ $errors->has('address') ? 'has-error' : '' }}">
+    <label for="address" class="col-md-2 control-label">Address</label>
     <div class="col-md-10">
-        <textarea class="form-control" name="adderss" cols="50" rows="10" id="adderss" minlength="1" maxlength="255" placeholder="Enter adderss here...">{{ old('adderss', optional($owner)->adderss) }}</textarea>
-        {!! $errors->first('adderss', '<p class="help-block">:message</p>') !!}
+        <textarea class="form-control" name="address" cols="50" rows="10" id="address" minlength="1" maxlength="255" placeholder="Enter address here...">{{ old('address', optional($owner)->address) }}</textarea>
+        {!! $errors->first('address', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 

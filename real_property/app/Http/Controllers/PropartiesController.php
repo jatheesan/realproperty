@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Proparty;
 use App\Models\PropartyType;
 use App\Models\Owner;
+use App\Models\Room;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -70,9 +71,10 @@ class PropartiesController extends Controller
      */
     public function show($id)
     {
-        $proparty = Proparty::with('propertytype')->findOrFail($id);
-
-        return view('proparties.show', compact('proparty'));
+        $proparty = Proparty::with('propertytype')->with('ownerman')->findOrFail($id);
+        $rooms = Room::where('property_id', '=', $id)->get();
+        //dd($rooms);
+        return view('proparties.show', compact('proparty', 'rooms'));
     }
 
     /**

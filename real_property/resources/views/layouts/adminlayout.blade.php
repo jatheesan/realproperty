@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-org sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
                 <div class="sidebar-brand-icon rotate-n-0">
                     <i class="fas fa-hotel"></i>
                 </div>
@@ -49,12 +49,39 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('proparties.proparty.index') }}">
+                    <i class="fas fa-home"></i>
+                    <span>Properties</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('owners.owner.index') }}">
+                    <i class="fas fa-house-user"></i>
+                    <span>owners</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('rooms.room.index') }}">
+                    <i class="fas fa-door-open"></i>
+                    <span>Rooms</span>
+                </a>
+            </li>
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            {{--<div class="sidebar-heading">
                 Interface
-            </div>
+            </div>--}}
 
             <!-- Nav Item - Pages Collapse Menu -->
             {{--<li class="nav-item">

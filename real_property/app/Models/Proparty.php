@@ -100,6 +100,11 @@ class Proparty extends Model
         return $this->belongsTo('App\Models\PropartyType','type');
     }
 
+    public function ownerman()
+    {
+        return $this->belongsTo('App\Models\Owner','owner');
+    }
+
     /**
      * Set the furnished_property.
      *

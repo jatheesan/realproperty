@@ -47,7 +47,249 @@
             <div class="card-body">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <dl class="dl-horizontal">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr>
+                                        <th colspan="2" style="color:#FF4500"><h1>Property Details</h1></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Catagery :</th>
+                                        <td>{{ $proparty->catagery }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Property Type :</th>
+                                        <td>{{ optional($proparty->propertytype)->type_name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Property Age :</th>
+                                        <td>{{ $proparty->age }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Minimum Term :</th>
+                                        <td>{{ $proparty->minimum_term }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Door No :</th>
+                                        <td>{{ $proparty->door_no }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Door Name :</th>
+                                        <td>{{ $proparty->door_name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>First Postcode :</th>
+                                        <td>{{ $proparty->first_pastcode }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Second Postcode :</th>
+                                        <td>{{ $proparty->second_pastcode }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Post Town :</th>
+                                        <td>{{ $proparty->post_town }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Post City :</th>
+                                        <td>{{ $proparty->post_city }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Post Country :</th>
+                                        <td>{{ $proparty->post_country }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Display Address :</th>
+                                        <td>{{ $proparty->display_address }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Condition of Property :</th>
+                                        <td>{{ $proparty->condition_of_property }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Furnished Property :</th>
+                                        <td>{{ implode(', ', $proparty->furnished_property) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Accessability :</th>
+                                        <td>{{ implode(', ', $proparty->accessability) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Heating Type :</th>
+                                        <td>{{ implode('; ', $proparty->heating_type) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Is Burglar Alarm :</th>
+                                        <td>{{ ($proparty->is_burglar_alarm) ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Is CCTV :</th>
+                                        <td>{{ ($proparty->is_cctv) ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Bill :</th>
+                                        <td>{{ $proparty->bill }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Property Enquiry Contact :</th>
+                                        <td>{{ $proparty->enquiry_contact }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Property Enquiry Email :</th>
+                                        <td>{{ $proparty->enquiry_email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Sale Condition :</th>
+                                        <td>{{ $proparty->sale_condition }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Rent Condition :</th>
+                                        <td>{{ $proparty->rent_condition }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Property Details :</th>
+                                        <td>{{ $proparty->property_details }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Property Details Display :</th>
+                                        <td>{{ $proparty->property_details_display }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>NO of Bedrooms :</th>
+                                        <td>{{ $proparty->no_of_bedrooms }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>NO of Halls :</th>
+                                        <td>{{ $proparty->no_of_halls }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>NO of Reseptions :</th>
+                                        <td>{{ $proparty->no_of_reseptions }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Floors :</th>
+                                        <td>{{ $proparty->floors }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Parking :</th>
+                                        <td>{{ implode('& ', $proparty->parking) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Garden :</th>
+                                        <td>{{ implode('& ', $proparty->garden) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Internal Area :</th>
+                                        <td>{{ $proparty->internal_area }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Land Area :</th>
+                                        <td>{{ $proparty->land_area }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Price :</th>
+                                        <td>{{ $proparty->price }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Price Flag :</th>
+                                        <td>{{ ($proparty->price_flag) ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Rent Frequency :</th>
+                                        <td>{{ $proparty->rent_frequency }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Deposite Minimum :</th>
+                                        <td>{{ $proparty->deposite }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Deposite Flag :</th>
+                                        <td>{{ ($proparty->deposite_flag) ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Admin Fee Maxmimum :</th>
+                                        <td>{{ $proparty->admin_fee_max }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Admin Fee Exemption :</th>
+                                        <td>{{ $proparty->admin_fee_exe }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Admin Fee Flag :</th>
+                                        <td>{{ ($proparty->admin_fee_flag) ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date Intake :</th>
+                                        <td>{{ $proparty->date_intake }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date Published :</th>
+                                        <td><dd>{{ $proparty->date_published }}</dd></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date Revoked :</th>
+                                        <td>{{ $proparty->date_revoked }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Owner :</th>
+                                        <td>{{ optional($proparty->ownerman)->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Is Publish  :</th>
+                                        <td>{{ ($proparty->is_publish) ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2" style="color:#FF4500"><h1>Owner Details</h1></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Owner Name:</th>
+                                        <td>{{ optional($proparty->ownerman)->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact No:</th>
+                                        <td>{{ optional($proparty->ownerman)->contact_no }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email:</th>
+                                        <td>{{ optional($proparty->ownerman)->email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Address:</th>
+                                        <td>{{ optional($proparty->ownerman)->address }}</td>
+                                    </tr>  
+                                </table>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr>
+                                        <th colspan="6" style="color:#FF4500"><h1>Room Details</h1></th>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Room Name</th>
+                                        <th>Room Length</th>
+                                        <th>Room Width</th>
+                                        <th>Room Dimention display</th>
+                                        <th>Property Id</th>
+                                    </tr>
+                                    @php $i = 1; @endphp
+                                    @foreach($rooms as $room)
+                                    <tr>
+                                        <td>{{ $i }}</td>
+                                        <td>{{ $room->room_name }}</td>
+                                        <td>{{ $room->room_length }} {{ $room->room_dimention_unit }}</td>
+                                        <td>{{ $room->room_width }} {{ $room->room_dimention_unit }}</td>
+                                        <td>{{ $room->room_dimention_display }} {{ $room->room_area_unit }}</td>
+                                        <td>{{ $room->property_id }}</td>
+                                    </tr>
+                                    @php $i++; @endphp
+                                    @endforeach
+                                </table>
+                            </div>
+                            {{--<dl>
                                 <dt>Catagery</dt>
                                 <dd>{{ $proparty->catagery }}</dd>
                                 <dt>Property Type</dt>
@@ -140,7 +382,7 @@
                                 <dd>{{ $proparty->owner }}</dd>
                                 <dt>Is Publish</dt>
                                 <dd>{{ ($proparty->is_publish) ? 'Yes' : 'No' }}</dd>
-                            </dl>
+                            </dl>--}}
                         </div>
                     </div>
             </div>

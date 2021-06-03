@@ -7,6 +7,7 @@ use App\Http\Controllers\PropartyTypesController;
 use App\Http\Controllers\PropartiesController;
 use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\OwnersController;
+use App\Http\Controllers\Auth\ChangePasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,6 +42,9 @@ Route::group(['middleware' => ['auth']], function() {
      Route::get('/error', function () {
      return view('backendpages.404');
      });
+
+     //Route::get('/change-password', 'User\ChangePasswordController@index');
+     Route::post('/change-password', [ChangePasswordController::class, 'store'])->name('change.password');
 
 
      Route::group([

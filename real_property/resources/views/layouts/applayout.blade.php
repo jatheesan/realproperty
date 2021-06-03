@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Real Property') }}</title>
+    <title>@yield('title', 'BoxRoom4Rent')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -22,7 +22,9 @@
     <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/animate.css/animate.min.css') }}" rel="stylesheet">
     <!-- Template Main CSS File -->
+    <link href="{{ asset('css/adminstyle.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -146,10 +148,33 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/properties') }}">Property</a>
                     </li>
-                    {{--<li class="nav-item">
-                        <a class="nav-link" href="blog-grid.html">Blog</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/contactus') }}">Contact</a>
                     </li>
-                    <li class="nav-item dropdown">
+                        @guest
+                            <li class="nav-item">
+                            <a href="#!" class="nav-link" data-toggle="modal" data-target="#loginModal">{{ __('Sign In') }}</a>
+                            </li>
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Sign Out') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    {{--<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Pages
@@ -161,9 +186,7 @@
                             <a class="dropdown-item" href="agent-single.html">Agent Single</a>
                         </div>
                     </li>--}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/contactus') }}">Contact</a>
-                    </li>
+                    
                 </ul>
             </div>
             <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block"
@@ -334,11 +357,18 @@
 
     <a href="" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
     <div id="preloader"></div>
+    
+    @include('partials.login')
+    @include('partials.forgetpassword')
+    {{--@include('partials.register')
+    @include('partials.logout')--}}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{{ asset('vendor/owl.carousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('vendor/scrollreveal/scrollreveal.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    
+    @yield('scripts')
 
 </body>
 

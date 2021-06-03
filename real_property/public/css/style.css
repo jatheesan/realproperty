@@ -9,7 +9,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     color: #555555;
   }
   
@@ -32,8 +32,8 @@ body {
   }
   
   a:hover {
-    color: #ff9933;
-    text-decoration: none;
+    color: #ff8000;
+    text-decoration: underline;
   }
   
   .link-two {
@@ -138,6 +138,8 @@ body {
   .no-margin {
     margin: 0;
   }
+
+ /*------/ form  /------*/
   
   /*------/ Nav Pills  /------*/
   .nav-pills-a.nav-pills .nav-link {

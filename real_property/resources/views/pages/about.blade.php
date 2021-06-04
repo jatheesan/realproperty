@@ -37,9 +37,9 @@
               <img src="{{ asset('images/properties/prop-8.jpg') }}" alt="" class="img-fluid">
             </div>
             <div class="sinse-box">
-              <h3 class="sinse-title">RealProperty
+              <h3 class="sinse-title">BoxRoom4Rent
                 <span></span>
-                <br> Sinse 2021
+                <br> Since 2021
               </h3>
               <p>- Mediator -</p>
             </div>
@@ -51,7 +51,7 @@
               </div>
               <div class="col-lg-2  d-none d-lg-block">
                 <div class="title-vertical d-flex justify-content-start">
-                  <span>RealProperty Exclusive Property</span>
+                  <span>BoxRoom4Rent Exclusive Property</span>
                 </div>
               </div>
               <div class="col-md-6 col-lg-5 section-md-t3">
@@ -60,11 +60,11 @@
                   </h3>
                 </div>
                 <p class="color-text-a" style="text-align:justify">
-                Since Investopedia was launched in 2021, RealProperty is Sri Lanka's mostly visited property website
-                and has the largest number of Sri Lankan property ads listed than any other site on the Internet.
-                RealProperty was started with the intention of providing a free online platform for property owners, 
-                landlords and agents in Sri Lanka to advertise their property for free of charge. Our aim is to be the online 
-                property portal of choice for all Sri Lankans where all sellers and landlords will find buyers or tenants for their properties, 
+                Since BoxRoom4Rent was launched in 2021, BoxRoom for Rent is London's mostly visited property website
+                and has the largest number of London property ads listed than any other site on the Internet.
+                BoxRoom for Rent was started with the intention of providing a free online platform for property owners, 
+                landlords and agents in london to advertise their property for free of charge. Our aim is to be the online 
+                property portal of choice for all Britons where all sellers and landlords will find buyers or tenants for their properties, 
                 and for buyers/tenants to find their ideal property easily and quickly.
                 </p>
 

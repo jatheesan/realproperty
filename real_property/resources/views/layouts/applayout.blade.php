@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/animate.css/animate.min.css') }}" rel="stylesheet">
@@ -121,7 +122,7 @@
                 </div>
             </form>
         </div>
-    </div><!-- End Property Search Section -->>
+    </div><!-- End Property Search Section -->
 
     <!-- ======= Header/Navbar ======= -->
     <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
@@ -132,7 +133,7 @@
                 <span></span>
                 <span></span>
             </button>
-            <a class="navbar-brand text-brand" href="{{ url('/') }}">Real<span class="color-b">Property</span></a>
+            <a class="navbar-brand text-brand" href="{{ url('/') }}"><span class="color-b">BoxRoom</span>4<span class="color-b">Rent</span></a>
             <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none"
                 data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
                 <span class="fa fa-search" aria-hidden="true"></span>
@@ -208,15 +209,15 @@
                 <div class="col-sm-12 col-md-6">
                     <div class="widget-a">
                         <div class="w-header-a">
-                            <h3 class="w-title-a text-brand">RealProperty</h3>
+                            <h3 class="w-title-a text-brand">BoxRoom4Rent</h3>
                         </div>
                         <div class="w-body-a">
                             <p class="w-text-a color-text-a" style="text-align: justify;">
-                            Real Property is the most advanced real estate and rental marketplace in North Province of srilanka. 
-                            Our online platform offers various types of latest properties in north province. 
-                            We are aimed at changing the Real Estate industry of north province. 
+                            BoxRoom for Rent is the most advanced real estate and rental marketplace in UK. 
+                            Our online platform offers various types of latest properties in London. 
+                            We are aimed at changing the Real Estate industry of london. 
                             We offer all our services for free and we encourage every single user 
-                            to advertise with us to feel our disruptive innovation in the Online Real Estate Market of north province. 
+                            to advertise with us to feel our disruptive innovation in the Online Real Estate Market of london. 
                             We help you to Sell, Rent, or Buy any type of property for Free.
                             </p>
                         </div>
@@ -347,7 +348,7 @@
                     <div class="copyright-footer">
                         <p class="copyright color-text-a">
                             &copy; Copyright
-                            <span class="color-a">RealProperty</span> All Rights Reserved.
+                            <span class="color-a">BoxRoom4Rent</span> All Rights Reserved.
                         </p>
                     </div>
                 </div>

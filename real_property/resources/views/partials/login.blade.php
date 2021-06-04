@@ -59,7 +59,9 @@
                                             data-target="#forgetpasswordModal">{{ __('Forgot Your Password?') }}</a>
                                         </div>
                                     @endif
-                                    
+                                    {{--<div class="text-center">
+                                        <a href="{{ route('password.request') }}" class="small color-b">{{ __('Forgot Your Password?') }}</a>
+                                    </div>--}}
                                     <div class="text-center">
                                         <a href="" class="small color-b" data-dismiss="modal" data-toggle="modal"
                                             data-target="#registerModal">{{ __('Create an Account!') }}</a>

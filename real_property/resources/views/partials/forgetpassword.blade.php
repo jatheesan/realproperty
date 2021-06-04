@@ -21,17 +21,27 @@
                                             below
                                             and we'll send you a link to reset your password!</p>
                                     </div>
-                                    <form class="user">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                    @if (session('status'))
+                                        <div class="alert alert-success" role="alert">
+                                            {{ session('status') }}
                                         </div>
-                                        <a href="login.html" class="btn btn-org btn-user btn-block">
-                                            Reset Password
-                                        </a>
+                                    @endif
+                                    <form class="user" method="POST" action="{{ route('password.email') }}">
+                                    @csrf
+                                        <div class="form-group">
+                                            <input id="email" type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Enter Email Address...">
+
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                        </div>
+                                        <button type="submit" class="btn btn-org btn-user btn-block">
+                                            {{ __('Send Password Reset Link') }}
+                                        </button>
                                     </form>
-                                    <hr>
+                                    <hr style="border-top: 1px solid #6c757d !important;">
                                     <div class="text-center">
                                         <a href="" class="small color-b" data-dismiss="modal" data-toggle="modal"
                                             data-target="#registerModal">{{ __('Create an Account!') }}</a>
@@ -51,3 +61,18 @@
         </div>
     </div>
 </div>
+
+@section('scripts')
+@parent
+
+@if(session('status'))
+    <script>
+    $(function() {
+        $('#forgetpasswordModal').modal({
+            show: true
+        });
+    });
+    </script>
+@endif
+
+@endsection

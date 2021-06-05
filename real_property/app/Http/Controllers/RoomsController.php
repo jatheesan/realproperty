@@ -37,7 +37,8 @@ class RoomsController extends Controller
     {
         //dd($request->input('id'));
         $pro_id = $request->input('id');
-        return view('rooms.multicreate', compact('pro_id'));
+        $rooms = Room::where('property_id', '=', $pro_id)->get();
+        return view('rooms.multicreate', compact('pro_id', 'rooms'));
     }
 
     /**

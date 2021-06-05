@@ -137,5 +137,5 @@ Route::group(['middleware' => ['auth']], function() {
      Route::post('/images/store', [ImageController::class, 'StoreImage'])->name('image.store');
      Route::post('/image/update/{id}', [ImageController::class, 'UpdateImage'])->name('image.update');
      Route::post('/image/delete/{id}', [ImageController::class, 'DeleteImage'])->name('image.delete');
-
+     Route::get('/images/show', [ImageController::class, 'show'])->name('image');
 });

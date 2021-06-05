@@ -3,11 +3,20 @@
 @section('content')
 
 <div class="row">
-    <div class="col-xl-12 col-lg-12 col-sm-12">
+    <div class="col-xl-12 col-lg-12">
+        <div class="float-right">
+            <div class="btn-group btn-group-sm pull-right" role="group">
+                <a href="{{ route('image') }}" class="btn btn-primary" title="Show All Images">
+                    <span class="fa fa-th-list" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-12 col-lg-12">
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <div class="col-xl-11 col-lg-11 col-sm-11">
+                <div class="col-xl-12 col-lg-12">
                     @if(Session::has('success'))
                     <div class="alert alert-success">
                         <span class="fa fa-ok"></span>
@@ -24,7 +33,6 @@
             <!-- Card Body -->
             <div class="card-body">
                 <div class="panel panel-default">
-
                     <div class="panel-body panel-body-with-table">
                         <div class="row">
                             <div class="col-md-9">
@@ -38,7 +46,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-md-3 mt-5">
+                            <div class="col-xl-3 col-lg-3 mt-5">
                                 <div class="card">
                                     <div class="card-header">
                                         Adding images for property {{ $pro_id }}
@@ -75,7 +83,7 @@
                                                 </div>
                                             @endif
                                             @foreach($images as $multi)
-                                            <div class="col-md-3 mt-1">
+                                            <div class="col-xs-3 mb-3 ml-3">
                                                 {{--<div class="card">
                                                     <img src="{{asset($multi->image)}}" alt="">
                                                     <input type="image" src="{{asset($multi->image)}}" alt=""/>
@@ -103,7 +111,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             @foreach($images as $multi)
-                                            <div class="col-md-3 mt-1">
+                                            <div class="col-xs-3 mb-3 ml-3">
 
                                                 <form action="{{route('image.delete', $multi->id)}}" method="POST" enctype="multipart/form-data">
                                                 @csrf

@@ -11,6 +11,11 @@ use DB;
 class ImageController extends Controller
 {
     //////////this is for multi image all methods
+    public function show(){
+        $images = Property_image::paginate(12);
+        return view('images.show', compact('images'));
+    }
+
     public function index($id){
         $images=Property_image::where('property_id', '=', $id)->get();
         $pro_id = $id;

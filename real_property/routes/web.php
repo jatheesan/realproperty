@@ -8,6 +8,7 @@ use App\Http\Controllers\PropartiesController;
 use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\OwnersController;
 use App\Http\Controllers\Auth\ChangePasswordController;
+use App\Http\Controllers\ImageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -130,5 +131,11 @@ Route::group(['middleware' => ['auth']], function() {
      Route::delete('/owner/{owner}', [OwnersController::class, 'destroy'])
           ->name('owners.owner.destroy')->where('id', '[0-9]+');
      });
+
+     // multi image route
+     Route::any('/images/create/{id}',[ImageController::class, 'index'])->name('image.create');
+     Route::post('/images/store', [ImageController::class, 'StoreImage'])->name('image.store');
+     Route::post('/image/update/{id}', [ImageController::class, 'UpdateImage'])->name('image.update');
+     Route::post('/image/delete/{id}', [ImageController::class, 'DeleteImage'])->name('image.delete');
 
 });

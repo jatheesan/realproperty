@@ -95,6 +95,7 @@
                                             <th>Is Publish</th>
                                             <th>Room</th>
                                             <th>Owner</th>
+                                            <th>Images</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -185,6 +186,10 @@
                                                 </form>
                                                 {{--<a href="{{ route('owners.owner.ownercreate') }}" class="btn btn-success" title="Create Owner">Add Owner</a>--}}
                                             </td>
+                                            <td>
+                                                <a href="{{ route('image.create', $proparty->id ) }}" class="btn btn-success" title="Add images">Add Images</a>
+                                            </td>
+
                                             
                                         </tr>
                                     @php $i++; @endphp

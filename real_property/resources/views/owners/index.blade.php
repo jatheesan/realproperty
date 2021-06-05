@@ -100,7 +100,7 @@
                     </div>
 
                     <div class="panel-footer">
-                        {!! $owners->render() !!}
+                        {!! $owners->render("pagination::bootstrap-4") !!}
                     </div>
 
                     @endif

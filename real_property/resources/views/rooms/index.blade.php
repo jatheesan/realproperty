@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="panel-footer">
-                        {!! $rooms->render() !!}
+                        {!! $rooms->render("pagination::bootstrap-4") !!}
                     </div>
 
                     @endif

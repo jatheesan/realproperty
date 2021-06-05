@@ -201,7 +201,7 @@
                         </div>
 
                         <div class="panel-footer">
-                            {!! $proparties->render() !!}
+                            {!! $proparties->render("pagination::bootstrap-4") !!}
                         </div>
                         
                         @endif

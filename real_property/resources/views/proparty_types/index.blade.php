@@ -96,7 +96,7 @@
                             </div>
 
                             <div class="panel-footer">
-                                {!! $propartyTypes->render() !!}
+                                {!! $propartyTypes->render("pagination::bootstrap-4") !!}
                             </div>
 
                             @endif

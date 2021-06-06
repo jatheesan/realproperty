@@ -18,11 +18,43 @@ class PropartiesController extends Controller
      *
      * @return Illuminate\View\View
      */
-    public function index()
+    public function search()
     {
+
         $proparties = Proparty::with('propertytype')->paginate(25);
 
         return view('proparties.index', compact('proparties'));
+    }
+
+    /**
+     * Display a listing of the proparties.
+     *
+     * @return Illuminate\View\View
+     */
+    public function index(Request $request)
+    {
+        $search =  $request->input('search_pro');
+        if($search!=""){
+            $proparties = Proparty::with('propertytype')->where(function ($query) use ($search){
+                $query->where('catagery', 'like', '%'.$search.'%')
+                    ->orWhere('first_pastcode', 'like', '%'.$search.'%')
+                    ->orWhere('second_pastcode', 'like', '%'.$search.'%')
+                    ->orWhere('post_town', 'like', '%'.$search.'%')
+                    ->orWhere('post_city', 'like', '%'.$search.'%')
+                    ->orWhere('post_country', 'like', '%'.$search.'%')
+                    ->orWhere('heating_type', 'like', '%'.$search.'%');
+            })
+            ->paginate(5);
+            $proparties->appends(['search_pro' => $search]);
+        }
+        else{
+            $proparties = Proparty::with('propertytype')->paginate(10);
+        }
+        return View('proparties.index', compact('proparties'));
+
+        //$proparties = Proparty::with('propertytype')->paginate(25);
+
+        //return view('proparties.index', compact('proparties'));
     }
 
     /**

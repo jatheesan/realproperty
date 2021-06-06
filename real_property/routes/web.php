@@ -70,7 +70,7 @@ Route::group(['middleware' => ['auth']], function() {
      Route::group([
      'prefix' => 'proparties',
      ], function () {
-     Route::get('/', [PropartiesController::class, 'index'])
+     Route::any('/search', [PropartiesController::class, 'index'])
           ->name('proparties.proparty.index');
      Route::get('/create', [PropartiesController::class, 'create'])
           ->name('proparties.proparty.create');
@@ -84,6 +84,8 @@ Route::group(['middleware' => ['auth']], function() {
           ->name('proparties.proparty.update')->where('id', '[0-9]+');
      Route::delete('/proparty/{proparty}', [PropartiesController::class, 'destroy'])
           ->name('proparties.proparty.destroy')->where('id', '[0-9]+');
+     Route::any('/', [PropartiesController::class, 'search'])
+          ->name('proparties.proparty.search');
      });
 
      Route::group([

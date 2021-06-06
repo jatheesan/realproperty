@@ -18,7 +18,7 @@ class PropartiesController extends Controller
      *
      * @return Illuminate\View\View
      */
-    public function search()
+    public function index()
     {
 
         $proparties = Proparty::with('propertytype')->paginate(25);
@@ -31,7 +31,7 @@ class PropartiesController extends Controller
      *
      * @return Illuminate\View\View
      */
-    public function index(Request $request)
+    public function search(Request $request)
     {
         $search =  $request->input('search_pro');
         if($search!=""){

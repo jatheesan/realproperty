@@ -4013,9 +4013,20 @@ input[type=button].btn-block {
   align-items: center;
 }
 
+@media (max-width: 370px) {
+  .navbar-toggler{
+    font-size: 0.1rem;
+  }
+  }
+
+  @media (min-width: 371px) {
+    .navbar-toggler{
+      font-size: 1.125rem;
+    }
+    }
+
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
-  font-size: 1.125rem;
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
@@ -6348,6 +6359,44 @@ button.bg-dark:focus {
 
 .d-inline-flex {
   display: inline-flex !important;
+}
+
+@media (min-width: 370px) {
+  .d-xs-none {
+    display: none !important;
+  }
+
+  .d-xs-inline {
+    display: inline !important;
+  }
+
+  .d-xs-inline-block {
+    display: inline-block !important;
+  }
+
+  .d-xs-block {
+    display: block !important;
+  }
+
+  .d-xs-table {
+    display: table !important;
+  }
+
+  .d-xs-table-row {
+    display: table-row !important;
+  }
+
+  .d-xs-table-cell {
+    display: table-cell !important;
+  }
+
+  .d-xs-flex {
+    display: flex !important;
+  }
+
+  .d-xs-inline-flex {
+    display: inline-flex !important;
+  }
 }
 
 @media (min-width: 576px) {

@@ -18,12 +18,12 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    {{--<link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">--}}
     <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link href="{{ asset('vendor/owl.carousel/assets/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/animate.css/animate.min.css') }}" rel="stylesheet">
     <!-- Template Main CSS File -->
-    <link href="{{ asset('css/adminstyle.css') }}" rel="stylesheet">
+    {{--<link href="{{ asset('css/adminstyle.css') }}" rel="stylesheet">--}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     
 </head>
@@ -133,7 +133,9 @@
                 <span></span>
                 <span></span>
             </button>
-            <a class="navbar-brand text-brand" href="{{ url('/') }}"><span class="color-b">BoxRoom</span>4<span class="color-b">Rent</span></a>
+            <div class="d-none d-xs-block">
+                <a class="navbar-brand text-brand" href="{{ url('/') }}"><span class="color-b">BoxRoom</span><span class="text-b">4</span><span class="color-b">Rent</span></a> 
+            </div>
             <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none"
                 data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
                 <span class="fa fa-search" aria-hidden="true"></span>

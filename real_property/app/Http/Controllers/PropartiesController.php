@@ -206,8 +206,6 @@ class PropartiesController extends Controller
             'enquiry_email' => 'email|min:1|nullable',
             'sale_condition' => 'array|min:1|nullable',
             'rent_condition' => 'array|min:1|nullable',
-            'property_details' => 'array|min:1|nullable',
-            'property_details_display' => 'array|min:1|nullable',
             'no_of_bedrooms' => 'nullable|numeric|min:-2147483648|max:2147483647',
             'no_of_bathrooms' => 'nullable|numeric|min:-2147483648|max:2147483647',
             'no_of_halls' => 'nullable|numeric|min:-2147483648|max:2147483647',
@@ -217,6 +215,7 @@ class PropartiesController extends Controller
             'garden' => 'array|nullable',
             'internal_area' => 'string|min:1|nullable',
             'land_area' => 'string|min:1|nullable',
+            'area_unit' => 'string|nullable',
             'price' => 'nullable|numeric|min:-2147483648|max:2147483647',
             'price_flag' => 'boolean|nullable',
             'rent_frequency' => 'string|nullable',
@@ -228,8 +227,11 @@ class PropartiesController extends Controller
             'date_intake' => 'nullable',
             'date_published' => 'nullable',
             'date_revoked' => 'nullable',
+            'property_details' => 'string|min:1|nullable',
+            'further_details' => 'array|min:1|nullable',
+            'property_details_display' => 'boolean|nullable',
             'owner' => 'string|min:1|nullable',
-            'is_publish' => 'boolean|nullable', 
+            'is_publish' => 'boolean|nullable',
         ];
 
         
@@ -241,6 +243,7 @@ class PropartiesController extends Controller
         $data['price_flag'] = $request->has('price_flag');
         $data['deposite_flag'] = $request->has('deposite_flag');
         $data['admin_fee_flag'] = $request->has('admin_fee_flag');
+        $data['property_details_display'] = $request->has('property_details_display');
         $data['is_publish'] = $request->has('is_publish');
 
 

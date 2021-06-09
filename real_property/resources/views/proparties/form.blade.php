@@ -376,84 +376,6 @@
             </table>
         </div>
     </div>
-    <div class="col-md-6">
-        {{--<div class="form-group {{ $errors->has('property_details') ? 'has-error' : '' }}">
-            <label for="property_details" class="col-md-12 control-label">Property Details</label>
-            <div class="col-md-12">
-                <textarea class="form-control" name="property_details" cols="50" rows="5" id="property_details" minlength="1" placeholder="Enter property details here...">{{ old('property_details', optional($proparty)->property_details) }}</textarea>
-                {!! $errors->first('property_details', '<p class="help-block">:message</p>') !!}
-            </div>
-        </div>--}}
-        <div class="form-group table-responsive">
-            <label for="property_details" class="col-md-10 control-label">Property Details</label><a class="btn-sm btn-success" onclick="addprode();"><i class="fa fa-plus"></i></a>
-            <table id="faqpd" class="table table-borderless">
-                <tbody>
-                    @if( isset(optional($proparty)->property_details))
-                        @foreach(optional($proparty)->property_details as $key)
-                        <tr>
-                            <td>
-                                <input class="form-control" name="property_details[]" type="text" id="property_details" value="{{ $key }}" placeholder="Enter property details here...">
-                                {!! $errors->first('property_details', '<p class="help-block">:message</p>') !!}
-                            </td>
-                            <td>
-                                <a href="javascript:void(0)" class="btn-sm btn-danger" onclick="SomeDeleteRowFunction()"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            <td>
-                                <input class="form-control" name="property_details[]" type="text" id="property_details" value="{{ old('property_details') }}" placeholder="Enter property details here...">
-                                {!! $errors->first('property_details', '<p class="help-block">:message</p>') !!}
-                            </td>
-                            <td>
-                                <a href="javascript:void(0)" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
-                    @endif
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="col-md-6">
-        {{--<div class="form-group {{ $errors->has('property_details_display') ? 'has-error' : '' }}">
-            <label for="property_details_display" class="col-md-12 control-label">Property Details Display</label>
-            <div class="col-md-12">
-                <textarea class="form-control" name="Property Details Display" cols="50" rows="5" id="property_details_display" minlength="1" placeholder="Enter property details display here...">{{ old('property_details_display', optional($proparty)->property_details_display) }}</textarea>
-                {!! $errors->first('property_details_display', '<p class="help-block">:message</p>') !!}
-            </div>
-        </div>--}}
-        <div class="form-group table-responsive">
-            <label for="property_details_display" class="col-md-10 control-label">Property Details Display</label><a class="btn-sm btn-success" onclick="addprodis();"><i class="fa fa-plus"></i></a>
-            <table id="faqpdis" class="table table-borderless">
-                <tbody>
-                    @if( isset(optional($proparty)->property_details_display))
-                        @foreach(optional($proparty)->property_details_display as $key)
-                        <tr>
-                            <td>
-                                <input class="form-control" name="property_details_display[]" type="text" id="property_details_display" value="{{ $key }}" placeholder="Enter property details display here...">
-                                {!! $errors->first('property_details_display', '<p class="help-block">:message</p>') !!}
-                            </td>
-                            <td>
-                                <a href="javascript:void(0)" class="btn-sm btn-danger" onclick="SomeDeleteRowFunction()"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            <td>
-                                <input class="form-control" name="property_details_display[]" type="text" id="property_details_display" value="{{ old('property_details_display') }}" placeholder="Enter property details display here...">
-                                {!! $errors->first('property_details_display', '<p class="help-block">:message</p>') !!}
-                            </td>
-                            <td>
-                                <a href="javascript:void(0)" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
-                    @endif
-                </tbody>
-            </table>
-        </div>
-    </div>
     <div class="col-md-12">
         <h4 class="color-b">Internal External Structure</h4><hr color="orange"/>
     </div>
@@ -560,7 +482,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group {{ $errors->has('internal_area') ? 'has-error' : '' }}">
             <label for="internal_area" class="col-md-12 control-label">Internal Area</label>
             <div class="col-md-12">
@@ -569,12 +491,33 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group {{ $errors->has('land_area') ? 'has-error' : '' }}">
             <label for="land_area" class="col-md-12 control-label">Land Area</label>
             <div class="col-md-12">
                 <input class="form-control" name="land_area" type="text" id="land_area" value="{{ old('land_area', optional($proparty)->land_area) }}" minlength="1" placeholder="Enter measurement of land area here...">
                 {!! $errors->first('land_area', '<p class="help-block">:message</p>') !!}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group {{ $errors->has('area_unit') ? 'has-error' : '' }}">
+            <label for="area_unit" class="col-md-12 control-label">Area Unit</label>
+            <div class="col-md-12">
+                <select class="form-control" id="area_unit" name="area_unit">
+                        <option value="" {{ old('area_unit', optional($proparty)->area_unit ?: '') == '' ? 'selected' : '' }} selected>Enter area unit here...</option>
+                    @foreach (['sq m' => 'sq m',
+        'sq cm' => 'sq cm',
+        'sq mm' => 'sq mm',
+        'sq ft' => 'sq ft',
+        'sq inch' => 'sq inch'] as $key => $text)
+                        <option value="{{ $key }}" {{ old('area_unit', optional($proparty)->area_unit) == $key ? 'selected' : '' }}>
+                            {{ $text }}
+                        </option>
+                    @endforeach
+                </select>
+                
+                {!! $errors->first('area_unit', '<p class="help-block">:message</p>') !!}
             </div>
         </div>
     </div>
@@ -709,6 +652,97 @@
             </div>
         </div>
     </div>
+    <div class="col-md-5">
+        <div class="form-group {{ $errors->has('property_details') ? 'has-error' : '' }}">
+            <label for="property_details" class="col-md-12 control-label">Property Details</label>
+            <div class="col-md-12">
+                <textarea class="form-control" name="property_details" cols="50" rows="5" id="property_details" minlength="1" placeholder="Enter property details here...">{{ old('property_details', optional($proparty)->property_details) }}</textarea>
+                {!! $errors->first('property_details', '<p class="help-block">:message</p>') !!}
+            </div>
+        </div>
+        {{--<div class="form-group table-responsive">
+            <label for="property_details" class="col-md-10 control-label">Property Details</label><a class="btn-sm btn-success" onclick="addprode();"><i class="fa fa-plus"></i></a>
+            <table id="faqpd" class="table table-borderless">
+                <tbody>
+                    @if( isset(optional($proparty)->property_details))
+                        @foreach(optional($proparty)->property_details as $key)
+                        <tr>
+                            <td>
+                                <input class="form-control" name="property_details[]" type="text" id="property_details" value="{{ $key }}" placeholder="Enter property details here...">
+                                {!! $errors->first('property_details', '<p class="help-block">:message</p>') !!}
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)" class="btn-sm btn-danger" onclick="SomeDeleteRowFunction()"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td>
+                                <input class="form-control" name="property_details[]" type="text" id="property_details" value="{{ old('property_details') }}" placeholder="Enter property details here...">
+                                {!! $errors->first('property_details', '<p class="help-block">:message</p>') !!}
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    @endif
+                </tbody>
+            </table>
+        </div>--}}
+    </div>
+    <div class="col-md-5">
+        {{--<div class="form-group {{ $errors->has('property_details_display') ? 'has-error' : '' }}">
+            <label for="property_details_display" class="col-md-12 control-label">Property Details Display</label>
+            <div class="col-md-12">
+                <textarea class="form-control" name="Property Details Display" cols="50" rows="5" id="property_details_display" minlength="1" placeholder="Enter property details display here...">{{ old('property_details_display', optional($proparty)->property_details_display) }}</textarea>
+                {!! $errors->first('property_details_display', '<p class="help-block">:message</p>') !!}
+            </div>
+        </div>--}}
+        <div class="form-group table-responsive">
+            <label for="further_details" class="col-md-10 control-label">Further Details</label><a class="btn-sm btn-success" onclick="addprodis();"><i class="fa fa-plus"></i></a>
+            <table id="faqpdis" class="table table-borderless">
+                <tbody>
+                    @if( isset(optional($proparty)->further_details))
+                        @foreach(optional($proparty)->further_details as $key)
+                        <tr>
+                            <td>
+                                <input class="form-control" name="further_details[]" type="text" id="further_details" value="{{ $key }}" placeholder="Enter further details here...">
+                                {!! $errors->first('further_details', '<p class="help-block">:message</p>') !!}
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)" class="btn-sm btn-danger" onclick="SomeDeleteRowFunction()"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td>
+                                <input class="form-control" name="further_details[]" type="text" id="further_details" value="{{ old('further_details') }}" placeholder="Enter further details here...">
+                                {!! $errors->first('further_details', '<p class="help-block">:message</p>') !!}
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    @endif
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group {{ $errors->has('property_details_display') ? 'has-error' : '' }}">
+            <label for="property_details_display" class="col-md-12 control-label">Is Display Property Details</label>
+            <div class="col-md-12">
+                <label for="property_details_display_1" class="checkbox-inline">
+                    <input id="property_details_display_1" class="" name="property_details_display" type="checkbox" value="1" {{ old('property_details_display', optional($proparty)->property_details_display) == '1' ? 'checked' : '' }}>
+                    Yes
+                </label>
+
+                {!! $errors->first('property_details_display', '<p class="help-block">:message</p>') !!}
+            </div>
+        </div>
+    </div>
     <div class="col-md-12">
         <div class="form-group {{ $errors->has('owner') ? 'has-error' : '' }}">
             <label for="owner" class="col-md-12 control-label">Owner</label>
@@ -796,7 +830,7 @@
     var faqpdis_row = 0;
     function addprodis(){
         html = '<tr id="faqpdis-row' + faqpdis_row + '">';
-        html += '<td><input class="form-control" name="property_details_display[]" type="text" id="property_details_display" placeholder="Enter property details display here..."></td>';
+        html += '<td><input class="form-control" name="further_details[]" type="text" id="further_details" placeholder="Enter further details here..."></td>';
         html += '<td><a href="javascript:void(0)" class="btn-sm btn-danger" onclick="$(\'#faqpdis-row' + faqpdis_row + '\').remove();"><i class="fa fa-trash"></i></a></td>';
 
         html += '</tr>';

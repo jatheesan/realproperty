@@ -39,8 +39,6 @@ class CreatePropartiesTable extends Migration
             $table->string('enquiry_email')->nullable();
             $table->string('sale_condition')->nullable();
             $table->string('rent_condition')->nullable();
-            $table->string('property_details')->nullable();
-            $table->string('property_details_display')->nullable();
             $table->integer('no_of_bedrooms')->nullable();
             $table->integer('no_of_bathrooms')->nullable();
             $table->integer('no_of_halls')->nullable();
@@ -50,6 +48,7 @@ class CreatePropartiesTable extends Migration
             $table->string('garden')->nullable();
             $table->string('internal_area')->nullable();
             $table->string('land_area')->nullable();
+            $table->string('area_unit')->nullable();
             $table->integer('price')->nullable();
             $table->boolean('price_flag')->nullable();
             $table->enum('rent_frequency', ['Monthly','Quarter','Half','Annual'])->nullable();
@@ -61,6 +60,9 @@ class CreatePropartiesTable extends Migration
             $table->date('date_intake')->nullable();
             $table->date('date_published')->nullable();
             $table->date('date_revoked')->nullable();
+            $table->longtext('property_details')->nullable();
+            $table->string('further_details')->nullable();
+            $table->boolean('property_details_display')->nullable();
             $table->integer('owner')->unsigned()->nullable()->index();
             $table->boolean('is_publish')->nullable();
             //$table->string('owner')->nullable();

@@ -51,8 +51,6 @@ class Proparty extends Model
                   'enquiry_email',
                   'sale_condition',
                   'rent_condition',
-                  'property_details',
-                  'property_details_display',
                   'no_of_bedrooms',
                   'no_of_bathrooms',
                   'no_of_halls',
@@ -62,6 +60,7 @@ class Proparty extends Model
                   'garden',
                   'internal_area',
                   'land_area',
+                  'area_unit',
                   'price',
                   'price_flag',
                   'rent_frequency',
@@ -73,6 +72,9 @@ class Proparty extends Model
                   'date_intake',
                   'date_published',
                   'date_revoked',
+                  'property_details',
+                  'further_details',
+                  'property_details_display',
                   'owner',
                   'is_publish'
               ];
@@ -184,26 +186,16 @@ class Proparty extends Model
     }
 
     /**
-     * Set the property_details_display.
+     * Set the further_details.
      *
      * @param  string  $value
      * @return void
      */
-    public function setPropertyDetailsDisplayAttribute($value)
+    public function setFurtherDetailsAttribute($value)
     {
-        $this->attributes['property_details_display'] = json_encode($value);
+        $this->attributes['further_details'] = json_encode($value);
     }
 
-    /**
-     * Set the property_details.
-     *
-     * @param  string  $value
-     * @return void
-     */
-    public function setPropertyDetailsAttribute($value)
-    {
-        $this->attributes['property_details'] = json_encode($value);
-    }
 
 
     // /**
@@ -323,22 +315,11 @@ class Proparty extends Model
      * @param  string  $value
      * @return array
      */
-    public function getPropertyDetailsDisplayAttribute($value)
+    public function getFurtherDetailsAttribute($value)
     {
         return json_decode($value) ?: [];
     }
 
-    
-     /**
-     * Get property_details in array format
-     *
-     * @param  string  $value
-     * @return array
-     */
-    public function getPropertyDetailsAttribute($value)
-    {
-        return json_decode($value) ?: [];
-    }
 
     // /**
     //  * Get date_intake in array format

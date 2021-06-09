@@ -145,14 +145,6 @@
                                         <td>{{ implode(', ', $proparty->rent_condition) }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Property Details :</th>
-                                        <td>{{ implode(', ', $proparty->property_details) }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Property Details Display :</th>
-                                        <td>{{ implode(', ', $proparty->property_details_display) }}</td>
-                                    </tr>
-                                    <tr>
                                         <th>NO of Bedrooms :</th>
                                         <td>{{ $proparty->no_of_bedrooms }}</td>
                                     </tr>
@@ -182,11 +174,11 @@
                                     </tr>
                                     <tr>
                                         <th>Internal Area :</th>
-                                        <td>{{ $proparty->internal_area }}</td>
+                                        <td>{{ $proparty->internal_area }}{{ $proparty->area_unit }}</td>
                                     </tr>
                                     <tr>
                                         <th>Land Area :</th>
-                                        <td>{{ $proparty->land_area }}</td>
+                                        <td>{{ $proparty->land_area }}{{ $proparty->area_unit }}</td>
                                     </tr>
                                     <tr>
                                         <th>Price :</th>
@@ -231,6 +223,18 @@
                                     <tr>
                                         <th>Date Revoked :</th>
                                         <td>{{ $proparty->date_revoked }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Property Details :</th>
+                                        <td>{{ $proparty->property_details }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Further Details :</th>
+                                        <td>{{ implode(', ', $proparty->further_details) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Property Details Display :</th>
+                                        <td>{{ ($proparty->property_details_display) ? 'Yes' : 'No' }}</td>
                                     </tr>
                                     <tr>
                                         <th>Owner :</th>

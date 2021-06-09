@@ -50,16 +50,16 @@
                                             <th>Catagery</th>
                                             <th>Property Type</th>
                                             <th>Property Age</th>
-                                            <th>Minimum Term</th>
+                                            {{--<th>Minimum Term</th>
                                             <th>Door No</th>
                                             <th>Door Name</th>
                                             <th>First Postcode</th>
                                             <th>Second Postcode</th>
                                             <th>Post Town</th>
                                             <th>Post City</th>
-                                            <th>Post Country</th>
+                                            <th>Post Country</th>--}}
                                             <th>Display Address</th>
-                                            <th>Condition of Property</th>
+                                            {{--<th>Condition of Property</th>
                                             <th>Furnished Property</th>
                                             <th>Accessability</th>
                                             <th>Heating Type</th>
@@ -69,20 +69,18 @@
                                             <th>Property Enquiry Contact</th>
                                             <th>Property Enquiry Email</th>
                                             <th>Sale Condition</th>
-                                            <th>Rent Condition</th>
-                                            <th>Property Details</th>
-                                            <th>Property Details Display</th>
+                                            <th>Rent Condition</th>--}}
                                             <th>No of Bedrooms</th>
                                             <th>No of Bathrooms</th>
                                             <th>No of Halls</th>
                                             <th>No of Reseptions</th>
                                             <th>Floors</th>
-                                            <th>Parking</th>
+                                            {{--<th>Parking</th>
                                             <th>Garden</th>
                                             <th>Internal Area</th>
-                                            <th>Land Area</th>
+                                            <th>Land Area</th>--}}
                                             <th>Price</th>
-                                            <th>Price Flag</th>
+                                            {{--<th>Price Flag</th>
                                             <th>Rent Frequency</th>
                                             <th>Deposite Minimum</th>
                                             <th>Deposite Flag</th>
@@ -92,6 +90,9 @@
                                             <th>date Intake</th>
                                             <th>date Published</th>
                                             <th>date Revoked</th>
+                                            <th>Property Details</th>
+                                            <th>Further Details</th>
+                                            <th>Property Details Display</th>--}}
                                             <th>Owner</th>
                                             <th>Is Publish</th>
                                             <th>Room</th>
@@ -127,16 +128,16 @@
                                             <td>{{ $proparty->catagery }}</td>
                                             <td>{{ optional($proparty->propertytype)->type_name }}</td>
                                             <td>{{ $proparty->age }}</td>
-                                            <td>{{ $proparty->minimum_term }}</td>
+                                            {{--<td>{{ $proparty->minimum_term }}</td>
                                             <td>{{ $proparty->door_no }}</td>
                                             <td>{{ $proparty->door_name }}</td>
                                             <td>{{ $proparty->first_pastcode }}</td>
                                             <td>{{ $proparty->second_pastcode }}</td>
                                             <td>{{ $proparty->post_town }}</td>
                                             <td>{{ $proparty->post_city }}</td>
-                                            <td>{{ $proparty->post_country }}</td>
+                                            <td>{{ $proparty->post_country }}</td>--}}
                                             <td>{{ $proparty->display_address }}</td>
-                                            <td>{{ $proparty->condition_of_property }}</td>
+                                            {{--<td>{{ $proparty->condition_of_property }}</td>
                                             <td>{{ implode(', ', $proparty->furnished_property) }}</td>
                                             <td>{{ implode(', ', $proparty->accessability) }}</td>
                                             <td>{{ implode(', ', $proparty->heating_type) }}</td>
@@ -146,20 +147,18 @@
                                             <td>{{ $proparty->enquiry_contact }}</td>
                                             <td>{{ $proparty->enquiry_email }}</td>
                                             <td>{{ implode(', ', $proparty->sale_condition) }}</td>
-                                            <td>{{ implode(', ', $proparty->rent_condition) }}</td>
-                                            <td>{{ implode(', ', $proparty->property_details) }}</td>
-                                            <td>{{ implode(', ', $proparty->property_details_display) }}</td>
+                                            <td>{{ implode(', ', $proparty->rent_condition) }}</td>--}}
                                             <td>{{ $proparty->no_of_bedrooms }}</td>
                                             <td>{{ $proparty->no_of_bathrooms }}</td>
                                             <td>{{ $proparty->no_of_halls }}</td>
                                             <td>{{ $proparty->no_of_reseptions }}</td>
                                             <td>{{ $proparty->floors }}</td>
-                                            <td>{{ implode(', ', $proparty->parking) }}</td>
+                                            {{--<td>{{ implode(', ', $proparty->parking) }}</td>
                                             <td>{{ implode(', ', $proparty->garden) }}</td>
-                                            <td>{{ $proparty->internal_area }}</td>
-                                            <td>{{ $proparty->land_area }}</td>
+                                            <td>{{ $proparty->internal_area }}{{ $proparty->area_unit }}</td>
+                                            <td>{{ $proparty->land_area }}{{ $proparty->area_unit }}</td>--}}
                                             <td>{{ $proparty->price }}</td>
-                                            <td>{{ ($proparty->price_flag) ? 'Yes' : 'No' }}</td>
+                                            {{--<td>{{ ($proparty->price_flag) ? 'Yes' : 'No' }}</td>
                                             <td>{{ $proparty->rent_frequency }}</td>
                                             <td>{{ $proparty->deposite }}</td>
                                             <td>{{ ($proparty->deposite_flag) ? 'Yes' : 'No' }}</td>
@@ -169,6 +168,9 @@
                                             <td>{{ $proparty->date_intake }}</td>
                                             <td>{{ $proparty->date_published }}</td>
                                             <td>{{ $proparty->date_revoked }}</td>
+                                            <td>{{ $proparty->property_details }}</td>
+                                            <td>{{ implode(', ', $proparty->further_details) }}</td>
+                                            <td>{{ ($proparty->property_details_display) ? 'Yes' : 'No' }}</td>--}}
                                             <td>{{ $proparty->owner }}</td>
                                             <td>{{ ($proparty->is_publish) ? 'Yes' : 'No' }}</td>
                                             <td>

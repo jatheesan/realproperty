@@ -363,8 +363,8 @@
     
     @include('partials.login')
     @include('partials.forgetpassword')
-    {{--@include('partials.register')
-    @include('partials.logout')--}}
+    @include('partials.register')
+    @include('partials.logout')
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{{ asset('vendor/owl.carousel/owl.carousel.min.js') }}"></script>

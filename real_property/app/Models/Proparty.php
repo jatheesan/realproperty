@@ -54,6 +54,7 @@ class Proparty extends Model
                   'property_details',
                   'property_details_display',
                   'no_of_bedrooms',
+                  'no_of_bathrooms',
                   'no_of_halls',
                   'no_of_reseptions',
                   'floors',
@@ -160,6 +161,51 @@ class Proparty extends Model
         $this->attributes['garden'] = json_encode($value);
     }
 
+    /**
+     * Set the sale_condition.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setSaleConditionAttribute($value)
+    {
+        $this->attributes['sale_condition'] = json_encode($value);
+    }
+
+    /**
+     * Set the rent_condition.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setRentConditionAttribute($value)
+    {
+        $this->attributes['rent_condition'] = json_encode($value);
+    }
+
+    /**
+     * Set the property_details_display.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setPropertyDetailsDisplayAttribute($value)
+    {
+        $this->attributes['property_details_display'] = json_encode($value);
+    }
+
+    /**
+     * Set the property_details.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setPropertyDetailsAttribute($value)
+    {
+        $this->attributes['property_details'] = json_encode($value);
+    }
+
+
     // /**
     //  * Set the date_intake.
     //  *
@@ -244,6 +290,52 @@ class Proparty extends Model
      * @return array
      */
     public function getGardenAttribute($value)
+    {
+        return json_decode($value) ?: [];
+    }
+
+     /**
+     * Get sale_condition in array format
+     *
+     * @param  string  $value
+     * @return array
+     */
+    public function getSaleConditionAttribute($value)
+    {
+        return json_decode($value) ?: [];
+    }
+
+     /**
+     * Get rent_condition in array format
+     *
+     * @param  string  $value
+     * @return array
+     */
+    public function getRentConditionAttribute($value)
+    {
+        return json_decode($value) ?: [];
+    }
+
+    
+     /**
+     * Get property_details_display in array format
+     *
+     * @param  string  $value
+     * @return array
+     */
+    public function getPropertyDetailsDisplayAttribute($value)
+    {
+        return json_decode($value) ?: [];
+    }
+
+    
+     /**
+     * Get property_details in array format
+     *
+     * @param  string  $value
+     * @return array
+     */
+    public function getPropertyDetailsAttribute($value)
     {
         return json_decode($value) ?: [];
     }

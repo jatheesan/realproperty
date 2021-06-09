@@ -72,9 +72,10 @@
                                             <th>Rent Condition</th>
                                             <th>Property Details</th>
                                             <th>Property Details Display</th>
-                                            <th>NO of Bedrooms</th>
-                                            <th>NO of Halls</th>
-                                            <th>NO of Reseptions</th>
+                                            <th>No of Bedrooms</th>
+                                            <th>No of Bathrooms</th>
+                                            <th>No of Halls</th>
+                                            <th>No of Reseptions</th>
                                             <th>Floors</th>
                                             <th>Parking</th>
                                             <th>Garden</th>
@@ -144,11 +145,12 @@
                                             <td>{{ $proparty->bill }}</td>
                                             <td>{{ $proparty->enquiry_contact }}</td>
                                             <td>{{ $proparty->enquiry_email }}</td>
-                                            <td>{{ $proparty->sale_condition }}</td>
-                                            <td>{{ $proparty->rent_condition }}</td>
-                                            <td>{{ $proparty->property_details }}</td>
-                                            <td>{{ $proparty->property_details_display }}</td>
+                                            <td>{{ implode(', ', $proparty->sale_condition) }}</td>
+                                            <td>{{ implode(', ', $proparty->rent_condition) }}</td>
+                                            <td>{{ implode(', ', $proparty->property_details) }}</td>
+                                            <td>{{ implode(', ', $proparty->property_details_display) }}</td>
                                             <td>{{ $proparty->no_of_bedrooms }}</td>
+                                            <td>{{ $proparty->no_of_bathrooms }}</td>
                                             <td>{{ $proparty->no_of_halls }}</td>
                                             <td>{{ $proparty->no_of_reseptions }}</td>
                                             <td>{{ $proparty->floors }}</td>

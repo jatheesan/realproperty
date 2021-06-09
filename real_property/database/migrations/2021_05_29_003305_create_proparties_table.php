@@ -42,6 +42,7 @@ class CreatePropartiesTable extends Migration
             $table->string('property_details')->nullable();
             $table->string('property_details_display')->nullable();
             $table->integer('no_of_bedrooms')->nullable();
+            $table->integer('no_of_bathrooms')->nullable();
             $table->integer('no_of_halls')->nullable();
             $table->integer('no_of_reseptions')->nullable();
             $table->integer('floors')->nullable();

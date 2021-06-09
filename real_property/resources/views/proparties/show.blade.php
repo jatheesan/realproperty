@@ -138,23 +138,27 @@
                                     </tr>
                                     <tr>
                                         <th>Sale Condition :</th>
-                                        <td>{{ $proparty->sale_condition }}</td>
+                                        <td>{{ implode(', ', $proparty->sale_condition) }}</td>
                                     </tr>
                                     <tr>
                                         <th>Rent Condition :</th>
-                                        <td>{{ $proparty->rent_condition }}</td>
+                                        <td>{{ implode(', ', $proparty->rent_condition) }}</td>
                                     </tr>
                                     <tr>
                                         <th>Property Details :</th>
-                                        <td>{{ $proparty->property_details }}</td>
+                                        <td>{{ implode(', ', $proparty->property_details) }}</td>
                                     </tr>
                                     <tr>
                                         <th>Property Details Display :</th>
-                                        <td>{{ $proparty->property_details_display }}</td>
+                                        <td>{{ implode(', ', $proparty->property_details_display) }}</td>
                                     </tr>
                                     <tr>
                                         <th>NO of Bedrooms :</th>
                                         <td>{{ $proparty->no_of_bedrooms }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>NO of Bathrooms :</th>
+                                        <td>{{ $proparty->no_of_bathrooms }}</td>
                                     </tr>
                                     <tr>
                                         <th>NO of Halls :</th>

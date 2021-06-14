@@ -22,8 +22,8 @@ class CreatePropartiesTable extends Migration
             $table->enum('minimum_term', ['1 month','3 month','1 year','2-5 year','long-term'])->nullable();
             $table->integer('door_no')->nullable();
             $table->string('door_name')->nullable();
-            $table->string('first_pastcode', 3)->nullable();
-            $table->string('second_pastcode', 3)->nullable();
+            $table->string('first_pastcode', 5)->nullable();
+            $table->string('second_pastcode', 5)->nullable();
             $table->string('post_town')->nullable();
             $table->string('post_city')->nullable();
             $table->string('post_country')->nullable();

@@ -108,6 +108,11 @@ class Proparty extends Model
         return $this->belongsTo('App\Models\Owner','owner');
     }
 
+    public function images()
+    {
+        return $this->hasMany('App\Models\Property_Image');
+    }
+
     /**
      * Set the furnished_property.
      *

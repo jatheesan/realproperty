@@ -101,7 +101,7 @@
         <div class="form-group {{ $errors->has('first_pastcode') ? 'has-error' : '' }}">
             <label for="first_pastcode" class="col-md-12 control-label">First Postcode</label>
             <div class="col-md-12">
-                <input class="form-control" name="first_pastcode" type="text" id="first_pastcode" value="{{ old('first_pastcode', optional($proparty)->first_pastcode) }}" maxlength="3" placeholder="Enter first pastcode here...">
+                <input class="form-control" name="first_pastcode" type="text" id="first_pastcode" value="{{ old('first_pastcode', optional($proparty)->first_pastcode) }}" maxlength="5" placeholder="Enter first pastcode here...">
                 {!! $errors->first('first_pastcode', '<p class="help-block">:message</p>') !!}
             </div>
         </div> 
@@ -110,7 +110,7 @@
         <div class="form-group {{ $errors->has('second_pastcode') ? 'has-error' : '' }}">
             <label for="second_pastcode" class="col-md-12 control-label">Second Postcode</label>
             <div class="col-md-12">
-                <input class="form-control" name="second_pastcode" type="text" id="second_pastcode" value="{{ old('second_pastcode', optional($proparty)->second_pastcode) }}" maxlength="3" placeholder="Enter second pastcode here...">
+                <input class="form-control" name="second_pastcode" type="text" id="second_pastcode" value="{{ old('second_pastcode', optional($proparty)->second_pastcode) }}" maxlength="5" placeholder="Enter second pastcode here...">
                 {!! $errors->first('second_pastcode', '<p class="help-block">:message</p>') !!}
             </div>
         </div>

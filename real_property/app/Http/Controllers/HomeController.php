@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Models\Proparty;
+use App\Models\PropartyType;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //$sale_properties = Proparty::with('propertytype')->with('images')->where('catagery', 'for sale')->orderBy('updated_at', 'desc')->limit(5)->get();
+        //$rent_properties = Proparty::with('propertytype')->with('images')->where('catagery', 'for let')->orderBy('updated_at', 'desc')->limit(5)->get();
+        //return view('home', compact('sale_properties', 'rent_properties'));
+        //dd($rent_properties);
     }
 }

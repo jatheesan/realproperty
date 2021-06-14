@@ -30,7 +30,7 @@ class Property_image extends Model
     protected $fillable = [
                   'image',
                   'is_main',
-                  'property_id'
+                  'proparty_id'
                 ];
 
     /**
@@ -46,4 +46,14 @@ class Property_image extends Model
     * @var array
     */
     protected $casts = [];
+
+    /**
+     * Get the propertytype for this model.
+     *
+     * @return App\Models\Proparty
+     */
+    public function property()
+    {
+        return $this->belongsTo('App\Models\Proparty','proparty_id');
+    }
 }

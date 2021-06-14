@@ -19,19 +19,13 @@ use App\Http\Controllers\ImageController;
 | contains the "web" middleware group. Now create something great!
 */
 
-
-Route::get('/', function () {
-    return view('home');
-});
-
+Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('home');
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/properties',[PageController::class,'getproperties']);
+Route::get('/properties/{id}',[PageController::class,'getproperties']);
 Route::get('/contactus',[PageController::class,'getcontact']);
 Route::get('/aboutus',[PageController::class,'getabout']);
-Route::get('/single-property',[PageController::class,'getsingleproperty']);
+Route::get('/property/{id}',[PageController::class,'getproperty'])->name('property.view')->where('id', '[0-9]+');
+Route::get('/properties',[PageController::class,'filtering'])->name('properties.filtering');
 
 Route::group(['middleware' => ['auth']], function() {
 

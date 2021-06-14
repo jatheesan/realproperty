@@ -17,9 +17,9 @@ class ImageController extends Controller
     }
 
     public function index($id){
-        $images=Property_image::where('property_id', '=', $id)->get();
+        $images=Property_image::where('proparty_id', '=', $id)->get();
         $pro_id = $id;
-        $main=Property_image::where('property_id', '=', $id)->where('is_main', 1)->first();
+        $main=Property_image::where('proparty_id', '=', $id)->where('is_main', 1)->first();
         //dd($main);
         return view('images.index', compact('pro_id', 'images', 'main'));
     }
@@ -37,7 +37,7 @@ class ImageController extends Controller
         
         Property_image::insert([
             'image'=>$last_img,
-            'property_id'=>$pro_id
+            'proparty_id'=>$pro_id
         ]);
         }// end of the foreach
         return Redirect()->back()->with('success','images upload successfully');
@@ -47,7 +47,7 @@ class ImageController extends Controller
     public function UpdateImage($id, Request $request)
     {
         $pro_id =$request -> property_id;
-        Property_image::where('property_id', '=', $pro_id)->update(['is_main' => '0']);
+        Property_image::where('proparty_id', '=', $pro_id)->update(['is_main' => '0']);
         $images = Property_image::findOrFail($id);
         $images-> is_main = '1';
 

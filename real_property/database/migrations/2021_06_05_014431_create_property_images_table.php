@@ -17,7 +17,7 @@ class CreatePropertyImagesTable extends Migration
             $table->id();
             $table->string('image');
             $table->boolean('is_main')->nullable();
-            $table->integer('property_id')->unsigned();
+            $table->integer('proparty_id')->unsigned();
             $table->timestamps();
         });
     }

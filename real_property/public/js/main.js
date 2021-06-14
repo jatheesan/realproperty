@@ -89,8 +89,25 @@
     }
   });
 
-  /*--/ Property owl /--*/
-  $('#property-carousel').owlCarousel({
+  /*--/ Sale Property owl /--*/
+  $('#sale-property-carousel').owlCarousel({
+    loop: true,
+    margin: 30,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      769: {
+        items: 2,
+      },
+      992: {
+        items: 3,
+      }
+    }
+  });
+
+  /*--/ Rent Property owl /--*/
+  $('#rent-property-carousel').owlCarousel({
     loop: true,
     margin: 30,
     responsive: {

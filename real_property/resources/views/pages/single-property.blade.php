@@ -4,7 +4,7 @@
 <main id="main">
 
     <!-- ======= Intro Single ======= -->
-    <section class="intro-single">
+{{--<section class="intro-single section-t1">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-8">
@@ -30,32 +30,22 @@
                 </div>
             </div>
         </div>
-    </section><!-- End Intro Single-->
+    </section><!-- End Intro Single-->--}}
 
     <!-- ======= Property Single ======= -->
     <section class="property-single nav-arrow-b">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-
-                    <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property popup-gallery">
-                        <div class="carousel-item-b">
-                        {{--<img class="property-image" src="{{ asset('images/single-property/single-prop-1.jpeg') }}" alt="">
-                            <a href="{{ asset('images/single-property/single-prop-1.jpeg') }}" data-effect="mfp-zoom-in" title="">
-                                <img src="{{ asset('images/single-property/single-prop-1.jpeg') }}" class="property-image">
-                            </a>--}}
-                            <a data-toggle="modal" data-target="#GListModalGallery"><img src="{{ asset('images/single-property/single-prop-1.jpeg') }}" class="property-image" alt="" /></a>
+                        <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property popup-gallery">
+                            @foreach($property->images as $image)
+                                <div class="carousel-item-b">
+                                    <a data-toggle="modal" data-target="#GListModalGallery"><img src="{{asset($image->image)}}" class="property-image" alt="" /></a>
+                                </div>
+                            @endforeach
                         </div>
-                        <div class="carousel-item-b">
-                            {{--<img class="property-image" src="{{ asset('images/single-property/single-prop-3.jpeg') }}" alt="">--}}
-                            <a data-toggle="modal" data-target="#GListModalGallery"><img src="{{ asset('images/single-property/single-prop-3.jpeg') }}" class="property-image" alt="" /></a>
-                        </div>
-                        <div class="carousel-item-b">
-                            {{--<img class="property-image" src="{{ asset('images/single-property/single-prop-5.jpeg') }}" alt="">--}}
-                            <a data-toggle="modal" data-target="#GListModalGallery"><img src="{{ asset('images/single-property/single-prop-5.jpeg') }}" class="property-image" alt="" /></a>
-                        </div>
-                    </div>
-
+                </div>
+                <div class="col-sm-12">
                     <!-- modalGallery -->
                     <div class="modal" id="GListModalGallery" tabindex="-1" role="dialog" aria-labelledby="GListModalGalleryLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
@@ -75,18 +65,29 @@
                         </div>
                     </div>
                     <!-- /modalGallery -->
-
-
+                </div>
+            </div>
+            
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
                     <div class="row justify-content-between">
                         <div class="col-md-5 col-lg-4">
                             <div class="property-price d-flex justify-content-center foo">
                                 <div class="card-header-c d-flex">
+                                @if(isset($property->price))
                                     <div class="card-box-ico">
-                                        <span class="ion-money">25</span>
+                                            <span class="ion-money">€</span>
                                     </div>
                                     <div class="card-title-c align-self-center">
-                                        <h5 class="title-c">Million</h5>
+                                        <h5 class="title-c">{{ $property->price }}</h5>
                                     </div>
+                                @else
+                                    <div class="card-box-ico1">
+                                        <span class="ion-money">Call for Price</span>
+                                    </div>
+                                @endif
                                 </div>
                             </div>
                             <div class="property-summary">
@@ -99,70 +100,96 @@
                                 </div>
                                 <div class="summary-list">
                                     <ul class="list">
-                                        <li class="d-flex justify-content-between">
-                                            <strong>Property ID:</strong>
-                                            <span>1134</span>
-                                        </li>
+                                        @if(isset($property->display_address))
                                         <li class="d-flex justify-content-between">
                                             <strong>Location:</strong>
-                                            <span>Kokuvil North, IL 606543</span>
+                                            {<span> @php echo nl2br($property->display_address) @endphp</span>
                                         </li>
+                                        @endif
+                                        @if(isset($property->type))
                                         <li class="d-flex justify-content-between">
-                                            <strong>Property Type:</strong>
-                                            <span>House</span>
+                                            <strong>Property Type :</strong>
+                                            <span>{{ optional($property->propertytype)->type_name }}</span>
                                         </li>
+                                        @endif
+                                        @if(isset($property->catagery))
+                                            <li class="d-flex justify-content-between">
+                                                <strong>Status :</strong>
+                                                @if(($property->catagery) == 'for sale')
+                                                    <span>sale</span>
+                                                @else
+                                                    <span>Rent | {{ $property->rent_frequency }}</span>
+                                                @endif
+                                            </li>
+                                        @endif
+                                        @if(isset($property->land_area))
                                         <li class="d-flex justify-content-between">
-                                            <strong>Status:</strong>
-                                            <span>Sale</span>
+                                            <strong>Land Area :</strong>
+                                            <span>{{ $property->land_area }}{{ ' ' }}{{ $property->area_unit }}</span>
                                         </li>
+                                        @endif
+                                        @if(isset($property->internal_area))
                                         <li class="d-flex justify-content-between">
-                                            <strong>Area:</strong>
-                                            <span>340m
-                                                <sup>2</sup>
-                                            </span>
+                                            <strong>Internal Area :</strong>
+                                            <span>{{ $property->internal_area }}{{ ' ' }}{{ $property->area_unit }}</span>
                                         </li>
+                                        @endif
+                                        @if(isset($property->no_of_bedrooms))
                                         <li class="d-flex justify-content-between">
-                                            <strong>Beds:</strong>
-                                            <span>4</span>
+                                            <strong>Bedrooms :</strong>
+                                            <span>{{ $property->no_of_bedrooms }}</span>
                                         </li>
+                                        @endif
+                                        @if(isset($property->no_of_bathrooms))
                                         <li class="d-flex justify-content-between">
-                                            <strong>Baths:</strong>
-                                            <span>2</span>
+                                            <strong>Bathrooms :</strong>
+                                            <span>{{ $property->no_of_bathrooms }}</span>
                                         </li>
+                                        @endif
+                                        @if(isset($property->no_of_halls))
                                         <li class="d-flex justify-content-between">
-                                            <strong>Garage:</strong>
-                                            <span>1</span>
+                                            <strong>Halls :</strong>
+                                            <span>{{ $property->no_of_halls }}</span>
                                         </li>
+                                        @endif
+                                        @if(isset($property->no_of_reseptions))
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Reseptions:</strong>
+                                            <span>{{ $property->no_of_reseptions }}</span>
+                                        </li>
+                                        @endif
+                                        @if(isset($property->parking))
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Parking :</strong>
+                                            <span>{{ implode(' & ', $property->parking) }}</span>
+                                        </li>
+                                        @endif
+                                        @if(isset($property->garden))
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Garden :</strong>
+                                            <span>{{ implode(' & ', $property->garden) }}</span>
+                                        </li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-7 col-lg-7 section-md-t3">
+                            @if(isset($property->property_details))
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div>
-                                        <h3 class="title-e">Property Description</h3><hr/>
+                                        <h3 class="title-e">About this property</h3><hr/>
                                     </div>
                                 </div>
                             </div>
                             <div class="property-description">
-                                <p class="description color-text-a">
-                                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                                    Curae; Donec velit
-                                    neque, auctor sit amet
-                                    aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum
-                                    porta.
-                                    Curabitur aliquet quam id dui posuere blandit. Mauris blandit aliquet elit, eget
-                                    tincidunt
-                                    nibh pulvinar quam id dui posuere blandit.
-                                </p>
-                                <p class="description color-text-a no-margin">
-                                    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue
-                                    leo eget
-                                    malesuada. Quisque velit nisi,
-                                    pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
+                                <p class="description color-text-a" style="text-align: justify;">
+                                    @php echo nl2br($property->property_details) @endphp
                                 </p>
                             </div>
+                            @endif
+                            @if(isset($property->property_details) || isset($property->further_details))
                             <div class="row section-t3">
                                 <div class="col-sm-12">
                                     <div>
@@ -172,17 +199,28 @@
                             </div>
                             <div class="amenities-list color-text-a">
                                 <ul class="list-a no-margin">
-                                    <li>Balcony</li>
-                                    <li>Outdoor Kitchen</li>
-                                    <li>Cable Tv</li>
-                                    <li>Deck</li>
-                                    <li>Tennis Courts</li>
-                                    <li>Internet</li>
-                                    <li>Parking</li>
-                                    <li>Sun Room</li>
-                                    <li>Concrete Flooring</li>
+                                    @if(isset($property->further_details))
+                                        @foreach($property->further_details as $key)
+                                            @if($key != null)
+                                                <li>{{ $key}}</li>
+                                            @endif
+                                        @endforeach
+                                    @endif
+
+                                    @if(isset($property->is_burglar_alarm))
+                                        @if(($property->is_burglar_alarm) == 1)
+                                            <li>{{ 'Having barglar alarm feature' }}</li>
+                                        @endif
+                                    @endif
+
+                                    @if(isset($property->is_cctv))
+                                        @if(($property->is_cctv) == 1)
+                                            <li>{{ 'Having CCTV feature' }}</li>
+                                        @endif
+                                    @endif
                                 </ul>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>

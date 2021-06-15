@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Proparty extends Model
 {
@@ -111,6 +112,34 @@ class Proparty extends Model
     public function images()
     {
         return $this->hasMany('App\Models\Property_Image');
+    }
+
+
+    public function scopeStartsBetween(Builder $query, $from, $to): Builder
+    {
+        if($from == "" && $to == "")
+        {
+            return $query->Where('price', '>', 0);
+        }
+
+        if($from == "" && $to == 'grater')
+        {
+            return $query->Where('price', '>', 0);
+        }
+
+        if($to == 'grater')
+        {
+            return $query->Where('price', '>', $from);
+        }
+        elseif($from == "")
+        {
+            return $query->Where('price', '<', $to);
+        }
+        else
+        {
+            return $query->whereBetween('price', array($from, $to));
+        }
+        
     }
 
     /**

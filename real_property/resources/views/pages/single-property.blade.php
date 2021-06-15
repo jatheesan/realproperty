@@ -78,7 +78,7 @@
                                 <div class="card-header-c d-flex">
                                 @if(isset($property->price))
                                     <div class="card-box-ico">
-                                            <span class="ion-money">€</span>
+                                            <span class="ion-money">£</span>
                                     </div>
                                     <div class="card-title-c align-self-center">
                                         <h5 class="title-c">{{ $property->price }}</h5>
@@ -103,7 +103,7 @@
                                         @if(isset($property->display_address))
                                         <li class="d-flex justify-content-between">
                                             <strong>Location:</strong>
-                                            {<span> @php echo nl2br($property->display_address) @endphp</span>
+                                            <span> @php echo nl2br($property->display_address) @endphp</span>
                                         </li>
                                         @endif
                                         @if(isset($property->type))

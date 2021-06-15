@@ -9,6 +9,7 @@ use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\OwnersController;
 use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\FilterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +26,8 @@ Route::get('/properties/{id}',[PageController::class,'getproperties']);
 Route::get('/contactus',[PageController::class,'getcontact']);
 Route::get('/aboutus',[PageController::class,'getabout']);
 Route::get('/property/{id}',[PageController::class,'getproperty'])->name('property.view')->where('id', '[0-9]+');
-Route::get('/properties',[PageController::class,'filtering'])->name('properties.filtering');
+
+Route::get('/properties',[FilterController::class,'filtering'])->name('properties.filtering');
 
 Route::group(['middleware' => ['auth']], function() {
 

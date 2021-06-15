@@ -144,14 +144,15 @@
         <section class="property-grid grid">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 d-none d-sm-none d-md-block">
                         <div class="card shadow mb-4 pb-0">
                             <div class="grid-option">
                                 <form action="{{ route('properties.filtering') }}" method="get">
                                     <div>
                                         <div class="row p-0">
                                             <div class="col-sm-2 d-none d-sm-none d-md-block pr-0">
-                                                <select class="custom-select border border-right-0 border-org" id="catagery" name="catagery">
+                                                <select class="custom-select border border-right-0 border-org" id="catagery" name="filter[catagery]">
+                                                    <option value="">All types</option>
                                                     @foreach (['for sale' => 'Sale',
                                                                 'for let' => 'Let',
                                                                 'shared accommodation' => 'Shared Accommodation'] as $key => $text)
@@ -163,65 +164,61 @@
                                                 </select>
                                             </div>
                                             <div class="col-sm-8 border-bottom border-top border-org d-none d-sm-none d-md-block">
-                                                <input class="custom-input" type="text" name="search" id="search" placeholder="Search by location, postcode or keyword">
+                                                <input class="custom-input" type="text" name="filter[search]" id="search" placeholder="Search by location, postcode or keyword">
                                             </div>
                                             <div class="col-sm-2 d-none d-sm-none d-md-block pl-0">
                                                 <input class="custom-button border border-left-0 border-org" type="submit" value="Search">
-                                            </div>
-                                            <div class="col-8 d-block d-sm-block d-md-none pr-0">
-                                                <input class="custom-input border border-right-0 border-org" type="text" name="search" id="search" placeholder="Search by location, postcode or keyword">
-                                            </div>
-                                            <div class="col-4 d-block d-sm-block d-md-none pl-0">
-                                                <button class="filter border border-left-0 border-org" type="button" data-toggle="collapse"data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-bars"></i></button>
                                             </div>
                                         </div>
                                     </div>
                                     <div>
                                         <div class="row">
                                             <div class="col-6 col-md-2 d-none d-md-flex justify-content-center">
-                                                <select class="search-inputcol" id="min-price" name="min-price">
+                                                <select class="search-inputcol" id="min-price" name="filter[starts_between][]">
+                                                    <option value="">Min Price</option>
                                                     <option value="0">No Min</option>
-                                                    <option value="500">€ 500</option>
-                                                    <option value="1000">€ 1,000</option>
-                                                    <option value="2500">€ 2,500</option>
-                                                    <option value="5000">€ 5,000</option>
-                                                    <option value="7500">€ 7,500</option>
-                                                    <option value="10000">€ 10,000</option>
-                                                    <option value="50000">€ 50,000</option>
-                                                    <option value="100000">€ 100,000</option>
-                                                    <option value="250000">€ 250,000</option>
-                                                    <option value="500000">€ 500,000</option>
-                                                    <option value="750000">€ 750,000</option>
-                                                    <option value="1000000">€ 1,000,000</option>
-                                                    <option value="2500000">€ 2,500,000</option>
-                                                    <option value="5000000">€ 5,000,000</option>
-                                                    <option value="7500000">€ 7,500,000</option>
-                                                    <option value="10000000">€ 10,000,000</option>
+                                                    <option value="500">£ 500</option>
+                                                    <option value="1000">£ 1,000</option>
+                                                    <option value="2500">£ 2,500</option>
+                                                    <option value="5000">£ 5,000</option>
+                                                    <option value="7500">£ 7,500</option>
+                                                    <option value="10000">£ 10,000</option>
+                                                    <option value="50000">£ 50,000</option>
+                                                    <option value="100000">£ 100,000</option>
+                                                    <option value="250000">£ 250,000</option>
+                                                    <option value="500000">£ 500,000</option>
+                                                    <option value="750000">£ 750,000</option>
+                                                    <option value="1000000">£ 1,000,000</option>
+                                                    <option value="2500000">£ 2,500,000</option>
+                                                    <option value="5000000">£ 5,000,000</option>
+                                                    <option value="7500000">£ 7,500,000</option>
+                                                    <option value="10000000">£ 10,000,000</option>
                                                 </select>
                                             </div>
                                             <div class="col-6 col-md-2 d-none d-md-flex justify-content-center">
-                                                <select class="search-inputcol" id="max-price" name="max-price">
-                                                    <option value="500">€ 500</option>
-                                                    <option value="1000">€ 1,000</option>
-                                                    <option value="2500">€ 2,500</option>
-                                                    <option value="5000">€ 5,000</option>
-                                                    <option value="7500">€ 7,500</option>
-                                                    <option value="10000">€ 10,000</option>
-                                                    <option value="50000">€ 50,000</option>
-                                                    <option value="100000">€ 100,000</option>
-                                                    <option value="250000">€ 250,000</option>
-                                                    <option value="500000">€ 500,000</option>
-                                                    <option value="750000">€ 750,000</option>
-                                                    <option value="1000000">€ 1,000,000</option>
-                                                    <option value="2500000">€ 2,500,000</option>
-                                                    <option value="5000000">€ 5,000,000</option>
-                                                    <option value="7500000">€ 7,500,000</option>
-                                                    <option value="10000000">€ 10,000,000</option>
+                                                <select class="search-inputcol" id="max-price" name="filter[starts_between][]">
+                                                    <option value="">Max Price</option>
+                                                    <option value="500">£ 500</option>
+                                                    <option value="1000">£ 1,000</option>
+                                                    <option value="2500">£ 2,500</option>
+                                                    <option value="5000">£ 5,000</option>
+                                                    <option value="7500">£ 7,500</option>
+                                                    <option value="10000">£ 10,000</option>
+                                                    <option value="50000">£ 50,000</option>
+                                                    <option value="100000">£ 100,000</option>
+                                                    <option value="250000">£ 250,000</option>
+                                                    <option value="500000">£ 500,000</option>
+                                                    <option value="750000">£ 750,000</option>
+                                                    <option value="1000000">£ 1,000,000</option>
+                                                    <option value="2500000">£ 2,500,000</option>
+                                                    <option value="5000000">£ 5,000,000</option>
+                                                    <option value="7500000">£ 7,500,000</option>
+                                                    <option value="10000000">£ 10,000,000</option>
                                                     <option value="grater">No Max</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-4 d-none d-md-flex justify-content-center">
-                                                <select class="search-input" id="type" name="type">
+                                                <select class="search-input" id="type" name="filter[type]">
                                                         <option value="" selected>All property types</option>
                                                     @foreach ($propertytypes as $key => $propertytype)
                                                         <option value="{{ $key }}">
@@ -231,22 +228,38 @@
                                                 </select>
                                             </div>
                                             <div class="col-sm-4 d-none d-md-flex justify-content-center">
-                                                <input class="search-input" type="number" id="bed_rooms" name="bed_rooms" min="1" max="10" placeholder="All BedRooms">
+                                                <input class="search-input" type="number" id="bed_rooms" name="filter[no_of_bedrooms]" min="1" max="10" placeholder="All BedRooms">
                                             </div>
                                             <div class="col-sm-4 d-none d-md-flex justify-content-center">
-                                                <input class="search-input" type="number" id="bath_rooms" name="bath_rooms" min="1" max="10" placeholder="All BathRooms">
+                                                <input class="search-input" type="number" id="bath_rooms" name="filter[no_of_bathrooms]" min="1" max="10" placeholder="All BathRooms">
                                             </div>
                                             <div class="col-sm-4 d-none d-md-flex justify-content-center">
-                                                <input class="search-input" type="number" id="halls" name="halls" min="1" max="10" placeholder="All Hall">
+                                                <input class="search-input" type="number" id="halls" name="filter[no_of_halls]" min="1" max="10" placeholder="All Hall">
                                             </div>
                                         </div>
                                     </div>
                                 </form>
-                                <div class="collapse" id="collapseExample">
-                                    <form action="{{ route('properties.filtering') }}" method="get">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 d-md-none">
+                        <div class="card shadow mb-4 pb-0">
+                            <div class="grid-option">
+                                <form action="{{ route('properties.filtering') }}" method="get">
+                                    <div>
+                                        <div class="row p-0">
+                                            <div class="col-8 d-block d-sm-block d-md-none pr-0">
+                                                <input class="custom-input border border-right-0 border-org" type="text" name="filter[search]" id="search" placeholder="Search by location, postcode or keyword">
+                                            </div>
+                                            <div class="col-4 d-block d-sm-block d-md-none pl-0">
+                                                <button class="filter border border-left-0 border-org" type="button" data-toggle="collapse"data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-bars"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="collapse" id="collapseExample">
                                         <div class="row">
-                                            <div class="col-md-12 d-md-none d-flex justify-content-center">
-                                                <select class="search-input" id="catagery" name="catagery">
+                                            <div class="col-md-12 d-flex justify-content-center">
+                                                <select class="search-input" id="catagery" name="filter[catagery]">
                                                     @foreach (['for sale' => 'Sale',
                                                                 'for let' => 'Let',
                                                                 'shared accommodation' => 'Shared Accommodation'] as $key => $text)
@@ -256,135 +269,180 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div class="col-6 col-md-2 d-md-none d-flex justify-content-center">
-                                                <select class="search-inputcol" id="min-price" name="min-price">
-                                                    <option>No Min</option>
-                                                    <option>€ 500</option>
-                                                    <option>€ 1000</option>
-                                                    <option>€ 2,500</option>
-                                                    <option>€ 5,000</option>
-                                                    <option>€ 7,500</option>
-                                                    <option>€ 10,000</option>
-                                                    <option>€ 50,000</option>
-                                                    <option>€ 100,000</option>
-                                                    <option>€ 250,000</option>
-                                                    <option>€ 500,000</option>
-                                                    <option>€ 750,000</option>
-                                                    <option>€ 1,000,000</option>
-                                                    <option>€ 2,500,000</option>
-                                                    <option>€ 5,000,000</option>
-                                                    <option>€ 7,500,000</option>
-                                                    <option>€ 10,000,000</option>
+                                            <div class="col-6 col-md-2 d-flex justify-content-center">
+                                                <select class="search-inputcol" id="min-price" name="filter[starts_between][]">
+                                                <option value="" selected>Min Price</option>
+                                                    <option value="0">No Min</option>
+                                                    <option value="500">£ 500</option>
+                                                    <option value="1000">£ 1,000</option>
+                                                    <option value="2500">£ 2,500</option>
+                                                    <option value="5000">£ 5,000</option>
+                                                    <option value="7500">£ 7,500</option>
+                                                    <option value="10000">£ 10,000</option>
+                                                    <option value="50000">£ 50,000</option>
+                                                    <option value="100000">£ 100,000</option>
+                                                    <option value="250000">£ 250,000</option>
+                                                    <option value="500000">£ 500,000</option>
+                                                    <option value="750000">£ 750,000</option>
+                                                    <option value="1000000">£ 1,000,000</option>
+                                                    <option value="2500000">£ 2,500,000</option>
+                                                    <option value="5000000">£ 5,000,000</option>
+                                                    <option value="7500000">£ 7,500,000</option>
+                                                    <option value="10000000">£ 10,000,000</option>
                                                 </select>
                                             </div>
-                                            <div class="col-6 col-md-2 d-md-none d-flex justify-content-center">
-                                                <select class="search-inputcol" id="max-price" name="max-price">
-                                                    <option>€ 500</option>
-                                                    <option>€ 1000</option>
-                                                    <option>€ 2,500</option>
-                                                    <option>€ 5,000</option>
-                                                    <option>€ 7,500</option>
-                                                    <option>€ 10,000</option>
-                                                    <option>€ 50,000</option>
-                                                    <option>€ 100,000</option>
-                                                    <option>€ 250,000</option>
-                                                    <option>€ 500,000</option>
-                                                    <option>€ 750,000</option>
-                                                    <option>€ 1,000,000</option>
-                                                    <option>€ 2,500,000</option>
-                                                    <option>€ 5,000,000</option>
-                                                    <option>€ 7,500,000</option>
-                                                    <option>€ 10,000,000</option>
-                                                    <option>No Max</option>
+                                            <div class="col-6 col-md-2 d-flex justify-content-center">
+                                                <select class="search-inputcol" id="max-price" name="filter[starts_between][]">
+                                                <option value="" selected>Max Price</option>
+                                                    <option value="500">£ 500</option>
+                                                    <option value="1000">£ 1,000</option>
+                                                    <option value="2500">£ 2,500</option>
+                                                    <option value="5000">£ 5,000</option>
+                                                    <option value="7500">£ 7,500</option>
+                                                    <option value="10000">£ 10,000</option>
+                                                    <option value="50000">£ 50,000</option>
+                                                    <option value="100000">£ 100,000</option>
+                                                    <option value="250000">£ 250,000</option>
+                                                    <option value="500000">£ 500,000</option>
+                                                    <option value="750000">£ 750,000</option>
+                                                    <option value="1000000">£ 1,000,000</option>
+                                                    <option value="2500000">£ 2,500,000</option>
+                                                    <option value="5000000">£ 5,000,000</option>
+                                                    <option value="7500000">£ 7,500,000</option>
+                                                    <option value="10000000">£ 10,000,000</option>
+                                                    <option value="grater">No Max</option>
                                                 </select>
                                             </div>
-                                            <div class="col-md-4 d-md-none d-flex justify-content-center">
-                                                <input class="search-input" type="text" name="type" id="type" placeholder="All Property Type">
+                                            @if(isset($propertytypes))
+                                            <div class="col-md-4 d-flex justify-content-center">
+                                                <select class="search-input" id="type" name="filter[type]">
+                                                        <option value="" selected>All property types</option>
+                                                    @foreach ($propertytypes as $key => $propertytype)
+                                                        <option value="{{ $key }}">
+                                                            {{ $propertytype }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
-                                            <div class="col-md-4 d-md-none d-flex justify-content-center">
+                                            @endif
+                                            <div class="col-md-4 d-flex justify-content-center">
                                                 {{--<div class="quantity-block">
                                                     <a class="quantity-arrow-minus" onclick="arrow();"> - </a>
                                                     <input class="quantity-num" type="number" value="1" />
                                                     <a class="quantity-arrow-plus" onclick="arrow();"> + </a>
                                                 </div>--}}
-                                                <input class="search-input" type="number" id="bed_rooms" name="bed_rooms" min="1" max="10" placeholder="All BedRooms">
+                                                <input class="search-input" type="number" id="bed_rooms" name="filter[no_of_bedrooms]" min="1" max="10" placeholder="All BedRooms">
                                             </div>
-                                            <div class="col-md-4 d-md-none d-flex justify-content-center">
-                                                <input class="search-input" type="number" id="bath_rooms" name="bath_rooms" min="1" max="10" placeholder="All BathRooms">
+                                            <div class="col-md-4 d-flex justify-content-center">
+                                                <input class="search-input" type="number" id="bath_rooms" name="filter[no_of_bathrooms]" min="1" max="10" placeholder="All BathRooms">
                                             </div>
-                                            <div class="col-md-4 d-md-none d-flex justify-content-center">
-                                                <input class="search-input" type="number" id="halls" name="halls" min="1" max="10" placeholder="All Hall">
+                                            <div class="col-md-4 d-flex justify-content-center">
+                                                <input class="search-input" type="number" id="halls" name="filter[no_of_halls]" min="1" max="10" placeholder="All Hall">
                                             </div>
-                                            <div class="offset-sm-4 col-sm-4 d-md-none d-flex justify-content-center pt-4">
+                                            <div class="offset-sm-4 col-sm-4 d-flex justify-content-center pt-4">
                                                 <input class="colapse-button" type="submit" value="Search">
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     @if(isset($properties))
-                        @foreach($properties as $property)
-                        <div class="col-md-4">
-                            <div class="card-box-a card-shadow" style="height:500px !important;">
-                                <div class="img-box-a">
-                                @foreach($property->images as $image)
-                                    @if(($image->is_main) == 1)
-                                    <img src="{{asset($image->image)}}" alt="" class="img-a img-fluid" style="height:500px !important;">
-                                    @endif
-                                @endforeach
-                                </div>
-                                <div class="card-overlay">
-                                <div class="card-overlay-a-content">
-                                    <div class="card-header-a">
-                                        <h2 class="card-title-a">
-                                            <a href="{{ url('/single-property') }}">{{ $property->post_town }}
-                                                <br /> {{ $property->post_city }}</a>
-                                        </h2>
-                                    </div>
-                                    <div class="card-body-a">
-                                        <div class="price-box d-flex">
-                                            <span class="price-a">Sales | €{{ $property->price }}</span>
+                        @if(count($properties) == 0)
+                            <div class="col-sm-12">
+                                <div class="card shadow mb-4 p-0">
+                                    <div class="grid-option">
+                                        <div class="row">
+                                            <div class="col-sm-12 justify-content-center">
+                                                    <ul>
+                                                        <h1>Look like we don't have any matches for your search</h1>
+                                                    </ul>
+                                                    <ul>
+                                                        <li>Check for types or use a diffetent search term.</li>
+                                                        <li>View property you've buy before.</li>
+                                                        <li>Browse property type , post code of property, or price of property.</li>
+                                                        <li>Note if property sold are't listed online.</li>
+                                                    </ul>
+                                            </div>
                                         </div>
-                                        <a href="{{ route('property.view', $property->id ) }}" class="link-a">Click here to view
-                                            <span class="ion-ios-arrow-forward"></span>
-                                        </a>
-                                    </div>
-                                    <div class="card-footer-a">
-                                        <ul class="card-info d-flex justify-content-around">
-                                            <li>
-                                                <h4 class="card-info-title">Area</h4>
-                                                <span>{{ $property-> internal_area }} {{ $property-> area_unit }}</span>
-                                            </li>
-                                            {{--<li>
-                                                <figure class="figure">
-                                                    <img src="{{ asset('svgs/bed.svg') }}" class="figure-img img-fluid rounded" alt="figure" width="3" height="1">
-                                                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
-                                                </figure>
-                                            </li>--}}
-                                            <li>
-                                                <h4 class="card-info-title">Beds</h4>
-                                                <span>{{ $property-> no_of_bedrooms }}</span>
-                                            </li>
-                                            <li>
-                                                <h4 class="card-info-title">Baths</h4>
-                                                <span>{{ $property-> no_of_bathrooms }}</span>
-                                            </li>
-                                            <li>
-                                                <h4 class="card-info-title">halls</h4>
-                                                <span>{{ $property-> no_of_halls }}</span>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
+                        @else
+                            @foreach($properties as $property)
+                            <div class="col-md-4">
+                                <div class="card-box-a card-shadow" style="height:500px !important;">
+                                    <div class="img-box-a">
+                                    @foreach($property->images as $image)
+                                        @if(($image->is_main) == 1)
+                                        <img src="{{asset($image->image)}}" alt="" class="img-a img-fluid" style="height:500px !important;">
+                                        @endif
+                                    @endforeach
+                                    </div>
+                                    <div class="card-overlay">
+                                    <div class="card-overlay-a-content">
+                                        <div class="card-header-a">
+                                            <h2 class="card-title-a">
+                                                <a href="{{ url('/single-property') }}">{{ $property->post_town }}
+                                                    <br /> {{ $property->post_city }}</a>
+                                            </h2>
+                                        </div>
+                                        <div class="card-body-a">
+                                            <div class="price-box d-flex">
+                                                <span class="price-a">
+                                                @if(($property -> catagery) == 'for sale')
+                                                    {{ 'Sales' }} | £{{ $property->price }}
+                                                @elseif(($property -> catagery) == 'for let')
+                                                    {{ 'Let' }} | £{{ $property->price }}
+                                                @elseif(($property -> catagery) == 'shared accommodation')
+                                                    {{ 'Shared Accommodation' }} | £{{ $property->price }}
+                                                @else
+                                                    {{ ''}} | £{{ $property->price }}
+                                                @endif
+                                                </span>
+                                            </div>
+                                            <a href="{{ route('property.view', $property->id ) }}" class="link-a">Click here to view
+                                                <span class="ion-ios-arrow-forward"></span>
+                                            </a>
+                                        </div>
+                                        <div class="card-footer-a">
+                                            <ul class="card-info d-flex justify-content-around">
+                                                <li>
+                                                    <h4 class="card-info-title">Area</h4>
+                                                    <span>{{ $property-> internal_area }} {{ $property-> area_unit }}</span>
+                                                </li>
+                                                {{--<li>
+                                                    <figure class="figure">
+                                                        <img src="{{ asset('svgs/bed.svg') }}" class="figure-img img-fluid rounded" alt="figure" width="3" height="1">
+                                                        <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                                                    </figure>
+                                                </li>--}}
+                                                <li>
+                                                    <h4 class="card-info-title">Beds</h4>
+                                                    <span>{{ $property-> no_of_bedrooms }}</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Baths</h4>
+                                                    <span>{{ $property-> no_of_bathrooms }}</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">halls</h4>
+                                                    <span>{{ $property-> no_of_halls }}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
                             </div>
-                        </div>
-                        @endforeach
-                        <div>
-                            {!! $properties->render("pagination::bootstrap-4") !!}
-                        </div>
+                            @endforeach
+                            <div>
+                                {!! $properties->render("pagination::bootstrap-4") !!}
+                            </div>
+                        @endif
                     @else
                     <div class="col-md-4">
                         <div class="card-box-a card-shadow">

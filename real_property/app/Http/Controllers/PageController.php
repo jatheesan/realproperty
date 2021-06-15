@@ -53,8 +53,4 @@ class PageController extends Controller
         return view('pages.single-property', compact('property'));
     }
 
-    public function filtering(Request $request)
-    {
-        dd('amma');
-    }
 }

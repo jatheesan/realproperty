@@ -124,7 +124,7 @@
                                     </div>
                                     <div class="card-body-a">
                                         <div class="price-box d-flex">
-                                            <span class="price-a">Sales | €{{ $property->price }}</span>
+                                            <span class="price-a">Sales | £{{ $property->price }}</span>
                                         </div>
                                         <a href="{{ route('property.view', $property->id ) }}" class="link-a">Click here to view
                                             <span class="ion-ios-arrow-forward"></span>
@@ -386,7 +386,7 @@
                                     </div>
                                     <div class="card-body-a">
                                         <div class="price-box d-flex">
-                                            <span class="price-a">€{{ $property->price }} | {{ $property->rent_frequency }}</span>
+                                            <span class="price-a">£{{ $property->price }} | {{ $property->rent_frequency }}</span>
                                         </div>
                                         <a href="{{ route('property.view', $property->id ) }}" class="link-a">Click here to view
                                             <span class="ion-ios-arrow-forward"></span>

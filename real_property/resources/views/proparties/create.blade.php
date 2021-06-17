@@ -48,7 +48,7 @@
 
                             <form method="POST" action="{{ route('proparties.proparty.store') }}" accept-charset="UTF-8" id="create_proparty_form" name="create_proparty_form" class="form-horizontal">
                             {{ csrf_field() }}
-                            @include ('proparties.form', [
+                            @include ('proparties.createform', [
                                                         'proparty' => null,
                                                     ])
 

@@ -43,7 +43,6 @@ Route::group(['middleware' => ['auth']], function() {
      //Route::get('/change-password', 'User\ChangePasswordController@index');
      Route::post('/change-password', [ChangePasswordController::class, 'store'])->name('change.password');
 
-
      Route::group([
      'prefix' => 'proparty_types',
      ], function () {
@@ -82,6 +81,8 @@ Route::group(['middleware' => ['auth']], function() {
           ->name('proparties.proparty.destroy')->where('id', '[0-9]+');
      Route::any('/search', [PropartiesController::class, 'search'])
           ->name('proparties.proparty.search');
+     Route::any('/stage/search', [PropartiesController::class, 'uncompletesearch'])
+          ->name('proparties.proparty.uncompletesearch');
      });
 
      Route::group([

@@ -116,12 +116,33 @@
         </div>
     </div>
     <div class="col-md-6">
+        <div class="form-group {{ $errors->has('street_name') ? 'has-error' : '' }}">
+            <label for="street_name" class="col-md-12 control-label">Street Name</label>
+            <div class="col-md-12">
+                <input class="form-control" name="street_name" type="text" id="street_name" value="{{ old('street_name', optional($proparty)->street_name) }}" placeholder="Enter street name here...">
+                {!! $errors->first('street_name', '<p class="help-block">:message</p>') !!}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group {{ $errors->has('second_street_name') ? 'has-error' : '' }}">
+            <label for="second_street_name" class="col-md-12 control-label">Second Street Name</label>
+            <div class="col-md-12">
+                <input class="form-control" name="second_street_name" type="text" id="second_street_name" value="{{ old('second_street_name', optional($proparty)->second_street_name) }}" placeholder="Enter second street name here...">
+                {!! $errors->first('second_street_name', '<p class="help-block">:message</p>') !!}
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group {{ $errors->has('post_town') ? 'has-error' : '' }}">
                     <label for="post_town" class="col-md-12 control-label">Post Town</label>
                     <div class="col-md-12">
-                        <input class="form-control" name="post_town" type="text" id="post_town" value="{{ old('post_town', optional($proparty)->post_town) }}" minlength="1" placeholder="Enter post town here...">
+                        <input class="form-control" name="post_town" type="text" id="post_town"
+                            value="{{ old('post_town', optional($proparty)->post_town) }}" minlength="1"
+                            placeholder="Enter post town here...">
                         {!! $errors->first('post_town', '<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
@@ -760,7 +781,20 @@
             </div>
         </div>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-3">
+        <div class="form-group {{ $errors->has('is_complete') ? 'has-error' : '' }}">
+            <label for="is_complete" class="col-md-12 control-label">Is Complete</label>
+            <div class="col-md-12">
+                <label for="is_complete-1" class="checkbox-inline">
+                    <input id="is_complete_1" class="" name="is_complete" type="checkbox" value="1" {{ old('is_complete', optional($proparty)->is_complete) == '1' ? 'checked' : '' }}>
+                    Yes
+                </label>
+
+                {!! $errors->first('is_complete', '<p class="help-block">:message</p>') !!}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
         <div class="form-group {{ $errors->has('is_publish') ? 'has-error' : '' }}">
             <label for="is_publish" class="col-md-12 control-label">Is Publish</label>
             <div class="col-md-12">
@@ -772,7 +806,20 @@
                 {!! $errors->first('is_publish', '<p class="help-block">:message</p>') !!}
             </div>
         </div>
-    </div>
+    </div> 
+    <div class="col-md-3">
+        <div class="form-group {{ $errors->has('is_sold') ? 'has-error' : '' }}">
+            <label for="is_sold" class="col-md-12 control-label">Is Sold</label>
+            <div class="col-md-12">
+                <label for="is_sold_1" class="checkbox-inline">
+                    <input id="is_sold_1" class="" name="is_sold" type="checkbox" value="1" {{ old('is_sold', optional($proparty)->is_sold) == '1' ? 'checked' : '' }}>
+                    Yes
+                </label>
+
+                {!! $errors->first('is_sold', '<p class="help-block">:message</p>') !!}
+            </div>
+        </div>
+    </div>    
 </div>
 
 

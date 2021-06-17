@@ -3,32 +3,59 @@
 @section('content')
 
     <div class="row">
+        <div class="col-sm-12">
+            @if(Session::has('success_message'))
+            <div class="alert alert-success">
+                <span class="glyphicon glyphicon-ok"></span>
+                {!! session('success_message') !!}
+
+                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            @endif
+        </div>
         <!-- Area Chart -->
         <div class="col-xl-12 col-lg-12 col-sm-12">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     {{--<h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>--}}
-                    <div class="col-xl-11 col-lg-11 col-sm-11">
-                    @if(Session::has('success_message'))
-                        <div class="alert alert-success">
-                            <span class="glyphicon glyphicon-ok"></span>
-                            {!! session('success_message') !!}
+                    <div class="col-xl-12 col-lg-12 col-sm-12">
 
-                            <button type="button" class="close" data-dismiss="alert" aria-label="close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-
+                    <div class="float-right p-2">
+                        <div class="btn-group btn-group-sm pull-right" role="group">
+                            <form action="{{ route('proparties.proparty.uncompletesearch') }}">
+                                <input type="hidden" name="search_pro" value="sold">
+                                <button type="submit" class="btn btn-sm btn-warning" title="search uncomplete proparty">sold</button>
+                            </form>
                         </div>
-                    @endif
                     </div>
-                    <div class="float-right">
+                    <div class="float-right p-2">
+                        <div class="btn-group btn-group-sm pull-right" role="group">
+                            <form action="{{ route('proparties.proparty.uncompletesearch') }}">
+                                <input type="hidden" name="search_pro" value="unpublish">
+                                <button type="submit" class="btn btn-sm btn-primary" title="search uncomplete proparty">unpublish</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="float-right p-2">
+                        <div class="btn-group btn-group-sm pull-right" role="group">
+                            <form action="{{ route('proparties.proparty.uncompletesearch') }}">
+                                <input type="hidden" name="search_pro" value="uncomplete">
+                                <button type="submit" class="btn btn-sm btn-info" title="search uncomplete proparty">uncomplete</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="float-right p-2">
                         <div class="btn-group btn-group-sm pull-right" role="group">
                             <a href="{{ route('proparties.proparty.create') }}" class="btn btn-success"
                                 title="Create New Proparty">
                                 <span class="fa fa-plus" aria-hidden="true"></span>
                             </a>
                         </div>
+                    </div>
                     </div>
                 </div>
                 <!-- Card Body -->
@@ -94,7 +121,9 @@
                                             <th>Further Details</th>
                                             <th>Property Details Display</th>--}}
                                             <th>Owner</th>
+                                            <th>Is Complete</th>
                                             <th>Is Publish</th>
+                                            <th>Is Sold</th>
                                             <th>Room</th>
                                             <th>Owner</th>
                                             <th>Images</th>
@@ -112,7 +141,7 @@
 
                                                     <div class="btn-group btn-group-xs pull-right" role="group">
                                                         <a href="{{ route('proparties.proparty.show', $proparty->id ) }}" class="btn btn-info" title="Show Proparty">
-                                                            <span class="fa fa-caret-square-o-up" aria-hidden="true"></span>
+                                                            <i class="fa fa-list-ul" aria-hidden="true"></i>
                                                         </a>
                                                         <a href="{{ route('proparties.proparty.edit', $proparty->id ) }}" class="btn btn-primary" title="Edit Proparty">
                                                             <span class="fa fa-pencil-alt" aria-hidden="true"></span>
@@ -172,7 +201,18 @@
                                             <td>{{ implode(', ', $proparty->further_details) }}</td>
                                             <td>{{ ($proparty->property_details_display) ? 'Yes' : 'No' }}</td>--}}
                                             <td>{{ $proparty->owner }}</td>
+                                            <td>{{ ($proparty->is_complete) ? 'Yes' : 'No' }}</td>
                                             <td>{{ ($proparty->is_publish) ? 'Yes' : 'No' }}</td>
+                                            <td> 
+                                                @if(($proparty->is_sold) == 1)
+                                                    
+                                                    {{--<button type="button" class="btn btn-warning passingID" data-id="{{ $proparty->id }}">{{ ($proparty->is_sold) ? 'Yes' : 'No' }}</button>--}}
+                                                    <div style="color:orange">{{ ($proparty->is_sold) ? 'Yes' : 'No' }}</div>
+                                                @else
+                                                    {{--<button type="button" class="btn btn-danger passingID" data-id="{{ $proparty->id }}">{{ ($proparty->is_sold) ? 'Yes' : 'No' }}</button>--}}
+                                                    <div style="color:red">{{ ($proparty->is_sold) ? 'Yes' : 'No' }}</div>
+                                                @endif
+                                                
                                             <td>
                                                 <form action="{{ route('rooms.room.multicreate') }}" method="POST">
                                                 {{ csrf_field() }}
@@ -215,7 +255,7 @@
             </div>
         </div>
     </div>
-
+    
 <!-- Modal -->
 {{--<div class="modal fade" id="createroom" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -321,5 +361,5 @@
         </div>
     </div>
 </div>--}}
-  
+
 @endsection

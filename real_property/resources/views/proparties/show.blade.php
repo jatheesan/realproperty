@@ -85,6 +85,14 @@
                                         <td>{{ $proparty->second_pastcode }}</td>
                                     </tr>
                                     <tr>
+                                        <th>Street Name :</th>
+                                        <td>{{ $proparty->street_name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Second Street Name :</th>
+                                        <td>{{ $proparty->second_street_name }}</td>
+                                    </tr>
+                                    <tr>
                                         <th>Post Town :</th>
                                         <td>{{ $proparty->post_town }}</td>
                                     </tr>
@@ -239,6 +247,10 @@
                                     <tr>
                                         <th>Owner :</th>
                                         <td>{{ optional($proparty->ownerman)->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Is Complete  :</th>
+                                        <td>{{ ($proparty->is_complete) ? 'Yes' : 'No' }}</td>
                                     </tr>
                                     <tr>
                                         <th>Is Publish  :</th>

@@ -15,7 +15,6 @@ class FilterController extends Controller
 {
     public function filtering(Request $request)
     {
-        //dd('amma');
 
         $properties = QueryBuilder::for(Proparty::class)
             ->allowedFilters([

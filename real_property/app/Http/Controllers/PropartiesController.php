@@ -37,6 +37,7 @@ class PropartiesController extends Controller
         if($search!=""){
             $proparties = Proparty::with('propertytype')->where(function ($query) use ($search){
                 $query->where('catagery', 'like', '%'.$search.'%')
+                    ->orWhere('age', '=', $search)
                     ->orWhere('first_pastcode', 'like', '%'.$search.'%')
                     ->orWhere('second_pastcode', 'like', '%'.$search.'%')
                     ->orWhere('post_town', 'like', '%'.$search.'%')
@@ -55,6 +56,27 @@ class PropartiesController extends Controller
         //$proparties = Proparty::with('propertytype')->paginate(25);
 
         //return view('proparties.index', compact('proparties'));
+    }
+
+    public function uncompletesearch(Request $request)
+    {
+        $search =  $request->input('search_pro');
+        if($search == 'uncomplete')
+        {
+            $proparties = Proparty::with('propertytype')->where('is_complete', '=', 0)->paginate(5);
+        }
+
+        if($search == 'unpublish')
+        {
+            $proparties = Proparty::with('propertytype')->where('is_publish', '=', 0)->paginate(5);
+        }
+
+        if($search == 'sold')
+        {
+            $proparties = Proparty::with('propertytype')->where('is_sold', '=', 1)->paginate(5);
+        }
+
+        return View('proparties.index', compact('proparties'));
     }
 
     /**
@@ -191,6 +213,8 @@ class PropartiesController extends Controller
             'door_name' => 'string|min:1|nullable',
             'first_pastcode' => 'string|max:5|nullable|min:0',
             'second_pastcode' => 'string|max:5|nullable|min:0',
+            'street_name' => 'string|min:1|nullable',
+            'second_street_name' => 'string|min:1|nullable',
             'post_town' => 'string|min:1|nullable',
             'post_city' => 'string|min:1|nullable',
             'post_country' => 'string|min:1|nullable',
@@ -231,7 +255,9 @@ class PropartiesController extends Controller
             'further_details' => 'array|min:1|nullable',
             'property_details_display' => 'boolean|nullable',
             'owner' => 'string|min:1|nullable',
+            'is_complete' => 'boolean|nullable',
             'is_publish' => 'boolean|nullable',
+            'is_sold' => 'boolean|nullable',
         ];
 
         
@@ -244,7 +270,9 @@ class PropartiesController extends Controller
         $data['deposite_flag'] = $request->has('deposite_flag');
         $data['admin_fee_flag'] = $request->has('admin_fee_flag');
         $data['property_details_display'] = $request->has('property_details_display');
+        $data['is_complete'] = $request->has('is_complete');
         $data['is_publish'] = $request->has('is_publish');
+        $data['is_sold'] = $request->has('is_sold');
 
 
         return $data;

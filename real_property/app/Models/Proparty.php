@@ -37,6 +37,8 @@ class Proparty extends Model
                   'door_name',
                   'first_pastcode',
                   'second_pastcode',
+                  'street_name',
+                  'second_street_name',
                   'post_town',
                   'post_city',
                   'post_country',
@@ -77,7 +79,9 @@ class Proparty extends Model
                   'further_details',
                   'property_details_display',
                   'owner',
-                  'is_publish'
+                  'is_complete',
+                  'is_publish',
+                  'is_sold'
               ];
 
     /**

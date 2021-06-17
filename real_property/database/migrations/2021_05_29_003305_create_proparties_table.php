@@ -24,6 +24,8 @@ class CreatePropartiesTable extends Migration
             $table->string('door_name')->nullable();
             $table->string('first_pastcode', 5)->nullable();
             $table->string('second_pastcode', 5)->nullable();
+            $table->string('street_name')->nullable();
+            $table->string('second_street_name')->nullable();
             $table->string('post_town')->nullable();
             $table->string('post_city')->nullable();
             $table->string('post_country')->nullable();
@@ -64,7 +66,9 @@ class CreatePropartiesTable extends Migration
             $table->string('further_details')->nullable();
             $table->boolean('property_details_display')->nullable();
             $table->integer('owner')->unsigned()->nullable()->index();
+            $table->boolean('is_complete')->nullable();
             $table->boolean('is_publish')->nullable();
+            $table->boolean('is_sold')->nullable();
             //$table->string('owner')->nullable();
 
         });

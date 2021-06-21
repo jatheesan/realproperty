@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Room;
+use App\Models\Property_image;
 use Illuminate\Http\Request;
 use Exception;
 use Illuminate\Support\Facades\DB;
+use Image;
 
 class RoomsController extends Controller
 {
@@ -81,8 +83,8 @@ class RoomsController extends Controller
             $dunit =$request -> room_dimention_unit;
             $rdisplay =$request -> room_dimention_display;
             $aunit =$request -> room_area_unit;
+            $image = $request->file('image');
             $property_id =$request -> property_id;
-            
             for ($i=0; $i < count($rname); $i++) { 
                 $data = [
                     'room_name'                 => $rname[$i],
@@ -93,14 +95,33 @@ class RoomsController extends Controller
                     'room_area_unit'            => $aunit[$i],
                     'property_id'               => $property_id[$i]
                 ];
-                //Room::create($data);
                 DB::table('rooms')->insert($data);
+
+                $lastRecord = Room::orderBy('id', 'DESC')->first();
+                $room_id = $lastRecord->id;
+
+                for($j=0; $j < count($image[$i]); $j++)
+                {
+                    $name_gen = hexdec(uniqid()).'.'.$image[$i][$j]->getClientOriginalExtension();
+                    Image::make($image[$i][$j])->resize(700,400)->save('images/properties/'.$name_gen);
+
+                    $last_img = 'images/properties/'.$name_gen;
+                    
+                    $multi = [
+                        'image'=>$last_img,
+                        'proparty_id'=>$property_id[$i],
+                        'room_id'=>$room_id
+                    ];
+                    DB::table('property_images')->insert($multi);
+                }
+
             }
+
             return redirect()->route('proparties.proparty.index')->with('success_message', 'Rooms were successfully added.');
         } catch (Exception $exception) {
 
-            return back()->withInput()
-                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
+         return back()->withInput()
+             ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
         }
     }
 

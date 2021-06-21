@@ -30,7 +30,8 @@ class Property_image extends Model
     protected $fillable = [
                   'image',
                   'is_main',
-                  'proparty_id'
+                  'proparty_id',
+                  'room_id'
                 ];
 
     /**

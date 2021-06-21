@@ -32,7 +32,147 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-xl-6 col-lg-6">
+                        <div class="col-xl-12 col-lg-12 py-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Adding Rooms for property 
+                                    </div>
+                                    <div class="card-body">
+                                        <form method="POST" action="{{ route('rooms.room.multistore') }}"
+                                            accept-charset="UTF-8" id="create_room_form" name="create_room_form"
+                                            class="form-horizontal" enctype="multipart/form-data">
+                                            {{ csrf_field() }}
+                                            <div class="table-responsive">
+                                                <table id="faqs" class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Room Name</th>
+                                                            <th>Room Length</th>
+                                                            <th>Room Width</th>
+                                                            <th>Room Dimention Unit</th>
+                                                            <th>Room Dimention display</th>
+                                                            <th>Room Area Unit</th>
+                                                            {{--<th>Room Image</th>--}}
+                                                            <th>Property Id</th>
+                                                            <th><a class="btn btn-success" onclick="addfaqs();"><i
+                                                                        class="fa fa-plus"></i></a></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <input class="form-control" name="room_name[]"
+                                                                    type="text" id="room_name" minlength="1"
+                                                                    placeholder="Room name">
+                                                                {!! $errors->first('room_name', '<p class="help-block">
+                                                                    :message
+                                                                </p>') !!}
+                                                            </td>
+                                                            <td>
+                                                                <input class="form-control" name="room_length[]"
+                                                                    type="number" id="room_length" step="0.01"
+                                                                    placeholder="(eg:-10000.01)">
+                                                                {!! $errors->first('room_length', '<p
+                                                                    class="help-block">
+                                                                    :message</p>') !!}
+                                                            </td>
+                                                            <td>
+                                                                <input class="form-control" name="room_width[]"
+                                                                    type="number" id="room_width" step="0.01"
+                                                                    placeholder="(eg:-10000.01)">
+                                                                {!! $errors->first('room_width', '<p class="help-block">
+                                                                    :message
+                                                                </p>') !!}
+                                                            </td>
+                                                            <td>
+                                                                <select class="form-control" id="room_dimention_unit"
+                                                                    name="room_dimention_unit[]">
+                                                                    <option value="" style="display: none;" disabled
+                                                                        selected>
+                                                                        dimention unit
+                                                                    </option>
+                                                                    @foreach (['m' => 'Metres',
+                                                                    'cm' => 'Centimetres',
+                                                                    'mm' => 'Millimetres',
+                                                                    'feet' => 'Feet',
+                                                                    'inche' => 'Inches'] as $key => $text)
+                                                                    <option value="{{ $key }}">
+                                                                        {{ $text }}
+                                                                    </option>
+                                                                    @endforeach
+                                                                </select>
+                                                                {!! $errors->first('room_dimention_unit', '<p
+                                                                    class="help-block">:message
+                                                                </p>') !!}
+                                                            </td>
+                                                            <td>
+                                                                <input class="form-control"
+                                                                    name="room_dimention_display[]" type="text"
+                                                                    id="room_dimention_display" minlength="1"
+                                                                    placeholder="dimention display">
+                                                                {!! $errors->first('room_dimention_display', '<p
+                                                                    class="help-block">:message
+                                                                </p>') !!}
+                                                            </td>
+                                                            <td>
+                                                                <select class="form-control" id="room_area_unit"
+                                                                    name="room_area_unit[]">
+                                                                    <option value="" style="display: none;" disabled
+                                                                        selected>
+                                                                        room area unit
+                                                                    </option>
+                                                                    @foreach (['sq m' => 'sq m',
+                                                                    'sq cm' => 'sq cm',
+                                                                    'sq mm' => 'sq mm',
+                                                                    'sq ft' => 'sq ft',
+                                                                    'sq inch' => 'sq inch'] as $key => $text)
+                                                                    <option value="{{ $key }}">
+                                                                        {{ $text }}
+                                                                    </option>
+                                                                    @endforeach
+                                                                </select>
+                                                                {!! $errors->first('room_area_unit', '<p
+                                                                    class="help-block">
+                                                                    :message</p>')
+                                                                !!}
+                                                            </td>
+                                                            <td>
+                                                            <div class="form-group">
+                                                
+                                                                <input type="file" name="image[0][]" id="image" class="form-control" multiple="">
+                                                                {!! $errors->first('image', '<p
+                                                                    class="help-block">
+                                                                    :message</p>') 
+                                                                !!}
+                                                            </td>
+                                                            <td>
+                                                                <input class="form-control" name="property_id[]"
+                                                                    type="text" id="property_id" value="{{ $pro_id }}"
+                                                                    min="0" max="4294967295" required="true"
+                                                                    placeholder="property id">
+                                                                {!! $errors->first('property_id', '<p
+                                                                    class="help-block">
+                                                                    :message</p>') !!}
+                                                            </td>
+                                                            <td>
+                                                                <a href="javascript:void(0)" class="btn btn-danger"><i
+                                                                        class="fa fa-trash"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input class="btn btn-org" type="submit" value="Add Room">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 py-4">
                                 <div class="card">
                                     <div class="card-header">
                                         Rooms for property 
@@ -120,136 +260,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6 col-lg-6 ">
-                                <div class="card">
-                                    <div class="card-header">
-                                        Adding Rooms for property 
-                                    </div>
-                                    <div class="card-body">
-                                        <form method="POST" action="{{ route('rooms.room.multistore') }}"
-                                            accept-charset="UTF-8" id="create_room_form" name="create_room_form"
-                                            class="form-horizontal">
-                                            {{ csrf_field() }}
-                                            <div class="table-responsive">
-                                                <table id="faqs" class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Room Name</th>
-                                                            <th>Room Length</th>
-                                                            <th>Room Width</th>
-                                                            <th>Room Dimention Unit</th>
-                                                            <th>Room Dimention display</th>
-                                                            <th>Room Area Unit</th>
-                                                            <th>Property Id</th>
-                                                            <th><a class="btn btn-success" onclick="addfaqs();"><i
-                                                                        class="fa fa-plus"></i></a></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <input class="form-control" name="room_name[]"
-                                                                    type="text" id="room_name" minlength="1"
-                                                                    placeholder="Room name">
-                                                                {!! $errors->first('room_name', '<p class="help-block">
-                                                                    :message
-                                                                </p>') !!}
-                                                            </td>
-                                                            <td>
-                                                                <input class="form-control" name="room_length[]"
-                                                                    type="number" id="room_length" step="0.01"
-                                                                    placeholder="(eg:-10000.01)">
-                                                                {!! $errors->first('room_length', '<p
-                                                                    class="help-block">
-                                                                    :message</p>') !!}
-                                                            </td>
-                                                            <td>
-                                                                <input class="form-control" name="room_width[]"
-                                                                    type="number" id="room_width" step="0.01"
-                                                                    placeholder="(eg:-10000.01)">
-                                                                {!! $errors->first('room_width', '<p class="help-block">
-                                                                    :message
-                                                                </p>') !!}
-                                                            </td>
-                                                            <td>
-                                                                <select class="form-control" id="room_dimention_unit"
-                                                                    name="room_dimention_unit[]">
-                                                                    <option value="" style="display: none;" disabled
-                                                                        selected>
-                                                                        dimention unit
-                                                                    </option>
-                                                                    @foreach (['m' => 'Metres',
-                                                                    'cm' => 'Centimetres',
-                                                                    'mm' => 'Millimetres',
-                                                                    'feet' => 'Feet',
-                                                                    'inche' => 'Inches'] as $key => $text)
-                                                                    <option value="{{ $key }}">
-                                                                        {{ $text }}
-                                                                    </option>
-                                                                    @endforeach
-                                                                </select>
-                                                                {!! $errors->first('room_dimention_unit', '<p
-                                                                    class="help-block">:message
-                                                                </p>') !!}
-                                                            </td>
-                                                            <td>
-                                                                <input class="form-control"
-                                                                    name="room_dimention_display[]" type="text"
-                                                                    id="room_dimention_display" minlength="1"
-                                                                    placeholder="dimention display">
-                                                                {!! $errors->first('room_dimention_display', '<p
-                                                                    class="help-block">:message
-                                                                </p>') !!}
-                                                            </td>
-                                                            <td>
-                                                                <select class="form-control" id="room_area_unit"
-                                                                    name="room_area_unit[]">
-                                                                    <option value="" style="display: none;" disabled
-                                                                        selected>
-                                                                        room area unit
-                                                                    </option>
-                                                                    @foreach (['sq m' => 'sq m',
-                                                                    'sq cm' => 'sq cm',
-                                                                    'sq mm' => 'sq mm',
-                                                                    'sq ft' => 'sq ft',
-                                                                    'sq inch' => 'sq inch'] as $key => $text)
-                                                                    <option value="{{ $key }}">
-                                                                        {{ $text }}
-                                                                    </option>
-                                                                    @endforeach
-                                                                </select>
-                                                                {!! $errors->first('room_area_unit', '<p
-                                                                    class="help-block">
-                                                                    :message</p>')
-                                                                !!}
-                                                            </td>
-                                                            <td>
-                                                                <input class="form-control" name="property_id[]"
-                                                                    type="text" id="property_id" value="{{ $pro_id }}"
-                                                                    min="0" max="4294967295" required="true"
-                                                                    placeholder="property id">
-                                                                {!! $errors->first('property_id', '<p
-                                                                    class="help-block">
-                                                                    :message</p>') !!}
-                                                            </td>
-                                                            <td>
-                                                                <a href="javascript:void(0)" class="btn btn-danger"><i
-                                                                        class="fa fa-trash"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <div class="form-group">
-                                                    <div class="col-md-offset-2 col-md-10">
-                                                        <input class="btn btn-org" type="submit" value="Add Room">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                     </div>
@@ -260,6 +270,7 @@
 </div>
 
 <script>
+    var i = 1
     var faqs_row = 0;
     function addfaqs(){
         html = '<tr id="faqs-row' + faqs_row + '">';
@@ -283,6 +294,7 @@
                         '<option value="sq feet" >sq feet</option>'+
                         '<option value="sq inch" >sq inch</option>'+
                 '</select></td>';
+        html += '<td><input type="file" name="image[' + i + '][]" id="image" class="form-control" multiple=""></td>';
         html += '<td><input class="form-control" name="property_id[]" type="text" id="property_id" value="{{ $pro_id }}" min="0" max="4294967295" required="true" placeholder="property id"></td>';
         html += '<td><a href="javascript:void(0)" class="btn btn-danger" onclick="$(\'#faqs-row' + faqs_row + '\').remove();"><i class="fa fa-trash"></i></a></td>';
 
@@ -290,6 +302,7 @@
     $('#faqs tbody').append(html);
 
     faqs_row++;
+    i++;
     }
 </script>
 

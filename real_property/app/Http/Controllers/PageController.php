@@ -11,8 +11,8 @@ class PageController extends Controller
 {
     public function index()
     {
-        $sale_properties = Proparty::with('propertytype')->with('images')->where('catagery', 'for sale')->orderBy('updated_at', 'desc')->limit(5)->get();
-        $rent_properties = Proparty::with('propertytype')->with('images')->where('catagery', 'for let')->orderBy('updated_at', 'desc')->limit(5)->get();
+        $sale_properties = Proparty::with('propertytype')->with('images')->where('catagery', 'for sale')->where('is_publish', 1)->where('is_complete', 1)->orderBy('updated_at', 'desc')->limit(5)->get();
+        $rent_properties = Proparty::with('propertytype')->with('images')->where('catagery', 'for let')->where('is_publish', 1)->where('is_complete', 1)->orderBy('updated_at', 'desc')->limit(5)->get();
         return view('home', compact('sale_properties', 'rent_properties'));
         //dd($rent_properties);
     }
@@ -21,15 +21,15 @@ class PageController extends Controller
     {
         if($id == 'sale')
         {
-            $properties = Proparty::with('propertytype')->with('images')->where('catagery', 'for sale')->orderBy('updated_at', 'desc')->paginate(9);
+            $properties = Proparty::with('propertytype')->with('images')->where('catagery', 'for sale')->where('is_publish', 1)->where('is_complete', 1)->orderBy('updated_at', 'desc')->paginate(9);
         }
         elseif($id == 'let')
         {
-            $properties = Proparty::with('propertytype')->with('images')->where('catagery', 'for let')->orderBy('updated_at', 'desc')->paginate(9);
+            $properties = Proparty::with('propertytype')->with('images')->where('catagery', 'for let')->where('is_publish', 1)->where('is_complete', 1)->orderBy('updated_at', 'desc')->paginate(9);
         }
         else
         {
-            $properties = Proparty::with('propertytype')->with('images')->orderBy('updated_at', 'desc')->paginate(9);
+            $properties = Proparty::with('propertytype')->with('images')->where('is_publish', 1)->where('is_complete', 1)->orderBy('updated_at', 'desc')->paginate(9);
         }
 
         $propertytypes = PropartyType::pluck('type_name','type_id')->all();

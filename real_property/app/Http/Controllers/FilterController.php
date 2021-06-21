@@ -25,7 +25,8 @@ class FilterController extends Controller
                 AllowedFilter::exact('no_of_halls'),
                 AllowedFilter::custom('search', new FiltersKeywordSearch),
                 AllowedFilter::scope('starts_between'),
-                AllowedFilter::exact('is_publish')->default('1')
+                AllowedFilter::exact('is_publish')->default('1'),
+                AllowedFilter::exact('is_complete')->default('1')
                 // AllowedFilter::custom('starts_between', new PriceFilters)
             ])
             ->paginate(9);

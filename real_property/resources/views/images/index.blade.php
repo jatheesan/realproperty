@@ -39,8 +39,16 @@
                                 <div class="card-group">
                                     @foreach($images as $multi)
                                     <div class="col-md-4 mt-5">
-                                        <div class="card">
+                                        <div class="card" style="background-color: #ff9933 !important">
                                             <img src="{{asset($multi->image)}}" alt="">
+                                            <div class="row">
+                                                <div class="col-md-8 mt-2 ml-2" style="color: #fff !important">
+                                                    <h3>{{ optional($multi->room)-> room_name }}</h3>
+                                                </div>
+                                                <div class="col-md-3 mt-3 ml-2" style="color: #fff !important">
+                                                    <h6>{{ optional($multi->room)-> room_dimention_display }}{{ optional($multi->room)-> room_area_unit }}<h6>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     @endforeach

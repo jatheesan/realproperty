@@ -17,7 +17,7 @@ class ImageController extends Controller
     }
 
     public function index($id){
-        $images=Property_image::where('proparty_id', '=', $id)->get();
+        $images=Property_image::with('room')->where('proparty_id', '=', $id)->get();
         $pro_id = $id;
         $main=Property_image::where('proparty_id', '=', $id)->where('is_main', 1)->first();
         //dd($main);

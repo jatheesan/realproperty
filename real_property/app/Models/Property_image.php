@@ -57,4 +57,9 @@ class Property_image extends Model
     {
         return $this->belongsTo('App\Models\Proparty','proparty_id');
     }
+
+    public function room()
+    {
+        return $this->belongsTo('App\Models\Room','room_id');
+    }
 }

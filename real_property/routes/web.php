@@ -10,6 +10,7 @@ use App\Http\Controllers\OwnersController;
 use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\FilterController;
+use App\Http\Controllers\BoxRoomController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,10 @@ Route::get('/aboutus',[PageController::class,'getabout']);
 Route::get('/property/{id}',[PageController::class,'getproperty'])->name('property.view')->where('id', '[0-9]+');
 
 Route::get('/properties',[FilterController::class,'filtering'])->name('properties.filtering');
+
+Route::get('/boxroom4rent',[BoxRoomController::class,'index']);
+Route::get('/list',[BoxRoomController::class,'listing']);
+Route::get('/single/{id}',[BoxRoomController::class,'single'])->name('property.details');
 
 Route::group(['middleware' => ['auth']], function() {
 

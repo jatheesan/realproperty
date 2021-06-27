@@ -52,6 +52,11 @@ class Room extends Model
     protected $casts = [];
     
 
+    public function roomimages()
+    {
+        return $this->hasMany('App\Models\Property_Image');
+    }
+
 
 
 }

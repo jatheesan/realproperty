@@ -30,7 +30,7 @@ class Property_image extends Model
     protected $fillable = [
                   'image',
                   'is_main',
-                  'proparty_id',
+                  'property_id',
                   'room_id'
                 ];
 
@@ -55,7 +55,7 @@ class Property_image extends Model
      */
     public function property()
     {
-        return $this->belongsTo('App\Models\Proparty','proparty_id');
+        return $this->belongsTo('App\Models\Property','property_id');
     }
 
     public function room()

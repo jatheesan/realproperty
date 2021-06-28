@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Owner;
-use App\Models\Proparty;
+use App\Models\Property;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -100,7 +100,7 @@ class OwnersController extends Controller
             $pro_id =$request -> pro_id;
             $owner_id = Owner::where('email', '=', $email)->value('id');
             //dd($owner_id);
-            $property = Proparty::findOrFail($pro_id);
+            $property = Property::findOrFail($pro_id);
 
             $property->owner = $owner_id;
             $property->save();

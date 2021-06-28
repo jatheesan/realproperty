@@ -109,7 +109,7 @@ class RoomsController extends Controller
                     
                     $multi = [
                         'image'=>$last_img,
-                        'proparty_id'=>$property_id[$i],
+                        'property_id'=>$property_id[$i],
                         'room_id'=>$room_id
                     ];
                     DB::table('property_images')->insert($multi);
@@ -117,7 +117,7 @@ class RoomsController extends Controller
 
             }
 
-            return redirect()->route('proparties.proparty.index')->with('success_message', 'Rooms were successfully added.');
+            return redirect()->route('properties.property.index')->with('success_message', 'Rooms were successfully added.');
         } catch (Exception $exception) {
 
          return back()->withInput()

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Proparty;
+use App\Models\Property;
 use App\Models\PropartyType;
 use App\Filter\FiltersKeywordSearch;
 use App\Filter\PriceFilters;
@@ -16,7 +16,7 @@ class FilterController extends Controller
     public function filtering(Request $request)
     {
 
-        $properties = QueryBuilder::for(Proparty::class)
+        $properties = QueryBuilder::for(Property::class)
             ->allowedFilters([
                 AllowedFilter::exact('catagery'),
                 AllowedFilter::exact('type'),

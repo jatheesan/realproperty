@@ -10,5 +10,9 @@
     {
         "model-name": "Owner",
         "resource-file": "owners.json"
+    },
+    {
+        "model-name": "Property",
+        "resource-file": "properties.json"
     }
 ]

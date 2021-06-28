@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\BoxRoomController;
+use App\Http\Controllers\PropertiesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,12 +24,12 @@ use App\Http\Controllers\BoxRoomController;
 
 Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('home');
 Auth::routes();
-Route::get('/properties/{id}',[PageController::class,'getproperties']);
+Route::get('/prop/{id}',[PageController::class,'getproperties']);
 Route::get('/contactus',[PageController::class,'getcontact']);
 Route::get('/aboutus',[PageController::class,'getabout']);
-Route::get('/property/{id}',[PageController::class,'getproperty'])->name('property.view')->where('id', '[0-9]+');
+Route::get('/prop/{id}',[PageController::class,'getproperty'])->name('property.view')->where('id', '[0-9]+');
 
-Route::get('/properties',[FilterController::class,'filtering'])->name('properties.filtering');
+Route::get('/prop',[FilterController::class,'filtering'])->name('properties.filtering');
 
 Route::get('/boxroom4rent',[BoxRoomController::class,'index']);
 Route::get('/list',[BoxRoomController::class,'listing']);
@@ -136,6 +137,29 @@ Route::group(['middleware' => ['auth']], function() {
           ->name('owners.owner.destroy')->where('id', '[0-9]+');
      });
 
+     Route::group([
+          'prefix' => 'properties',
+      ], function () {
+          Route::get('/', [PropertiesController::class, 'index'])
+               ->name('properties.property.index');
+          Route::get('/create', [PropertiesController::class, 'create'])
+               ->name('properties.property.create');
+          Route::get('/show/{property}', [PropertiesController::class, 'show'])
+               ->name('properties.property.show')->where('id', '[0-9]+');
+          Route::get('/{property}/edit', [PropertiesController::class, 'edit'])
+               ->name('properties.property.edit')->where('id', '[0-9]+');
+          Route::post('/', [PropertiesController::class, 'store'])
+               ->name('properties.property.store');
+          Route::put('property/{property}', [PropertiesController::class, 'update'])
+               ->name('properties.property.update')->where('id', '[0-9]+');
+          Route::delete('/property/{property}', [PropertiesController::class, 'destroy'])
+               ->name('properties.property.destroy')->where('id', '[0-9]+');
+          Route::any('/search', [PropertiesController::class, 'search'])
+               ->name('properties.property.search');
+          Route::any('/stage/search', [PropertiesController::class, 'uncompletesearch'])
+               ->name('properties.property.uncompletesearch');
+      });
+
      // multi image route
      Route::any('/images/create/{id}',[ImageController::class, 'index'])->name('image.create');
      Route::post('/images/store', [ImageController::class, 'StoreImage'])->name('image.store');
@@ -143,3 +167,5 @@ Route::group(['middleware' => ['auth']], function() {
      Route::post('/image/delete/{id}', [ImageController::class, 'DeleteImage'])->name('image.delete');
      Route::get('/images/show', [ImageController::class, 'show'])->name('image');
 });
+
+

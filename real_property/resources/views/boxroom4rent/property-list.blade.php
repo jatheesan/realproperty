@@ -196,6 +196,7 @@
                                             <li class="dropdown-item" data-filter="all">All</li>
                                             <li class="dropdown-item" data-filter=".sale">Sale</li>
                                             <li class="dropdown-item" data-filter=".let">Let</li>
+                                            <li class="dropdown-item" data-filter=".shared">Shared</li>
                                         </ul>
                                     </ul>
                                 </div>
@@ -217,7 +218,7 @@
                             <div class="col mix let">
                         @elseif(($property -> catagery) == 'for sale')
                             <div class="col mix sale">
-                        @elseif(($property -> catagery) == 'shared accommodation')
+                        @elseif(($property -> catagery) == 'for shared')
                             <div class="col mix shared">
                         @else
                             <div class="col">
@@ -232,11 +233,11 @@
                                         @if(($property -> catagery) == 'for let')
                                             <span class="sale bg-secondary text-white">For Let</span>
                                         @endif
-                                        @if(($property -> catagery) == 'shared accommodation')
+                                        @if(($property -> catagery) == 'for shared')
                                             <span class="sale bg-secondary text-white">Shared</span>
                                         @endif
                                         <span class="featured bg-primary text-white">Featured</span>
-                                        @if(($property -> age) == 'New' || ($property -> age) == 'Newly build')
+                                        @if(($property -> age) == 'Pre')
                                             <span class="bg-secondary text-white">New</span>
                                         @endif
                                     </div>
@@ -245,7 +246,12 @@
                                         <a href="{{ route('property.details', $property->id ) }}"><img src="{{asset($image->image)}}" alt="Image Not Found!"></a>
                                         @endif
                                     @endforeach
-                                    <span class="price-on text-white font-medium font-500">£{{ $property->price }} @if(isset($property->rent_frequency)) <span style="color:#ff7f50 !important;">{{' | '}}</span>{{ $property->rent_frequency }} @endif</span>
+                                    @if(isset($property->saleprice))
+                                        <span class="price-on text-white font-medium font-500">£{{ $property->saleprice }}</span>
+                                    @endif
+                                    @if(isset($property->letamount))
+                                        <span class="price-on text-white font-medium font-500">£{{ $property->letamount }} @if(isset($property->rent_frequency)) <span style="color:#ff7f50 !important;">{{' | '}}</span>{{ $property->rent_frequency }} @endif</span>
+                                    @endif
                                     <ul class="position-absolute quick-meta">
                                         {{--<li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
                                         <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>--}}
@@ -254,17 +260,18 @@
                                 </div>
                                 <div class="property_text p-3">
                                     <span class="d-inline-block text-primary">{{ optional($property->propertytype)->type_name }}</span>
-                                    <span class="my-3 d-block"><i class="fas fa-map-marker-alt text-primary"></i>{{ ' ' }}{{ $property-> street_name }}{{ ' ' }}{{ $property-> post_town }}{{ ', ' }}{{ $property-> post_city }}{{ ', ' }}{{ $property-> first_pastcode }}</span>
+                                    {{--<span class="my-3 d-block"><i class="fas fa-map-marker-alt text-primary"></i>{{ ' ' }}{{ $property-> street_name }}{{ ' ' }}{{ $property-> post_town }}{{ ', ' }}{{ $property-> post_city }}{{ ', ' }}{{ $property-> first_pastcode }}</span>--}}
+                                    <span class="my-3 d-block"><i class="fas fa-map-marker-alt text-primary"></i>{{ ' ' }}{{ $property-> display_address_line1 }}{{ ' ' }}{{ $property->display_address_line2 }}</span>
                                     <div class="quantity">
                                         <ul class="d-flex">
-                                            @if(isset($property-> no_of_bedrooms))
-                                            <li><i class="fas fa-bed text-primary"></i> {{ $property-> no_of_bedrooms }}</li>
+                                            @if(isset($property-> bedrooms))
+                                            <li><i class="fas fa-bed text-primary"></i> {{ $property-> bedrooms }}</li>
                                             @endif
-                                            @if(isset($property-> no_of_bathrooms))
-                                            <li><i class="fas fa-bath text-primary"></i> {{ $property-> no_of_bathrooms }}</li>
+                                            @if(isset($property-> bathrooms))
+                                            <li><i class="fas fa-bath text-primary"></i> {{ $property-> bathrooms }}</li>
                                             @endif
-                                            @if(isset($property-> no_of_halls))
-                                            <li><i class="fas fa-couch text-primary"></i></i> {{ $property-> no_of_halls }}</li>
+                                            @if(isset($property-> halls))
+                                            <li><i class="fas fa-couch text-primary"></i></i> {{ $property-> halls }}</li>
                                             @endif
                                             @if(isset($property-> internal_area))
                                             <li><i class="far fa-clone text-primary"></i> {{ $property-> internal_area }} {{ $property-> area_unit }}</li>

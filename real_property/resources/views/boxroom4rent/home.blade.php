@@ -225,7 +225,7 @@
                         <h2 class="main-title down-line">Latest Properties</h2>
                     </div>
                     <div class="col-md-4">
-                        <a href="#" class="my-3 btn-link text-secondary hover-text-primary transation font-700 float-md-end">More Properties ></a>
+                        <a href="{{ url('/list') }}" class="my-3 btn-link text-secondary hover-text-primary transation font-700 float-md-end">More Properties ></a>
                     </div>
                 </div>
                 <div class="row">
@@ -235,28 +235,49 @@
                                 <li data-filter="all">All</li>
                                 <li data-filter=".sale">Sale</li>
                                 <li data-filter=".let">Let</li>
+                                <li data-filter=".shared">Shared</li>
                             </ul>
                         </div>
                         <div class="mix-element row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-4">
                             @foreach($properties as $property)
                                 @if(($property -> catagery) == 'for let')
-                                <div class="col mix let land mb-30">
+                                    <div class="col mix let">
+                                @elseif(($property -> catagery) == 'for sale')
+                                    <div class="col mix sale">
+                                @elseif(($property -> catagery) == 'for shared')
+                                    <div class="col mix shared">
+                                @else
+                                    <div class="col">
+                                @endif
                                     <!-- Property Grid -->
                                     <div class="property-grid-1 property-block bg-white transation-this hover-shadow">
                                         <div class="overflow-hidden position-relative rounded transation thumbnail-img bg-secondary hover-img-zoom m-2">
                                             <div class="cata position-absolute">
-                                                <span class="sale bg-secondary text-white">For Let</span>
+                                                @if(($property -> catagery) == 'for sale')
+                                                    <span class="sale bg-secondary text-white">For Sale</span>
+                                                @endif
+                                                @if(($property -> catagery) == 'for let')
+                                                    <span class="sale bg-secondary text-white">For Let</span>
+                                                @endif
+                                                @if(($property -> catagery) == 'for shared')
+                                                    <span class="sale bg-secondary text-white">Shared</span>
+                                                @endif
                                                 <span class="featured bg-primary text-white">Featured</span>
-                                                @if(($property -> age) == 'New' || ($property -> age) == 'Newly build')
+                                                @if(($property -> age) == 'Pre')
                                                     <span class="bg-secondary text-white">New</span>
                                                 @endif
                                             </div>
                                             @foreach($property->images as $image)
                                                 @if(($image->is_main) == 1)
-                                                <a href="property-single-v1.html"><img src="{{asset($image->image)}}" alt="Image Not Found!"></a>
+                                                <a href="{{ route('property.details', $property->id ) }}"><img src="{{asset($image->image)}}" alt="Image Not Found!"></a>
                                                 @endif
                                             @endforeach
-                                            <span class="price-on text-white font-medium font-500">£{{ $property->price }} | {{ $property->rent_frequency }}</span>
+                                            @if(isset($property->saleprice))
+                                                <span class="price-on text-white font-medium font-500">£{{ $property->saleprice }}</span>
+                                            @endif
+                                            @if(isset($property->letamount))
+                                                <span class="price-on text-white font-medium font-500">£{{ $property->letamount }} @if(isset($property->rent_frequency)) <span style="color:#ff7f50 !important;">{{' | '}}</span>{{ $property->rent_frequency }} @endif</span>
+                                            @endif
                                             <ul class="position-absolute quick-meta">
                                                 {{--<li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
                                                 <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>--}}
@@ -265,58 +286,20 @@
                                         </div>
                                         <div class="property_text p-3 pb-4">
                                             <span class="d-inline-block text-primary">{{ optional($property->propertytype)->type_name }}</span>
-                                            {{--<h5 class="mt-2"><a class="font-400 text-secondary" href="property-single-v1.html">Luxury Condos Infront of River</a></h5>--}}
-                                            <span class="my-3 d-block font-fifteen"><i class="fas fa-map-marker-alt text-primary"></i> {{ ' ' }}{{ $property-> street_name }}{{ ' ' }}{{ $property-> post_town }}{{ ', ' }}{{ $property-> post_city }}{{ ', ' }}{{ $property-> first_pastcode }}</span>
+                                            {{--<h5 class="mt-2"><a class="font-400 text-secondary" href="property-single-v1.html">Luxury Condos Infront of River</a></h5>
+                                            <span class="my-3 d-block font-fifteen"><i class="fas fa-map-marker-alt text-primary"></i> {{ ' ' }}{{ $property-> street_name }}{{ ' ' }}{{ $property-> post_town }}{{ ', ' }}{{ $property-> post_city }}{{ ', ' }}{{ $property-> first_pastcode }}</span>--}}
+                                            <span class="my-3 d-block font-fifteen"><i class="fas fa-map-marker-alt text-primary"></i>{{ ' ' }}{{ $property-> display_address_line1 }}{{ ' ' }}{{ $property->display_address_line2 }}</span>
                                             <div class="quantity font-fifteen">
                                                 <ul class="d-flex">
-                                                    <li><i class="fas fa-bed text-primary"></i> {{ $property-> no_of_bedrooms }}</li>
-                                                    <li><i class="fas fa-bath text-primary"></i> {{ $property-> no_of_bathrooms }}</li>
-                                                    <li><i class="fas fa-couch text-primary"></i></i> {{ $property-> no_of_halls }}</li>
+                                                    <li><i class="fas fa-bed text-primary"></i> {{ $property-> bedrooms }}</li>
+                                                    <li><i class="fas fa-bath text-primary"></i> {{ $property-> bathrooms }}</li>
+                                                    <li><i class="fas fa-couch text-primary"></i></i> {{ $property-> halls }}</li>
                                                     <li><i class="far fa-clone text-primary"></i> {{ $property-> internal_area }} {{ $property-> area_unit }}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                @endif
-
-                                @if(($property -> catagery) == 'for sale')
-                                <div class="col mix sale land mb-30">
-                                    <!-- Property Grid -->
-                                    <div class="property-grid-1 property-block bg-white transation-this hover-shadow">
-                                        <div class="overflow-hidden position-relative rounded transation thumbnail-img bg-secondary hover-img-zoom m-2">
-                                            <div class="cata position-absolute">
-                                                <span class="sale bg-secondary text-white">For Sale</span>
-                                                <span class="featured bg-primary text-white">Featured</span>
-                                            </div>
-                                            @foreach($property->images as $image)
-                                                @if(($image->is_main) == 1)
-                                                <a href="property-single-v1.html"><img src="{{asset($image->image)}}" alt="Image Not Found!"></a>
-                                                @endif
-                                            @endforeach
-                                            <span class="price-on text-white font-medium font-500">£{{ $property->price }}</span>
-                                            <ul class="position-absolute quick-meta">
-                                                {{--<li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
-                                                <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>--}}
-                                                <li class="md-mx-none"><a class="quick-view" href="#quick-view" title="Quick View"><i class="flaticon-zoom-increasing-symbol flat-mini"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="property_text p-3 pb-4">
-                                            <span class="d-inline-block text-primary">{{ optional($property->propertytype)->type_name }}</span>
-                                            {{--<h5 class="mt-2"><a class="font-400 text-secondary" href="property-single-v1.html">Luxury Condos Infront of River</a></h5>--}}
-                                            <span class="my-3 d-block font-fifteen"><i class="fas fa-map-marker-alt text-primary"></i> {{ $property-> street_name }}{{ ' ' }}{{ $property-> post_town }}{{ ', ' }}{{ $property-> post_city }}{{ ', ' }}{{ $property-> first_pastcode }}</span>
-                                            <div class="quantity font-fifteen">
-                                                <ul class="d-flex">
-                                                    <li><i class="fas fa-bed text-primary"></i> {{ $property-> no_of_bedrooms }}</li>
-                                                    <li><i class="fas fa-bath text-primary"></i> {{ $property-> no_of_bathrooms }}</li>
-                                                    <li><i class="fas fa-couch text-primary"></i> {{ $property-> no_of_halls }}</li>
-                                                    <li><i class="far fa-clone text-primary"></i> {{ $property-> internal_area }} {{ $property-> area_unit }}</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endif
                             @endforeach
                         </div>
                     </div>

@@ -88,17 +88,18 @@
             <div class="row">
                 <div class="col-auto">
                     <span class="d-inline-block text-primary">{{ optional($property->propertytype)->type_name }}</span>
-                    <h4 class="font-400 text-white"><i class="fas fa-map-marker-alt text-white"></i>{{ ' ' }}{{ $property-> street_name }}{{ ' ' }}{{ $property-> post_town }}{{ ', ' }}{{ $property-> post_city }}{{ ', ' }}{{ $property-> first_pastcode }}</h4>
+                    {{--<h4 class="font-400 text-white"><i class="fas fa-map-marker-alt text-white"></i>{{ ' ' }}{{ $property-> street_name }}{{ ' ' }}{{ $property-> post_town }}{{ ', ' }}{{ $property-> post_city }}{{ ', ' }}{{ $property-> first_pastcode }}</h4>--}}
+                    <h4 class="font-400 text-white"><i class="fas fa-map-marker-alt text-white"></i>{{ ' ' }}{{ $property-> display_address_line1 }}{{ ' ' }}{{ $property-> display_address_line2 }}</h4>
                     <div class="quantity">
                         <ul class="font-500 d-flex">
-                            @if(isset($property-> no_of_bedrooms))
-                            <li><i class="fas fa-bed text-primary"></i><span class="text-white"> {{ $property-> no_of_bedrooms }} </span></li>
+                            @if(isset($property-> bedrooms))
+                            <li><i class="fas fa-bed text-primary"></i><span class="text-white"> {{ $property-> bedrooms }} </span></li>
                             @endif
-                            @if(isset($property-> no_of_bathrooms))
-                            <li><i class="fas fa-bath text-primary"></i><span class="text-white"> {{ $property-> no_of_bathrooms }} </span></li>
+                            @if(isset($property-> bathrooms))
+                            <li><i class="fas fa-bath text-primary"></i><span class="text-white"> {{ $property-> bathrooms }} </span></li>
                             @endif
-                            @if(isset($property-> no_of_halls))
-                            <li><i class="fas fa-couch text-primary"></i><span class="text-white"></i> {{ $property-> no_of_halls }} </span></li>
+                            @if(isset($property-> halls))
+                            <li><i class="fas fa-couch text-primary"></i><span class="text-white"></i> {{ $property-> halls }} </span></li>
                             @endif
                             @if(isset($property-> internal_area))
                             <li><i class="far fa-clone text-primary"></i><span class="text-white"> {{ $property-> internal_area }} {{ $property-> area_unit }} </span></li>
@@ -107,10 +108,22 @@
                     </div>
                 </div>
                 <div class="col-auto ms-sm-auto text-sm-end">
-                    <span class="text-primary font-large font-500 d-table ms-sm-auto">£{{ $property->price }} @if(isset($property->rent_frequency)) <span style="color:#ff7f50 !important;">{{' | '}}</span>{{ $property->rent_frequency }} @endif</span>
+                @if(isset($property->saleprice))
+                    <span class="text-primary font-large font-500 d-table ms-sm-auto">£{{ $property->saleprice }}</span>
+                @endif
+                @if(isset($property->letamount))
+                    <span class="text-primary font-large font-500 d-table ms-sm-auto">£{{ $property->letamount }} @if(isset($property->rent_frequency)) <span style="color:#ff7f50 !important;">{{' | '}}</span>{{ $property->rent_frequency }} @endif</span>
+                @endif
+                    {{--<span class="text-primary font-large font-500 d-table ms-sm-auto">£{{ $property->price }} @if(isset($property->rent_frequency)) <span style="color:#ff7f50 !important;">{{' | '}}</span>{{ $property->rent_frequency }} @endif</span>--}}
                     <span class="d-table mb-2 ms-sm-auto text-white">Fixed Amount</span>
                     <span class="text-white font-mini px-2 rounded product-status ms-sm-auto py-1 bg-primary"><i
-                            class="fas fa-check"></i> Available</span>
+                            class="fas fa-check"></i>
+                    @if(($property->is_sold) == '0' && ($property->is_let) == '0')
+                        {{ 'Available' }}
+                    @elseif(($property->is_sold) == '1' || ($property->is_let) == '1')
+                        {{ 'Unavailable' }}
+                    @endif
+                    </span>
                 </div>
             </div>
         </div>
@@ -431,7 +444,7 @@
                                                 <li><span class="font-500">Let Type :</span> {{ $property->rent_frequency }}</li>
                                         @endif
                                         @if(isset($property->heating_type))
-                                                <li><span class="font-500">Heating System :</span> {{ implode(' & ', $property->heating_type) }}</li>
+                                                <li><span class="font-500">Heating System :</span> {{ $property->heating_type }}</li>
                                         @endif
                                         @if(isset($property-> no_of_bedrooms))
                                             <li><span class="font-500">Bedrooms :</span> {{ $property-> no_of_bedrooms }}</li>

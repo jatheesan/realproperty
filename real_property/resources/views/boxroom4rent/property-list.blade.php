@@ -28,92 +28,114 @@
                     <div class="col-lg-12">
                         <form class="quick-search form-icon-right position-relative" action="{{ route('properties.filtering') }}" method="get">
                             <div class="row row-cols-lg-6 row-cols-md-4 row-cols-1 g-3">
-                                <div class="col">
+                                {{--<div class="col">
                                     <input type="text" class="form-control" name="keyword" placeholder="Enter Keyword...">
+                                </div>--}}
+                                <div class="col">
+                                    <select class="form-control" id="type" name="filter[type]">
+                                            <option value="" selected>Property types</option>
+                                        @foreach ($propertytypes as $key => $propertytype)
+                                            <option value="{{ $key }}">
+                                                {{ $propertytype }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col">
-                                    <select class="form-control">
-										<option>Property Types</option>
-										<option>House</option>
-										<option>Office</option>
-										<option>Appartment</option>
-										<option>Condos</option>
-										<option>Villa</option>
-										<option>Small Family</option>
-										<option>Single Room</option>
-									</select>
-                                </div>
-                                <div class="col">
-                                    <select class="form-control">
-										<option>Property Status</option>
-										<option>For Rent</option>
-										<option>For Sale</option>
+                                    <select class="form-control" id="catagery" name="filter[catagery]">
+										<option value="">Property Status</option>
+										<option value="for sale">For Sale</option>
+										<option value="for let">For Let</option>
+                                        <option value="for shared">For Shared</option>
 									</select>
                                 </div>
                                 <div class="col">
                                     <div class="position-relative">
-                                        <input type="text" class="form-control" name="location" placeholder="Location">
+                                        <input type="text" class="form-control" id="location" name="filter[location]" placeholder="Location">
                                         <i class="flaticon-placeholder flat-mini icon-font y-center text-dark"></i>
                                     </div>
                                 </div>
-                                <div class="col">
+                                {{--<div class="col">
                                     <div class="position-relative">
                                         <button class="form-control price-toggle toggle-btn" data-target="#data-range-price">Price <i class="fas fa-angle-down font-mini icon-font y-center text-dark"></i></button>
                                         <div id="data-range-price" class="price_range price-range-toggle">
                                             <div class="area-filter price-filter">
                                                 <span class="price-slider">
-												<input class="filter_price" type="text" name="price" value="0;10000000" />
+												<input class="filter_price" type="text" id="min" name="filter[saleprice]" value="0;1000000" />
+                                                <input class="filter_price" type="text" id="max" name="filter[saleprice]" value="0;100" />
 											</span>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
                                 <div class="col">
-                                    <select class="form-control">
-										<option>Bedrooms</option>
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
-										<option>6</option>
-										<option>7</option>
-										<option>8</option>
+                                    <select class="form-control" id="bedrooms" name="filter[bedrooms]">
+										<option value="">Bedrooms</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
 									</select>
                                 </div>
                                 <div class="col">
-                                    <select class="form-control">
-										<option>Bathrooms</option>
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
-										<option>6</option>
-										<option>7</option>
-										<option>8</option>
+                                    <select class="form-control" id="bathrooms" name="filter[bathrooms]">
+										<option value="">Bathrooms</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
 									</select>
                                 </div>
                                 <div class="col">
+                                    <select class="form-control" id="halls" name="filter[halls]">
+										<option value="">Halls</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+									</select>
+                                </div>
+                                {{--<div class="col">
                                     <select class="form-control">
 										<option>Garage</option>
 										<option>Yes</option>
 										<option>No</option>
 									</select>
+                                </div>--}}
+                                <div class="col">
+                                    <input type="number" min="0" step="100" class="form-control" id="min-area" name="filter[area_between][]" placeholder="Min Area">
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" name="keyword" placeholder="Min Area">
+                                    <input type="number" min="0" step="100" class="form-control" id="max-area" name="filter[area_between][]" placeholder="Max Area">
                                 </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" name="keyword" placeholder="Max Area">
-                                </div>
-                                <div class="col">
+                                {{--<div class="col">
                                     <div class="position-relative">
                                         <button class="form-control text-start toggle-btn" data-target="#aditional-check">Advanced <i class="fas fa-ellipsis-v font-mini icon-font y-center text-dark"></i></button>
                                     </div>
-                                </div>
+                                </div>--}}
                                 <div class="col">
                                     <button class="btn btn-primary w-100">Search</button>
+                                </div>
+                                <div class="col">
+                                    <a href="{{ url('/list') }}" class="btn btn-secondary w-100">Cancel</a>
                                 </div>
                             </div>
                             <div id="aditional-check" class="aditional-features p-5">
@@ -199,6 +221,31 @@
                                             <li class="dropdown-item" data-filter=".shared">Shared</li>
                                         </ul>
                                     </ul>
+                                </div>
+                                <div>
+                                @if(isset($typename))
+                                    <span class="woocommerce-ordering-pages me-4 font-fifteen">{{ $typename }} </span>
+                                @endif
+
+                                @if(isset($catagery))
+                                    <span class="woocommerce-ordering-pages me-4 font-fifteen">{{ $catagery }} </span>
+                                @endif
+
+                                @if(isset($location))
+                                    <span class="woocommerce-ordering-pages me-4 font-fifteen">{{ $location }} </span>
+                                @endif
+
+                                @if(isset($bedrooms))
+                                    <span class="woocommerce-ordering-pages me-4 font-fifteen"><i class="fas fa-bed text-primary"></i> {{ $bedrooms }}</span>
+                                @endif
+
+                                @if(isset($bathrooms))
+                                    <span class="woocommerce-ordering-pages me-4 font-fifteen"><i class="fas fa-bath text-primary"></i> {{ $bathrooms }}</span>
+                                @endif
+
+                                @if(isset($halls))
+                                    <span class="woocommerce-ordering-pages me-4 font-fifteen"><i class="fas fa-couch text-primary"></i></i> {{ $halls }} </span>
+                                @endif
                                 </div>
                             </div>
                             <div class="d-flex">

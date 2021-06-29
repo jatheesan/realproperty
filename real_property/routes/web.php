@@ -29,8 +29,8 @@ Route::get('/contactus',[PageController::class,'getcontact']);
 Route::get('/aboutus',[PageController::class,'getabout']);
 Route::get('/prop/{id}',[PageController::class,'getproperty'])->name('property.view')->where('id', '[0-9]+');
 
-Route::get('/prop',[FilterController::class,'filtering'])->name('properties.filtering');
-
+Route::get('/properties/list',[FilterController::class,'filtering'])->name('properties.filtering');
+Route::get('/property/list',[FilterController::class,'filteringhome'])->name('properties.filtering.home');
 Route::get('/boxroom4rent',[BoxRoomController::class,'index']);
 Route::get('/list',[BoxRoomController::class,'listing']);
 Route::get('/single/{id}',[BoxRoomController::class,'single'])->name('property.details');

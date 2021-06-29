@@ -21,12 +21,8 @@ class FiltersKeywordSearch implements Filter
     public function __invoke(Builder $query, $value, string $property)
     {
         $query->where(function (Builder $query) use ($value) {
-             $query->where('first_pastcode', $value)
-             ->orWhere('second_pastcode', $value)
-             ->orWhere('second_pastcode', $value)
-             ->orWhere('post_town', $value)
-             ->orWhere('post_city', $value)
-             ->orWhere('post_country', $value);
+             $query->where('property_details', 'like', '%'.$value.'%')
+             ->orWhere('further_details', 'like', '%'.$value.'%');
              
          });
 

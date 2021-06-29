@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Property extends Model
 {
@@ -125,6 +126,23 @@ class Property extends Model
     public function images()
     {
         return $this->hasMany('App\Models\Property_Image');
+    }
+
+    public function scopeAreaBetween(Builder $query, $from, $to): Builder
+    {
+        if($from == "" && $to == "")
+        {
+            return $query->Where('internal_area', '>', 0);
+        }
+        elseif($from == "")
+        {
+            return $query->Where('internal_area', '<', $to);
+        }
+        else
+        {
+            return $query->whereBetween('internal_area', array($from, $to));
+        }
+        
     }
 
     // /**

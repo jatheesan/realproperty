@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Filter;
-use App\Models\Property;
+use App\Models\Proparty;
 use App\Models\PropartyType;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 
-class PriceFilters implements Filter
+class FiltersLocationSearch implements Filter
 {
     protected $searchableColumns = [];
 
@@ -21,8 +21,13 @@ class PriceFilters implements Filter
     public function __invoke(Builder $query, $value, string $property)
     {
         $query->where(function (Builder $query) use ($value) {
-
-            $query->whereBetween('saleprice', array($value));
+             $query->where('first_postcode', $value)
+             ->orWhere('second_postcode', $value)
+             ->orWhere('street_name', $value)
+             ->orWhere('second_line_of_address', $value)
+             ->orWhere('post_town', $value)
+             ->orWhere('post_city', $value)
+             ->orWhere('post_country', $value);
              
          });
 

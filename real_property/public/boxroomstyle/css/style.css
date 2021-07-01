@@ -2369,6 +2369,17 @@ Responsive Style Start
         font-weight: 600;
     }
 
+    a.text-brand:hover {
+        color: #000;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    a.text-brand:active {
+        color: #ff7f50;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
     .text-a {
         font-size: 5rem !important;
         color: #000;
@@ -2386,4 +2397,16 @@ Responsive Style Start
 
     .text-h {
         color: #fff !important;
+    }
+
+    .text-t{
+        color: #ff7f50 !important;
+    }
+
+    a.text-t:hover{
+        color: #000 !important;
+    }
+
+    a.text-t:active{
+        color: #000 !important;
     }

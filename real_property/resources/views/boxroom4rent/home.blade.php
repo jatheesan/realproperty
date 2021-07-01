@@ -37,21 +37,21 @@
                     <div class="row">
                         <div class="col">
                             <nav class="navbar navbar-expand-lg nav-white nav-primary-hover nav-line-active">
-                                {{--<a class="navbar-brand" href="#"><img class="nav-logo" src="assets/images/logo/logo-full-white.png" alt="Image not found !"></a>--}}
-                                <a class="navbar-brand text-brand" href="#"><span>BoxRoom</span><span class="text-b">4</span><span>Rent</span></a>
+                                {{--<a class="navbar-brand" href="{{ url('/') }}"><img class="nav-logo" src="assets/images/logo/logo-full-white.png" alt="Image not found !"></a>--}}
+                                <a class="navbar-brand text-brand" href="{{ url('/') }}"><span>BoxRoom</span><span class="text-b">4</span><span>Rent</span></a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon flaticon-menu flat-small text-primary"></span>
                                   </button>
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav ms-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ url('/') }}" style="color:#ff7f50 !important;">Home</a>
+                                            <a class="nav-link text-t" href="{{ url('/') }}">Home</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ url('/about') }}" style="color:#ff7f50 !important;">About Us</a>
+                                            <a class="nav-link text-t" href="{{ url('/about') }}">About Us</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ url('/contact') }}" style="color:#ff7f50 !important;">Contact Us</a>
+                                            <a class="nav-link text-t" href="{{ url('/contact') }}">Contact Us</a>
                                         </li>
                                     </ul>
                                     <a href="{{ url('/sign_in') }}" class="ms-2 btn btn-primary md-mx-none rounded-pill">Sign in</a>

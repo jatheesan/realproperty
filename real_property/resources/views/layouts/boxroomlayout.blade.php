@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'BoxRoom4Rent')</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('boxroomstyle/images/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{ asset('boxroomstyle/images/icons8-home-48.png')}}">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
@@ -45,13 +45,16 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav ms-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#" style="color:#ff7f50 !important;">Home</a>
+                                            <a class="nav-link" href="{{ url('/') }}" style="color:#ff7f50 !important;">Home</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="contact.html" style="color:#ff7f50 !important;">Contact</a>
+                                            <a class="nav-link" href="{{ url('/about') }}" style="color:#ff7f50 !important;">About Us</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ url('/contact') }}" style="color:#ff7f50 !important;">Contact Us</a>
                                         </li>
                                     </ul>
-                                    <a href="#" class="ms-2 btn btn-primary md-mx-none rounded-pill">Sign in</a>
+                                    <a href="{{ url('/sign_in') }}" class="ms-2 btn btn-primary md-mx-none rounded-pill">Sign in</a>
                                 </div>
                             </nav>
                         </div>
@@ -66,7 +69,7 @@
         <!-- ======= Main condent End ======= -->
 
         <!--============== Footer Section Start ==============-->
-        <footer class="full-row p-0 footer-default-dark bg-footer">
+        <footer class="full-row p-0 footer-default-dark bg-secondary">
             <div class="full-row">
                 <div class="container">
                     <div class="row">
@@ -89,7 +92,7 @@
                                     <div class="footer-widget contact-widget mb-4">
                                         <h3 class="widget-title mb-4">Contact Info</h3>
                                         <ul>
-                                            <li style="text-align: justify !important;">Unicoder Design Agency 301 The Greenhouse, Custard Factory, London, E3 8DY.</li>
+                                            <li style="text-align: justify !important;">BoxRoom for Rent Real Estate Agency, 301 The Greenhouse, Custard Factory, London, E3 8DY.</li>
                                             <li><h6 class="text-h">+1 246-345-0695</h6></li>
                                             <li><h6 class="text-h">boxroom4rent@gmail.com</h6></li>
                                         </ul>
@@ -115,14 +118,15 @@
                                 </div>
                                 <div class="col">
                                     <div class="footer-widget footer-nav mb-5">
-                                        <h4 class="widget-title mb-4">Locations</h4>
+                                        <h4 class="widget-title mb-4">Locations in UK</h4>
                                         <ul>
-                                            <li><a href="#">United Kingdom</a></li>
                                             <li><a href="#">London</a></li>
-                                            <li><a href="#">United Arab Amirat</a></li>
-                                            <li><a href="#">United Kingdom</a></li>
-                                            <li><a href="#">Canada</a></li>
-                                            <li><a href="#">Romania</a></li>
+                                            <li><a href="#">Glasgow</a></li>
+                                            <li><a href="#">Brimingham</a></li>
+                                            <li><a href="#">Bristol</a></li>
+                                            <li><a href="#">Edinburgh</a></li>
+                                            <li><a href="#">Sheffield</a></li>
+                                            <li><a href="#">Liverpool</a></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -397,7 +397,7 @@
                         <div class="property-overview border summary rounded bg-white p-30 mb-30">
                             <div class="row row-cols-1">
                                 <div class="col">
-                                    <h2 class="mb-3">Description</h2>
+                                    <h3 class="mb-3">Description</h3>
                                     <p style="font-size: 20px; text-align: justify;">
                                     @php echo nl2br($property->property_details) @endphp
                                     </p>
@@ -419,7 +419,7 @@
                         <div class="property-overview border rounded bg-white p-30 mb-30">
                             <div class="row row-cols-1">
                                 <div class="col">
-                                    <h2 class="mb-3">More Information</h2>
+                                    <h3 class="mb-3">More Information</h3>
                                     <ul class="list-three-fold-width">
                                         @if(isset($property->catagery))
                                                 <li><span class="font-500">Listing Type :</span>
@@ -493,7 +493,7 @@
                         <div class="property-overview border rounded bg-white p-30 mb-30">
                             <div class="row row-cols-1">
                                 <div class="col">
-                                    <h2 class="mb-3">Rooms</h2>
+                                    <h3 class="mb-3">Rooms</h3>
                                     <div class="tab-simple tab-action">
                                         <ul class="nav-tab-line list-color-secondary d-table mb-3">
                                             @php $i = 1; @endphp
@@ -540,33 +540,121 @@
                         <div class="property-overview border rounded bg-white p-30 mb-30">
                             <div class="row row-cols-1">
                                 <div class="col">
-                                    <h5 class="mb-4">Write A Review</h5>
-                                    <div class="d-flex w-100 mb-5">
-                                        <span>Your Rating:</span>
-                                        <ul class="d-flex mx-2 text-primary font-12">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
+                                    <h3 class="mb-3">For All Request</h3>
+                                    <div class="tab-simple tab-action">
+                                        <ul class="nav-tab-line list-color-secondary d-table mb-3">
+                                            <li class="active" data-target="#tb-1">Asking for Enquiries</li>
+                                            <li data-target="#tb-2">Asking for Property Seeing</li>
                                         </ul>
-                                    </div>
-                                    <form class="contact_message form-boder" action="#" method="post" novalidate="novalidate">
-                                        <div class="row g-3">
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" id="name" name="name" placeholder="Name" type="text">
+                                        <div class="tab-element">
+                                            <!-- Hosiptan data -->
+                                            <div class="tab-pane tab-hide" id="tb-1" style="display: block;">
+                                                <div class="row g-3">
+                                                    <div class="col-md-6">
+                                                        <div class="property-overview border rounded bg-white p-30 mb-30">
+                                                        <h4 class="mb-4">For Enquiries</h4>
+                                                        @if(count($errors) > 0)
+                                                            <div class="alert alert-danger">
+                                                            <button type="button" class="close" data-dismiss="alert">x</button>
+                                                            <ul>
+                                                                @foreach($errors->all() as $error)
+                                                                <li>{{ $error}}</li>
+                                                                @endforeach
+                                                            </ul>
+                                                            </div>
+                                                        @endif
+
+                                                        @if($message = Session::get('success'))
+                                                            <div class="alert alert-success alert-block">
+                                                            <button type="button" class="close" data-dismiss="alert">x</button>
+                                                            <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @endif
+                                                        <form class="contact_message form-boder" action="{{ url('/sendmail/mail') }}" method="post" role="form" novalidate="novalidate">
+                                                        @csrf
+                                                            <div class="row g-3">
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <input type="hidden" class="form-control" id="id" name="id" value="{{ $property -> id }}">
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <input type="hidden" class="form-control" id="location" name="location" value="{{ $property-> display_address_line1 }}{{ ' ' }}{{ $property-> display_address_line2 }}">
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12">
+                                                                <input type="hidden" class="form-control" id="subject" name="subject" placeholder="Subject" value="Request for enquiring this property">
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12">
+                                                                <textarea class="form-control" id="message" rows="5" name="message" placeholder="Message"></textarea>
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-6">
+                                                                <button class="btn btn-primary" id="send" value="send" type="submit">Submit</button>
+                                                            </div>
+                                                            </div>
+                                                        </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" id="email" name="email" placeholder="Email Address" type="text">
-                                            </div>
-                                            <div class="col-md-12 col-sm-12">
-                                                <textarea class="form-control" id="message" rows="5" name="message" placeholder="Message"></textarea>
-                                            </div>
-                                            <div class="col-md-12 col-sm-6">
-                                                <button class="btn btn-primary" id="send" value="send" type="submit">Submit</button>
+                                            <!-- Shpping Data -->
+                                            <div class="tab-pane tab-hide" id="tb-2" style="display: block;">
+                                                <div class="row g-3">
+                                                    <div class="col-md-6">
+                                                        <div class="property-overview border border-info rounded bg-white p-30 mb-30">
+                                                        <h4 class="mb-4">Property Seeing</h4>
+                                                        @if(count($errors) > 0)
+                                                            <div class="alert alert-danger">
+                                                            <button type="button" class="close" data-dismiss="alert">x</button>
+                                                            <ul>
+                                                                @foreach($errors->all() as $error)
+                                                                <li>{{ $error}}</li>
+                                                                @endforeach
+                                                            </ul>
+                                                            </div>
+                                                        @endif
+
+                                                        @if($message = Session::get('success'))
+                                                            <div class="alert alert-success alert-block">
+                                                            <button type="button" class="close" data-dismiss="alert">x</button>
+                                                            <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @endif
+                                                        <form class="contact_message form-boder" action="{{ url('/sendmail/mail') }}" method="post" role="form" novalidate="novalidate">
+                                                        @csrf
+                                                            <div class="row g-3">
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <input type="hidden" class="form-control" id="id" name="id" value="{{ $property -> id }}">
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <input type="hidden" class="form-control" id="location" name="location" value="{{ $property-> display_address_line1 }}{{ ' ' }}{{ $property-> display_address_line2 }}">
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <input class="form-control" id="name" name="name" placeholder="Name" type="text">
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <input class="form-control" id="email" name="email" placeholder="Email Address" type="text">
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12">
+                                                                <input type="hidden" class="form-control" id="subject" name="subject" placeholder="Subject" value="Request for seeing the this property">
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12">
+                                                                <textarea class="form-control" id="message" rows="5" name="message" placeholder="Message"></textarea>
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-6">
+                                                                <button class="btn btn-primary" id="send" value="send" type="submit">Submit</button>
+                                                            </div>
+                                                            </div>
+                                                        </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

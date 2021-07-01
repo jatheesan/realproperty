@@ -12,6 +12,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\BoxRoomController;
 use App\Http\Controllers\PropertiesController;
+use App\Http\Controllers\sendEmailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +23,7 @@ use App\Http\Controllers\PropertiesController;
 | contains the "web" middleware group. Now create something great!
 */
 
-Route::get('/', [App\Http\Controllers\PageController::class, 'index'])->name('home');
+Route::get('/boxroom4rent', [App\Http\Controllers\PageController::class, 'index'])->name('home');
 Auth::routes();
 Route::get('/prop/{id}',[PageController::class,'getproperties']);
 Route::get('/contactus',[PageController::class,'getcontact']);
@@ -31,9 +32,15 @@ Route::get('/prop/{id}',[PageController::class,'getproperty'])->name('property.v
 
 Route::get('/properties/list',[FilterController::class,'filtering'])->name('properties.filtering');
 Route::get('/property/list',[FilterController::class,'filteringhome'])->name('properties.filtering.home');
-Route::get('/boxroom4rent',[BoxRoomController::class,'index']);
+Route::get('/',[BoxRoomController::class,'index']);
 Route::get('/list',[BoxRoomController::class,'listing']);
+Route::get('/about',[BoxRoomController::class,'about']);
+Route::get('/contact',[BoxRoomController::class,'contact']);
+Route::get('/sign_in',[BoxRoomController::class,'signin']);
 Route::get('/single/{id}',[BoxRoomController::class,'single'])->name('property.details');
+
+Route::post('/sendmail/send', [sendEmailController::class, 'sendm']);
+Route::post('/sendmail/mail', [sendEmailController::class, 'mail']);
 
 Route::group(['middleware' => ['auth']], function() {
 

@@ -34,4 +34,19 @@ class BoxRoomController extends Controller
         //dd($rooms);
         return view('boxroom4rent.property-single', compact('property', 'rooms'));
     }
+
+    public function about()
+    {
+        return view('boxroom4rent.about');
+    }
+
+    public function contact()
+    {
+        return view('boxroom4rent.contact');
+    }
+
+    public function signin()
+    {
+        return view('boxroom4rent.sign-in');
+    }
 }

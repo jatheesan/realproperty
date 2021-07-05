@@ -45,16 +45,16 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav ms-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ url('/') }}" style="color:#ff7f50 !important;">Home</a>
+                                            <a class="nav-link text-t" href="{{ url('/') }}">Home</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ url('/about') }}" style="color:#ff7f50 !important;">About Us</a>
+                                            <a class="nav-link text-t" href="{{ url('/about') }}">About Us</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ url('/contact') }}" style="color:#ff7f50 !important;">Contact Us</a>
+                                            <a class="nav-link text-t" href="{{ url('/contact') }}">Contact Us</a>
                                         </li>
                                     </ul>
-                                    <a href="{{ url('/sign_in') }}" class="ms-2 btn btn-primary md-mx-none rounded-pill">Sign in</a>
+                                    {{--<a href="{{ url('/sign_in') }}" class="ms-2 btn btn-primary md-mx-none rounded-pill">Sign in</a>--}}
                                 </div>
                             </nav>
                         </div>
@@ -134,7 +134,7 @@
                                             <li><a href="#">Site Map</a></li>
                                             <li><a href="#">Legal</a></li>
                                             <li><a href="#">Agent Admin</a></li>
-                                            <li><a href="#">Privacy Policy</a></li>
+                                            <li><a href="/privacy-policy">Privacy Policy</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -173,7 +173,7 @@
                                 <li style="color: #ff7f50 !important;">|</li>
                                 <li><a href="#" style="color: #fff !important;">Disclaimer</a></li>
                                 <li style="color: #ff7f50 !important;">|</li>
-                                <li><a href="#" style="color: #fff !important;">Privacy Policy</a></li>
+                                <li><a href="/privacy-policy" style="color: #fff !important;">Privacy Policy</a></li>
                                 <li style="color: #ff7f50 !important;">|</li>
                                 <li><a href="#" style="color: #fff !important;">Site Map</a></li>
                             </ul>

@@ -49,4 +49,9 @@ class BoxRoomController extends Controller
     {
         return view('boxroom4rent.sign-in');
     }
+
+    public function policy()
+    {
+        return view('boxroom4rent.privacy-policy');
+    }
 }

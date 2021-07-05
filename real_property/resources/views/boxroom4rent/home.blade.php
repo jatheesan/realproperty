@@ -54,7 +54,7 @@
                                             <a class="nav-link text-t" href="{{ url('/contact') }}">Contact Us</a>
                                         </li>
                                     </ul>
-                                    <a href="{{ url('/sign_in') }}" class="ms-2 btn btn-primary md-mx-none rounded-pill">Sign in</a>
+                                    {{--<a href="{{ url('/sign_in') }}" class="ms-2 btn btn-primary md-mx-none rounded-pill">Sign in</a>--}}
                                 </div>
                             </nav>
                         </div>
@@ -598,7 +598,7 @@
                         <div class="col-lg-4">
                             <div class="footer-widget mb-5">
                                 <h1 class="widget-title mb-4 font-400 footer-title" style="color:#ff7f50; text-align: justify !important;"><span class="text-a">i</span><span>HOMES</span></h1>
-                                <p style="text-align: justify !important;">
+                                <p class="text-black" style="text-align: justify !important;">
                                 iHOMES is the most advanced real estate and rental marketplace in London. 
                                 Our online platform offers various types of latest properties in London. 
                                 Whether you are buying, selling, letting or renting property, 
@@ -660,7 +660,7 @@
                                             <li><a href="#">Site Map</a></li>
                                             <li><a href="#">Legal</a></li>
                                             <li><a href="#">Agent Admin</a></li>
-                                            <li><a href="#">Privacy Policy</a></li>
+                                            <li><a href="/privacy-policy">Privacy Policy</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -699,7 +699,7 @@
                                 <li>|</li>
                                 <li><a href="#">Disclaimer</a></li>
                                 <li>|</li>
-                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="/privacy-policy">Privacy Policy</a></li>
                                 <li>|</li>
                                 <li><a href="#">Site Map</a></li>
                             </ul>

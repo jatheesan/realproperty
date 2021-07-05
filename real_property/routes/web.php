@@ -36,11 +36,13 @@ Route::get('/',[BoxRoomController::class,'index']);
 Route::get('/list',[BoxRoomController::class,'listing']);
 Route::get('/about',[BoxRoomController::class,'about']);
 Route::get('/contact',[BoxRoomController::class,'contact']);
-Route::get('/sign_in',[BoxRoomController::class,'signin']);
+Route::get('/iHOME-administrative',[BoxRoomController::class,'signin']);
 Route::get('/single/{id}',[BoxRoomController::class,'single'])->name('property.details');
 
 Route::post('/sendmail/send', [sendEmailController::class, 'sendm']);
 Route::post('/sendmail/mail', [sendEmailController::class, 'mail']);
+
+Route::get('/privacy-policy', [BoxRoomController::class, 'policy']);
 
 Route::group(['middleware' => ['auth']], function() {
 

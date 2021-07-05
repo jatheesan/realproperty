@@ -2445,6 +2445,7 @@ Responsive Style Start
 
     .text-t{
         color: #ff7f50 !important;
+        font-size: 20px !important;
     }
 
     a.text-t:hover{
@@ -2529,3 +2530,10 @@ Responsive Style Start
         }
 
     }
+
+    ul.privacy li::before {
+        content: "•"; /* Insert content that looks like bullets */
+        padding-right: 8px;
+        color: #ff7f50; /* Or a color you prefer */
+        font-size: 30px;
+      }

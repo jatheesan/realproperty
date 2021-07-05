@@ -62,23 +62,6 @@ class FilterController extends Controller
             ->paginate(12)
             ->appends(request()->query());
 
-        $properties_counts = QueryBuilder::for(Property::class)
-            ->allowedFilters([
-                AllowedFilter::exact('catagery'),
-                AllowedFilter::exact('type'),
-                AllowedFilter::custom('location', new FiltersLocationSearch),
-                AllowedFilter::exact('bedrooms'),
-                AllowedFilter::exact('bathrooms'),
-                AllowedFilter::exact('halls'),
-                AllowedFilter::scope('area_between'),
-                AllowedFilter::custom('search', new FiltersKeywordSearch),
-                AllowedFilter::scope('starts_between'),
-                AllowedFilter::exact('is_publish')->default('1'),
-                AllowedFilter::exact('is_complete')->default('1'),
-                AllowedFilter::custom('saleprice', new PriceFilters)
-            ])
-            ->count();
-
             $propertytypes = PropartyType::pluck('type_name','type_id')->all();
             //dd($typename);
             //return view('boxroom4rent.property-list', compact('properties', 'propertytypes', 'typename', 'catagery', 'location', 'bedrooms', 'bathrooms', 'halls', 'data'));
@@ -88,10 +71,20 @@ class FilterController extends Controller
 
     public function filteringhome(Request $request)
     {
-        $type = $request->filter[ 'type' ];
-        $typename = PropartyType::where('type_id', '=', $type)->value('type_name');
-        $catagery = $request->filter[ 'catagery' ];
-        $location = $request->filter[ 'location' ];
+        $data = $request->all();
+        if(isset($request->filter[ 'type' ]))
+        {
+            $type = $request->filter[ 'type' ];
+            $typename = PropartyType::where('type_id', '=', $type)->value('type_name');
+        }
+        if(isset($request->filter[ 'catagery' ]))
+        {
+            $catagery = $request->filter[ 'catagery' ];
+        }
+        if(isset($request->filter[ 'location' ]))
+        {
+            $catagery = $request->filter[ 'location' ];
+        }
 
         $properties = QueryBuilder::for(Property::class)
             ->allowedFilters([
@@ -112,17 +105,8 @@ class FilterController extends Controller
 
             $propertytypes = PropartyType::pluck('type_name','type_id')->all();
             //dd($typename);
-            return view('boxroom4rent.property-list', compact('properties', 'propertytypes', 'typename', 'catagery', 'location'));
+            //return view('boxroom4rent.property-list', compact('properties', 'propertytypes', 'typename', 'catagery', 'location'));
+            return view('boxroom4rent.property-list', compact('properties', 'propertytypes'));
     }
 
 }
-
-// class FiltersKeywordSearch implements Filter
-// {
-//     public function __invoke(Builder $query, $value, string $property)
-//     {
-//         $query->whereHas('permissions', function (Builder $query) use ($value) {
-//             $query->where('name', $value);
-//         });
-//     }
-// }

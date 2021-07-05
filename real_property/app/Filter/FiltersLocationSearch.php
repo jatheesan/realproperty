@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Filter;
-use App\Models\Proparty;
+use App\Models\Property;
 use App\Models\PropartyType;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\Filters\Filter;

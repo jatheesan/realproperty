@@ -13,6 +13,7 @@ use App\Http\Controllers\FilterController;
 use App\Http\Controllers\BoxRoomController;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\sendEmailController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,6 +58,9 @@ Route::group(['middleware' => ['auth']], function() {
 
      //Route::get('/change-password', 'User\ChangePasswordController@index');
      Route::post('/change-password', [ChangePasswordController::class, 'store'])->name('change.password');
+
+     Route::get('/profile', [UserController::class, 'index'])->name('profile');
+     Route::post('/profile-edit', [UserController::class, 'edit'])->name('profile.edit');
 
      Route::group([
      'prefix' => 'proparty_types',

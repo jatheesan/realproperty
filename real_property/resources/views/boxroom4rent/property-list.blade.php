@@ -249,7 +249,11 @@
                                 </div>
                             </div>
                             <div class="d-flex">
-                                <span class="woocommerce-ordering-pages me-4 font-fifteen">{{ 'Showing at' }} @if(isset($properties)) {{ count($properties) }} @endif {{ 'result' }}</span>
+                                <span class="woocommerce-ordering-pages me-4 font-fifteen">
+                                @if(isset($properties))
+                                    Showing {{($properties->currentpage()-1)*$properties->perpage()+1}} to {{(($properties->currentpage()-1)*$properties->perpage())+$properties->count()}} of {{$properties->total()}} results
+                                @endif
+                                </span>
                                 <form class="view-category" method="get">
                                     <button title="List" class="list-view" value="list" name="display" type="submit"><i class="flaticon-grid-1 flat-mini"></i></button>
                                     <button title="Grid" class="grid-view active" value="grid" name="display" type="submit"><i class="flaticon-grid flat-mini"></i></button>
@@ -258,6 +262,28 @@
                         </div>
                     </div>
                 </div>
+                @if(count($properties) == 0)
+                <div class="row">
+                    <div class="col">
+                        <div class="property-grid-1 bg-white property-block border transation-this hover-shadow mb-30">
+                            <div class="property_text p-3">
+                                    <div class="col-sm-12 text-center">
+                                            <h1 class="text-primary">Look like we don't have any matches for your search</h1>
+                                            <hr>
+                                    </div>
+                                    <div class="col-sm-12 text-center">
+                                        <ul style="font-size:20px;">
+                                            <li>Check for types or use a diffetent search term.</li>
+                                            <li>View property you've buy before.</li>
+                                            <li>Browse property type , post code of property, or price of property.</li>
+                                            <li>Note if property sold are't listed online.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                @else
                 <div class="mix-element row row-cols-xl-3 row-cols-md-2 row-cols-1">
                     @if(isset($properties))
                         @foreach($properties as $property)
@@ -385,6 +411,7 @@
                     {!! $properties->render("pagination::bootstrap-4") !!}
                     </div>
                 </div>
+                @endif
                 {{--<div class="row">
                     <div class="col mt-5">
                         <nav aria-label="Page navigation example">

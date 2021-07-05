@@ -48,6 +48,9 @@
                                             <a class="nav-link text-t" href="{{ url('/') }}">Home</a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link text-t" href="{{ url('/list') }}">Properties</a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link text-t" href="{{ url('/about') }}">About Us</a>
                                         </li>
                                         <li class="nav-item">
@@ -131,7 +134,7 @@
                                     <div class="footer-widget footer-nav mb-5">
                                         <h4 class="widget-title mb-4 ms-4">The Company</h4>
                                         <ul class="ms-4">
-                                            <li><a href="#">Site Map</a></li>
+                                            <li><a href="https://www.google.com/maps/search/Ihomes,+976+Eastern+Avenue,+IG2+7JD/@51.577491,0.09895,16z?hl=en-GB" target="_blank">Site Map</a></li>
                                             <li><a href="#">Legal</a></li>
                                             <li><a href="#">Agent Admin</a></li>
                                             <li><a href="/privacy-policy">Privacy Policy</a></li>
@@ -163,7 +166,7 @@
                 <div class="container py-4">
                     <div class="row row-cols-lg-2 row-cols-1">
                         <div class="col foot text-h">
-                            <span>Copyright © 2021 BoxRoom4Rent All right reserved</span>
+                            <span>Copyright © 2021 ITi Repairs Ltd All right reserved</span>
                         </div>
                         <div class="col foot">
                             <ul class="line-menu float-lg-end list-color-secondary">
@@ -175,7 +178,7 @@
                                 <li style="color: #ff7f50 !important;">|</li>
                                 <li><a href="/privacy-policy" style="color: #fff !important;">Privacy Policy</a></li>
                                 <li style="color: #ff7f50 !important;">|</li>
-                                <li><a href="#" style="color: #fff !important;">Site Map</a></li>
+                                <li><a href="https://www.google.com/maps/search/Ihomes,+976+Eastern+Avenue,+IG2+7JD/@51.577491,0.09895,16z?hl=en-GB" target="_blank" style="color: #fff !important;">Site Map</a></li>
                             </ul>
                         </div>
                     </div>

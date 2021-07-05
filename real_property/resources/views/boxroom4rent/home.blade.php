@@ -48,6 +48,9 @@
                                             <a class="nav-link text-t" href="{{ url('/') }}">Home</a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link text-t" href="{{ url('/list') }}">Properties</a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link text-t" href="{{ url('/about') }}">About Us</a>
                                         </li>
                                         <li class="nav-item">
@@ -330,11 +333,15 @@
         <!--============== Service Content Start ==============-->
         <div class="full-row">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-5 col-md-12 mb-5">
-                        <div class="text-secondary mb-5">
-                            {{--<span class="text-primary text-uppercase pb-2 d-table tagline-2 font-fifteen">Event Publish Pricing</span>--}}
+                <div class="row row-cols-xl-12 row-cols-md-12 row-cols-1">
+                    <div class="col-lg-5 col-md-12 mb-3">
+                        <div class="text-secondary mb-3">
                             <h2 class="main-title down-line text-secondary">Our Services</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="px-5 sm-px-0 mb-5">
+                            <span class="text-primary text-uppercase pb-2 d-table font-fifteen" style="text-align: justify !important;">Whether you are buying, selling, letting or renting property, or simply want to arrange a mortgage, we would be delighted to help you. After all, it's what we do best. Covering the entire property spectrum from first time buyer flats to large country properties with acreage, at iHOMES we pride ourselves on being able to make your property sale or purchase a success every time.</span>
                         </div>
                     </div>
                 </div>
@@ -565,7 +572,7 @@
                         <h3 class="down-line text-white mb-3">Do you want to sell your property ?</h3>
                         <p>If you want to sell your home fast, the first step is call to us. we sell your home quickly, price it competitively.</p>
                         <p>You can also fill out our online form. We are ready to keep you and your business safe and secure.</p>
-                        <a href="#" class="btn btn-primary">Submit Property</a>
+                        <a href="{{ url('/contact') }}" class="btn btn-primary">Contact Us</a>
                     </div>
                     <div class="col-lg-5">
                         <div class="h4 text-white w-100 text-lg-end md-mt-20">Call : (0208) 599 2555</div>
@@ -583,7 +590,7 @@
                         <h3 class="text-white xs-text-center my-20 font-400">Are you looking for a House or Customer for your Property sale?</h3>
                     </div>
                     <div class="col-lg-3 col-md-4">
-                        <a href="#" class="btn btn-white y-center position-relative d-table xs-mx-auto ms-auto">Subscribe Now</a>
+                        <a href="{{ url('/contact') }}" class="btn btn-white y-center position-relative d-table xs-mx-auto ms-auto">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -657,7 +664,7 @@
                                     <div class="footer-widget footer-nav mb-5">
                                         <h4 class="widget-title ms-4 mb-4">The Company</h4>
                                         <ul class="ms-4">
-                                            <li><a href="#">Site Map</a></li>
+                                            <li><a href="https://www.google.com/maps/search/Ihomes,+976+Eastern+Avenue,+IG2+7JD/@51.577491,0.09895,16z?hl=en-GB" target="_blank">Site Map</a></li>
                                             <li><a href="#">Legal</a></li>
                                             <li><a href="#">Agent Admin</a></li>
                                             <li><a href="/privacy-policy">Privacy Policy</a></li>
@@ -689,7 +696,7 @@
                 <div class="container py-4">
                     <div class="row row-cols-lg-2 row-cols-1">
                         <div class="col foot text-center">
-                            <span>Copyright © 2021 BoxRoom4Rent All right reserved</span>
+                            <span>Copyright © 2021 ITi Repairs Ltd All right reserved</span>
                         </div>
                         <div class="col foot text-center">
                             <ul class="line-menu float-lg-end list-color-secondary">
@@ -701,7 +708,7 @@
                                 <li>|</li>
                                 <li><a href="/privacy-policy">Privacy Policy</a></li>
                                 <li>|</li>
-                                <li><a href="#">Site Map</a></li>
+                                <li><a href="https://www.google.com/maps/search/Ihomes,+976+Eastern+Avenue,+IG2+7JD/@51.577491,0.09895,16z?hl=en-GB" target="_blank">Site Map</a></li>
                             </ul>
                         </div>
                     </div>

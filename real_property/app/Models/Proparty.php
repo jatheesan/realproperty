@@ -115,7 +115,7 @@ class Proparty extends Model
 
     public function images()
     {
-        return $this->hasMany('App\Models\Property_Image');
+        return $this->hasMany('App\Models\Property_image');
     }
 
 

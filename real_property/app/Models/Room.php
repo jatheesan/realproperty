@@ -54,7 +54,7 @@ class Room extends Model
 
     public function roomimages()
     {
-        return $this->hasMany('App\Models\Property_Image');
+        return $this->hasMany('App\Models\Property_image');
     }
 
 

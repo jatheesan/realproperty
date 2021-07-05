@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="unicoder">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'BoxRoom4Rent')</title>
+    <title>@yield('title', 'iHOMES')</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('boxroomstyle/images/icons8-home-48.png')}}">
 
@@ -38,7 +38,7 @@
                         <div class="col">
                             <nav class="navbar navbar-expand-lg nav-white nav-primary-hover nav-line-active">
                                 {{--<a class="navbar-brand" href="{{ url('/') }}"><img class="nav-logo" src="assets/images/logo/logo-full-white.png" alt="Image not found !"></a>--}}
-                                <a class="navbar-brand text-brand" href="{{ url('/') }}"><span>BoxRoom</span><span class="text-b">4</span><span>Rent</span></a>
+                                <a class="navbar-brand text-brand" href="{{ url('/') }}"><span class="text-b">i</span><span>HOMES</span></a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon flaticon-menu flat-small text-primary"></span>
                                   </button>
@@ -271,10 +271,18 @@
                                                 @if(($property -> catagery) == 'for shared')
                                                     <span class="sale bg-secondary text-white">Shared</span>
                                                 @endif
-                                                <span class="featured bg-primary text-white">Featured</span>
                                                 @if(($property -> age) == 'Pre')
                                                     <span class="bg-secondary text-white">New</span>
                                                 @endif
+                                            </div>
+                                            <div class="cat position-absolute">
+                                                <span class="featured bg-primary text-white">
+                                                    @if(($property->is_sold) == '0' && ($property->is_let) == '0')
+                                                        {{ 'Available' }}
+                                                    @elseif(($property->is_sold) == '1' || ($property->is_let) == '1')
+                                                        {{ 'Unavailable' }}
+                                                    @endif
+                                                </span>
                                             </div>
                                             @foreach($property->images as $image)
                                                 @if(($image->is_main) == 1)
@@ -295,15 +303,16 @@
                                         </div>
                                         <div class="property_text p-3 pb-4">
                                             <span class="d-inline-block text-primary">{{ optional($property->propertytype)->type_name }}</span>
-                                            {{--<h5 class="mt-2"><a class="font-400 text-secondary" href="property-single-v1.html">Luxury Condos Infront of River</a></h5>
-                                            <span class="my-3 d-block font-fifteen"><i class="fas fa-map-marker-alt text-primary"></i> {{ ' ' }}{{ $property-> street_name }}{{ ' ' }}{{ $property-> post_town }}{{ ', ' }}{{ $property-> post_city }}{{ ', ' }}{{ $property-> first_pastcode }}</span>--}}
-                                            <span class="my-3 d-block font-fifteen"><i class="fas fa-map-marker-alt text-primary"></i>{{ ' ' }}{{ $property-> display_address_line1 }}{{ ' ' }}{{ $property->display_address_line2 }}</span>
+                                            {{--<h5 class="mt-2"><a class="font-400 text-secondary" href="property-single-v1.html">Luxury Condos Infront of River</a></h5>--}}
+                                            <span class="my-3 d-block font-fifteen"><i class="fas fa-map-marker-alt text-primary"></i> {{ ' ' }}{{ $property-> street_name }}{{ ' ' }}{{ $property-> post_town }}{{ ', ' }}{{ $property-> post_city }}{{ ', ' }}{{ $property-> first_postcode }}</span>
+                                            {{--<span class="my-3 d-block font-fifteen"><i class="fas fa-map-marker-alt text-primary"></i>{{ ' ' }}{{ $property-> display_address_line1 }}{{ ' ' }}{{ $property->display_address_line2 }}</span>--}}
                                             <div class="quantity font-fifteen">
                                                 <ul class="d-flex">
                                                     <li><i class="fas fa-bed text-primary"></i> {{ $property-> bedrooms }}</li>
                                                     <li><i class="fas fa-bath text-primary"></i> {{ $property-> bathrooms }}</li>
                                                     <li><i class="fas fa-couch text-primary"></i></i> {{ $property-> halls }}</li>
-                                                    <li><i class="far fa-clone text-primary"></i> {{ $property-> internal_area }} {{ $property-> area_unit }}</li>
+                                                    <li><i class="fas fa-car text-primary"></i></li>
+                                                    <li><i class="fas fa-tree text-primary"></i></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -318,6 +327,236 @@
         @endif
         <!--============== Property Tab End ==============-->
 
+        <!--============== Service Content Start ==============-->
+        <div class="full-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-12 mb-5">
+                        <div class="text-secondary mb-5">
+                            {{--<span class="text-primary text-uppercase pb-2 d-table tagline-2 font-fifteen">Event Publish Pricing</span>--}}
+                            <h2 class="main-title down-line text-secondary">Our Services</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row divider-col-3 row-cols-xl-3 row-cols-md-2 row-cols-1">
+                    <div class="col-md-4">
+                        <div class="px-5 sm-px-0 mb-5">
+                            <div class="item-1">
+                                <div class="property-grid-2 property-block transation mb-3">
+                                    <div class="overflow-hidden position-relative transation thumbnail-img rounded bg-secondary hover-img-zoom img-fluid">
+                                        <a href=""><img src="{{ asset('boxroomstyle/images/services/service8.jpg') }}" alt="Image Not Found!" class=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="text-start text-primary font-400">RENT REVIEW</h4>
+                            <div class="posi-11">
+                                <p style="text-align: justify !important;">We conduct regular reviews with our landlords to evaluate 
+                                their portfolio and tenancies to ensure that we are helping 
+                                to achieve maximum rental income and a seamless rental.</p>
+                            </div>
+                            <div class="posi-1">
+                                <button type="button" class="btn btn-primary d-table" data-bs-toggle="modal" data-bs-target="#thinking-of-selling">
+                                    Find out More
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="thinking-of-selling" tabindex="-1" aria-labelledby="thinking-of-selling-Label" aria-hidden="true" style=" float: left !important; z-index: 100001 !important;">
+                                <div class="modal-dialog modal-xl modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title text-primary" id="thinking-of-selling-Label">THINKING OF SELLING</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p style="text-align: justify !important;">
+                                                    If you are thinking about selling your property, the first step is to contact iHOMES so that we can arrange for a valuation to be carried out ASAP.
+                                                    </p>
+                                                    <p style="text-align: justify !important;">
+                                                    When you are ready to market your property, we can arrange a convenient time with you to take measurement and take the internal photographs of your property. 
+                                                    We can also assist you in obtaining an Energy Performance Certificate which is a compulsory requirement when selling your home We will market your property on various websites, 
+                                                    within our high profile offices, within the local Property News and directly to our database of buyers.
+                                                    </p>
+                                                    <p style="text-align: justify !important;">
+                                                    We will accompany the viewings where required and we will always request feedback from viewers and let you know this as soon as possible.
+                                                    </p>
+                                                    <p style="text-align: justify !important;">
+                                                    Our sales team have a passion for selling and a tenacity that will result in us finding you a buyer and negotiating the sale for you. 
+                                                    Experienced staff will substantiate the financial status of any prospective purchaser and once a sale has been agreed, 
+                                                    facilitate the process through to exchange of contracts and ultimately completion of the sale.
+                                                    </p>
+                                                    <p style="text-align: justify !important;">
+                                                    We understand how stressful and sometimes emotive the house selling process can be. 
+                                                    That is why we try to make the transaction as straight forward as possible and liaise with solicitors, other agents and your buyer on your behalf.
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="footer-widget footer-nav mb-2">
+                                                        <h4 class="widget-title mb-1">We Offer our clients:</h4>
+                                                        <ul>
+                                                            <li>Competitive all inclusive sales rates</li>
+                                                            <li>No Sale, no fee arrangements</li>
+                                                            <li>Local advertising</li>
+                                                            <li>Advertising on top property portal web sites</li>
+                                                            <li>A refreshing service from a firm that cares</li>
+                                                            <li>Accompanied viewings 6 days a week if required</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="px-5 sm-px-0 mb-5">
+                            <div class="item-1">
+                                <div class="property-grid-2 property-block transation mb-3">
+                                    <div class="overflow-hidden position-relative transation thumbnail-img rounded bg-secondary hover-img-zoom">
+                                        <a href=""><img src="{{ asset('boxroomstyle/images/services/service1.jpg') }}" alt="Image Not Found!"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="text-start text-primary font-400">MAXIMUM EXPOSURE</h4>
+                            <p style="text-align: justify !important;">Your property will be extensively marketed within our offices and with all the major portals.</p>
+                            <P style="text-align: justify !important;">iHOMES have  web sites which have been search engine optimised (SEO), meaning your property will more visible to potential tenants.</P>
+                            <button type="button" class="btn btn-primary d-table" data-bs-toggle="modal" data-bs-target="#thinking-of-letting">
+                                    Find out More
+                            </button>
+                                <!-- Modal -->
+                            <div class="modal fade" id="thinking-of-letting" tabindex="-1" aria-labelledby="thinking-of-letting-Label" aria-hidden="true" style=" float: left !important; z-index: 100001 !important;">
+                                <div class="modal-dialog modal-xl modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title text-primary" id="thinking-of-letting-Label">THINKING OF LETTING</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p style="text-align: justify !important;">
+                                                    iHomes is an established independent firm of sales and letting specialists. 
+                                                    We provide our clients with a comprehensive personal service tailored to your requirements. 
+                                                    We ensure that we work to the highest of standards to guarantee that the letting of your property runs as smoothly as possible.
+                                                    </p>
+                                                    <p style="text-align: justify !important;">
+                                                    Whatever the reason for letting your property you may rest assured that iHOMES will provide a proactive management approach to give you complete peace of mind.
+                                                    </p>
+                                                    <p style="text-align: justify !important;">
+                                                    Depending on the package you take we can offer services including advertising, accompanied viewings, rent collection, tenant referencing, 
+                                                    preparation of tenancies agreements, assistance with safety checks, handling maintenance issues and more.
+                                                    </p>
+                                                    <p style="text-align: justify !important;">
+                                                    Our lettings services are set out in three categories, Fully Managed, Rent Collect and Tenant Find.  For details on what each service covers, please call us and speak to our experts
+                                                    </p>
+                                                    <h5>How to let guide</h5>
+                                                    <p style="text-align: justify !important;">
+                                                    This guide is focused on landlords letting to tenants on an assured shorthold tenancy. 
+                                                    An AST is the main type of tenancy arrangement between landlords and tenants. By setting up an AST, you enter a contractual arrangement to let your property to a tenant.
+                                                    </p>
+                                                    <h5>Letting Appraisal</h5>
+                                                    <p style="text-align: justify !important;">
+                                                    The first step is to book an appointment for our valuer to visit your property and advise you of the current market rent. 
+                                                    We will advise you of the procedure to be followed together with an explanation of the services we provide and any tips on how to increase the level of rent you can achieve.
+                                                    </p>
+                                                    <p style="text-align: justify !important;">
+                                                    Call us today to book an appointment at a convenient time that suits you.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="px-5 sm-px-0 mb-5">
+                            <div class="item-1">
+                                <div class="property-grid-2 property-block transation mb-3">
+                                    <div class="overflow-hidden position-relative transation thumbnail-img rounded bg-secondary hover-img-zoom">
+                                        <a href=""><img src="{{ asset('boxroomstyle/images/services/service4.jpg') }}" alt="Image Not Found!"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="text-start text-primary font-400">FREE RENTAL VALUATION</h4>
+                            <p style="text-align: justify !important;">If you are thinking of letting your property to get a great rental return, your first step should be to get a free consultation.</p>
+                            {{--<p style="text-align: justify !important;">Email us we will call you.</p>--}}
+                            <div class="posi-2">
+                                <button type="button" class="btn btn-primary d-table" data-bs-toggle="modal" data-bs-target="#free-rental-valuation">
+                                    Find out More
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="free-rental-valuation" tabindex="-1" aria-labelledby="free-rental-valuation-Label" aria-hidden="true" style=" float: left !important; z-index: 100001 !important;">
+                                <div class="modal-dialog modal-xl modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title text-primary" id="free-rental-valuation-Label">FREE RENTAL VALUATION</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row row-cols-1">
+                                                <div class="col">
+                                                    @if(count($errors) > 0)
+                                                        <div class="alert alert-danger">
+                                                            <button type="button" class="close" data-dismiss="alert">x</button>
+                                                            <ul>
+                                                                @foreach($errors->all() as $error)
+                                                                <li>{{ $error}}</li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    @endif
+
+                                                    @if($message = Session::get('success'))
+                                                        <div class="alert alert-success alert-block">
+                                                        <button type="button" class="close" data-dismiss="alert">x</button>
+                                                        <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @endif
+                                                    <form class="contact_message form-boder" action="{{ url('/sendmail/send') }}" method="post" role="form" novalidate="novalidate">
+                                                    {{ csrf_field() }}
+                                                        <div class="row g-3">
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6">
+                                                                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12">
+                                                                <input type="hidden" class="form-control" id="subject" name="subject" value="free rental valuation" placeholder="subject">
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12">
+                                                                <textarea class="form-control" id="message" rows="5" name="message" placeholder="Message"></textarea>
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-6">
+                                                                <button class="btn btn-primary" id="send" value="send" type="submit">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============== Service Content End ==============-->
+
         <!--============== Reg Banner Start ==============-->
         <div class="full-row bg-center overlay-secondary paraxify" style="background-image:url('{{ asset('boxroomstyle/images/background/london.jpg')}}'); background-repeat: no-repeat; background-position: center -17.42px;">
             <div class="container position-relative z-index-9">
@@ -329,7 +568,7 @@
                         <a href="#" class="btn btn-primary">Submit Property</a>
                     </div>
                     <div class="col-lg-5">
-                        <div class="h4 text-white w-100 text-lg-end md-mt-20">Call : 902 - 000 - 99999</div>
+                        <div class="h4 text-white w-100 text-lg-end md-mt-20">Call : (0208) 599 2555</div>
                     </div>
                 </div>
             </div>
@@ -358,40 +597,66 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="footer-widget mb-5">
-                                <h1 class="widget-title mb-4 font-400 footer-title" style="color:#ff7f50; text-align: justify !important;"><span>BoxRoom</span><span class="text-a">4</span><span>Rent</span></h1>
+                                <h1 class="widget-title mb-4 font-400 footer-title" style="color:#ff7f50; text-align: justify !important;"><span class="text-a">i</span><span>HOMES</span></h1>
                                 <p style="text-align: justify !important;">
-                                BoxRoom for Rent is the most advanced real estate and rental marketplace in UK. 
+                                iHOMES is the most advanced real estate and rental marketplace in London. 
                                 Our online platform offers various types of latest properties in London. 
-                                We are aimed at changing the Real Estate industry of london. 
-                                We offer all our services for free and we encourage every single user 
-                                to advertise with us to feel our disruptive innovation in the Online Real Estate Market of london. 
-                                We help you to Sell, Rent, or Buy any type of property for Free.
+                                Whether you are buying, selling, letting or renting property, 
+                                or simply want to arrange a mortgage, we would be delighted to help you. 
+                                After all, it's what we do best. Covering the entire property spectrum from 
+                                first time buyer flats to large country properties with acreage, 
+                                at iHOMES we pride ourselves on being able to make your property sale or purchase a success every time.
                                 </p>
+                                <div class="footer-widget media-widget mt-1">
+                                    <a href="#" class="badge"><i class="fab fa-facebook-f text-primary"></i></a>
+                                    <a href="#" class="badge"><i class="fab fa-twitter text-primary"></i></a>
+                                    <a href="mailto:info@i-homes.net?subject=Website%20enquiry" class="badge"><i class="fab fa-google-plus-g text-primary"></i></a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-8">
                             <div class="row row-cols-1 row-cols-sm-3">
-                                <div class="col">
+                                <div class="col-sm-6">
                                     <div class="footer-widget contact-widget mb-4">
-                                        <h3 class="widget-title mb-4">Contact Info</h3>
-                                        <ul>
-                                            <li style="text-align: justify !important;">BoxRoom for Rent Real Estate Agency, 301 The Greenhouse, Custard Factory, London, E3 8DY.</li>
-                                            <li><h6>+1 246-345-0695</h6></li>
-                                            <li><h6>boxroom4rent@gmail.com</h6></li>
-                                        </ul>
-                                        <div class="footer-widget media-widget mt-1">
-                                            <a href="#"><i class="fab fa-facebook-f text-primary"></i></a>
-                                            <a href="#"><i class="fab fa-twitter text-primary"></i></a>
-                                            <a href="#"><i class="fab fa-linkedin-in text-primary"></i></a>
-                                            <a href="#"><i class="fab fa-google-plus-g text-primary"></i></a>
-                                            <a href="#"><i class="fab fa-pinterest-p text-primary"></i></a>
-                                        </div>
+                                        <h3 class="widget-title mb-4 ms-4">Contact Info</h3>
+                                        <table border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" style="vertical-align: top;"><span
+                                                            class="fas fa-map-marker-alt banner-tagline font-large text-primary">{{ " " }}</span>
+                                                    </th>
+                                                    <td>
+                                                        <span class="font-medium text-primary">Ihomes Lettings & Management.<br />
+                                                            Suite 1,<br />
+                                                            976 Eastern Ave,<br />
+                                                            Newbury Park.<br />
+                                                            IG2 7JD</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span
+                                                            class="fas fa-phone banner-tagline font-large text-primary">{{ '  ' }}</span>
+                                                    </th>
+                                                    <td>
+                                                        <h6>(0208) 599 2555</h6>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span
+                                                            class="fas fa-envelope-open banner-tagline font-large text-primary">{{ '  ' }}</span>
+                                                    </th>
+                                                    <td>
+                                                        <h6><a href="mailto:info@i-homes.net?subject=Website%20enquiry">info@i-homes.net</a></h6>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col-sm-6">
                                     <div class="footer-widget footer-nav mb-5">
-                                        <h4 class="widget-title mb-4">The Company</h4>
-                                        <ul>
+                                        <h4 class="widget-title ms-4 mb-4">The Company</h4>
+                                        <ul class="ms-4">
                                             <li><a href="#">Site Map</a></li>
                                             <li><a href="#">Legal</a></li>
                                             <li><a href="#">Agent Admin</a></li>
@@ -399,7 +664,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col">
+                                {{--<div class="col">
                                     <div class="footer-widget footer-nav mb-5">
                                         <h4 class="widget-title mb-4">Locations in UK</h4>
                                         <ul>
@@ -412,7 +677,7 @@
                                             <li><a href="#">Liverpool</a></li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div>--}}
                             </div>
                         </div>
                     </div>
@@ -423,10 +688,10 @@
             <div class="copyright-border text-secondary">
                 <div class="container py-4">
                     <div class="row row-cols-lg-2 row-cols-1">
-                        <div class="col foot">
+                        <div class="col foot text-center">
                             <span>Copyright © 2021 BoxRoom4Rent All right reserved</span>
                         </div>
-                        <div class="col foot">
+                        <div class="col foot text-center">
                             <ul class="line-menu float-lg-end list-color-secondary">
                                 <li><a href="#">Advertise</a></li>
                                 <li>|</li>

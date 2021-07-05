@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="unicoder">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'BoxRoom4Rent')</title>
+    <title>@yield('title', 'iHOMES')</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('boxroomstyle/images/icons8-home-48.png')}}">
 
@@ -38,7 +38,7 @@
                         <div class="col">
                             <nav class="navbar navbar-expand-lg nav-white nav-primary-hover nav-line-active">
                                 {{--<a class="navbar-brand" href="#"><img class="nav-logo" src="assets/images/logo/logo-full-white.png" alt="Image not found !"></a>--}}
-                                <a class="navbar-brand text-brand" href="#" style="color:#ff7f50 !important;"><span>BoxRoom</span><span class="text-b">4</span><span>Rent</span></a>
+                                <a class="navbar-brand text-brand" href="#" style="color:#ff7f50 !important;"><span class="text-b">i</span><span>HOMES</span></a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon flaticon-menu flat-small text-primary"></span>
                                   </button>
@@ -75,40 +75,62 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="footer-widget mb-5">
-                                <h1 class="widget-title mb-4 font-400 footer-title" style="color:#ff7f50; text-align: justify !important;"><span>BoxRoom</span><span class="text-c">4</span><span>Rent</span></h1>
-                                <p style="text-align: justify !important;">
-                                BoxRoom for Rent is the most advanced real estate and rental marketplace in UK. 
+                                <h1 class="widget-title mb-4 font-400 footer-title" style="color:#ff7f50; text-align: justify !important;"><span class="text-c">i</span><span>HOMES</span></h1>
+                                <p style="text-align: justify !important; color:#fff;">
+                                iHOMES is the most advanced real estate and rental marketplace in London. 
                                 Our online platform offers various types of latest properties in London. 
-                                We are aimed at changing the Real Estate industry of london. 
-                                We offer all our services for free and we encourage every single user 
-                                to advertise with us to feel our disruptive innovation in the Online Real Estate Market of london. 
-                                We help you to Sell, Rent, or Buy any type of property for Free.
+                                Whether you are buying, selling, letting or renting property, 
+                                or simply want to arrange a mortgage, we would be delighted to help you. 
+                                After all, it's what we do best. Covering the entire property spectrum from 
+                                first time buyer flats to large country properties with acreage, 
+                                at iHOMES we pride ourselves on being able to make your property sale or purchase a success every time.
                                 </p>
+                                <div class="footer-widget media-widget mt-1">
+                                    <a href="#" class="badge"><i class="fab fa-facebook-f text-primary"></i></a>
+                                    <a href="#" class="badge"><i class="fab fa-twitter text-primary"></i></a>
+                                    <a href="mailto:info@i-homes.net?subject=Website%20enquiry" class="badge"><i class="fab fa-google-plus-g text-primary"></i></a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-8">
                             <div class="row row-cols-1 row-cols-sm-3">
-                                <div class="col">
+                                <div class="col-sm-6">
                                     <div class="footer-widget contact-widget mb-4">
-                                        <h3 class="widget-title mb-4">Contact Info</h3>
-                                        <ul>
-                                            <li style="text-align: justify !important;">BoxRoom for Rent Real Estate Agency, 301 The Greenhouse, Custard Factory, London, E3 8DY.</li>
-                                            <li><h6 class="text-h">+1 246-345-0695</h6></li>
-                                            <li><h6 class="text-h">boxroom4rent@gmail.com</h6></li>
-                                        </ul>
-                                        <div class="footer-widget media-widget mt-1">
-                                            <a href="#"><i class="fab fa-facebook-f text-primary"></i></a>
-                                            <a href="#"><i class="fab fa-twitter text-primary"></i></a>
-                                            <a href="#"><i class="fab fa-linkedin-in text-primary"></i></a>
-                                            <a href="#"><i class="fab fa-google-plus-g text-primary"></i></a>
-                                            <a href="#"><i class="fab fa-pinterest-p text-primary"></i></a>
-                                        </div>
+                                        <h3 class="widget-title mb-4 ms-4">Contact Info</h3>
+                                        <table border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" style="vertical-align: top;"><span
+                                                            class="fas fa-map-marker-alt banner-tagline font-large text-primary">{{ " " }}</span>
+                                                    </th>
+                                                    <td>
+                                                        <span class="font-medium text-primary">Ihomes Lettings & Management.<br />
+                                                            Suite 1,<br />
+                                                            976 Eastern Ave,<br />
+                                                            Newbury Park.<br />
+                                                            IG2 7JD</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="fas fa-phone banner-tagline font-large text-primary">{{ '  ' }}</span></th>
+                                                    <td>
+                                                        <h6 style="color:#fff;">(0208) 599 2555</h6>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><span class="fas fa-envelope-open banner-tagline font-large text-primary">{{ '  ' }}</span></th>
+                                                    <td>
+                                                        <h6><a href="mailto:info@i-homes.net?subject=Website%20enquiry" style="color:#fff;">info@i-homes.net</a></h6>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col-sm-6">
                                     <div class="footer-widget footer-nav mb-5">
-                                        <h4 class="widget-title mb-4">The Company</h4>
-                                        <ul>
+                                        <h4 class="widget-title mb-4 ms-4">The Company</h4>
+                                        <ul class="ms-4">
                                             <li><a href="#">Site Map</a></li>
                                             <li><a href="#">Legal</a></li>
                                             <li><a href="#">Agent Admin</a></li>
@@ -116,7 +138,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col">
+                                {{--<div class="col">
                                     <div class="footer-widget footer-nav mb-5">
                                         <h4 class="widget-title mb-4">Locations in UK</h4>
                                         <ul>
@@ -129,7 +151,7 @@
                                             <li><a href="#">Liverpool</a></li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div>--}}
                             </div>
                         </div>
                     </div>

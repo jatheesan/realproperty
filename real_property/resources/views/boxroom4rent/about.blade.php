@@ -69,14 +69,12 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-8">
                         <div class="text-white">
-                            <span class="tagline text-primary">Who We Are</span>
-                            <h3 class="mb-4 text-white">Since <Span class="text-primary">BoxRoom4Rent</Span> was launched in 2021, our goal has been to the online property portal of choice for all Britons.</h3>
-                            <p>BoxRoom for Rent is London's mostly visited property website
-                               and has the largest number of London property ads listed than any other site on the Internet.
-                               BoxRoom for Rent was started with the intention of providing a free online platform for property owners, 
-                               landlords and agents in london to advertise their property for free of charge.</p> 
+                            <h3><span class="tagline text-primary">Who We Are</span></h3>
+                            {{--<h3 class="mb-4 text-white">Since <Span class="text-primary">BoxRoom4Rent</Span> was launched in 2021, our goal has been to the online property portal of choice for all Britons.</h3>--}}
+                            <p><Span class="text-primary">iHOMES</Span> is a team of real Estate Agents specialising in Redbridge and surrounding boroughs with experience over 15 years in residential lettings & sales, property management, mortgages, commercial leases and licensing.</p> 
                             <p>Our aim is to be the online property portal of choice for all Britons where all sellers and landlords will find buyers or tenants for their properties, 
                                and for buyers/tenants to find their ideal property easily and quickly.</p>
+                            <p>Overall we are a one stop store for all your property needs and guide you throughout the process. We look forward to serve you.</p>
                         </div>
                     </div>
                 </div>

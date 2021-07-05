@@ -283,10 +283,18 @@
                                         @if(($property -> catagery) == 'for shared')
                                             <span class="sale bg-secondary text-white">Shared</span>
                                         @endif
-                                        <span class="featured bg-primary text-white">Featured</span>
                                         @if(($property -> age) == 'Pre')
                                             <span class="bg-secondary text-white">New</span>
                                         @endif
+                                    </div>
+                                    <div class="cat position-absolute">
+                                        <span class="featured bg-primary text-white">
+                                        @if(($property->is_sold) == '0' && ($property->is_let) == '0')
+                                            {{ 'Available' }}
+                                        @elseif(($property->is_sold) == '1' || ($property->is_let) == '1')
+                                            {{ 'Unavailable' }}
+                                        @endif
+                                        </span>
                                     </div>
                                     @foreach($property->images as $image)
                                         @if(($image->is_main) == 1)
@@ -307,8 +315,8 @@
                                 </div>
                                 <div class="property_text p-3">
                                     <span class="d-inline-block text-primary">{{ optional($property->propertytype)->type_name }}</span>
-                                    {{--<span class="my-3 d-block"><i class="fas fa-map-marker-alt text-primary"></i>{{ ' ' }}{{ $property-> street_name }}{{ ' ' }}{{ $property-> post_town }}{{ ', ' }}{{ $property-> post_city }}{{ ', ' }}{{ $property-> first_pastcode }}</span>--}}
-                                    <span class="my-3 d-block"><i class="fas fa-map-marker-alt text-primary"></i>{{ ' ' }}{{ $property-> display_address_line1 }}{{ ' ' }}{{ $property->display_address_line2 }}</span>
+                                    <span class="my-3 d-block"><i class="fas fa-map-marker-alt text-primary"></i>{{ ' ' }}{{ $property-> street_name }}{{ ' ' }}{{ $property-> post_town }}{{ ', ' }}{{ $property-> post_city }}{{ ', ' }}{{ $property-> first_postcode }}</span>
+                                    {{--<span class="my-3 d-block"><i class="fas fa-map-marker-alt text-primary"></i>{{ ' ' }}{{ $property-> display_address_line1 }}{{ ' ' }}{{ $property->display_address_line2 }}</span>--}}
                                     <div class="quantity">
                                         <ul class="d-flex">
                                             @if(isset($property-> bedrooms))
@@ -320,9 +328,8 @@
                                             @if(isset($property-> halls))
                                             <li><i class="fas fa-couch text-primary"></i></i> {{ $property-> halls }}</li>
                                             @endif
-                                            @if(isset($property-> internal_area))
-                                            <li><i class="far fa-clone text-primary"></i> {{ $property-> internal_area }} {{ $property-> area_unit }}</li>
-                                            @endif
+                                            <li><i class="fas fa-car text-primary"></i></li>
+                                            <li><i class="fas fa-tree text-primary"></i></li>
                                         </ul>
                                     </div>
                                 </div>

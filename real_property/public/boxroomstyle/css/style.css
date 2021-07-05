@@ -306,6 +306,30 @@ Default CSS Start
         border: 1px solid #efefef !important;
     }
     
+    .ionc-border {
+        width: 50px!important;
+        height: 50px!important;
+        border: 2px solid hsl(24, 100%, 50%) !important;
+        border-radius: 50%!important;
+        justify-content:center!important;
+        float: left;
+        text-align: center;
+    }
+
+    .badge {
+        border: 2px solid hsl(24, 100%, 50%) !important;
+        border-radius: 50%; /* one half of ( (border * 2) + height + padding ) */
+        box-shadow: 1px 1px 1px black;
+        height: 50px; 
+        min-width: 50px;
+        padding: 4px 3px 0 3px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding-top: 17px;
+        font-size: large;
+    }
+    
     .rounded {
         border-radius: .30rem!important;
     }
@@ -1184,8 +1208,21 @@ Property Block Style Start
         top: 15px;
         z-index: 9;
     }
+
+    .property-block .cat {
+        right: 15px;
+        top: 15px;
+        z-index: 9;
+    }
     
     .property-block .cata span {
+        padding: 5px 12px;
+        font-size: 13px;
+        margin-right: 3px;
+        border-radius: 3px;
+    }
+
+    .property-block .cat span {
         padding: 5px 12px;
         font-size: 13px;
         margin-right: 3px;
@@ -1610,7 +1647,14 @@ Map Element Style Start
     
     .homepage-map #map {
         width: 100%;
-        height: 710px
+        height: 500px
+    }
+
+    @media screen and (max-width: 450px){
+        .homepage-map #map {
+            width: 100%;
+            height: 200px
+        }
     }
     
     .marker-style {
@@ -2381,7 +2425,7 @@ Responsive Style Start
     }
 
     .text-a {
-        font-size: 5rem !important;
+        font-size: 6rem !important;
         color: #000;
     }
 
@@ -2409,4 +2453,79 @@ Responsive Style Start
 
     a.text-t:active{
         color: #000 !important;
+    }
+
+    @media screen and (min-width: 1500px) {
+        .posi-1{
+            margin-top: 62px;
+        }
+    
+        .posi-2{
+            margin-top: 80px;
+        }
+
+        .posi-11{
+            margin-top: 0px;
+        }
+
+    }
+
+    @media screen and (max-width: 1500px) {
+        .posi-1{
+            margin-top: 95px;
+        }
+    
+        .posi-2{
+            margin-top: 142px;
+        }
+
+        .posi-11{
+            margin-top: 0px;
+        }
+
+    }
+
+    @media screen and (max-width: 1200px) {
+        .posi-1{
+            margin-top: 117px;
+        }
+    
+        .posi-2{
+            margin-top: 170px;
+        }
+
+        .posi-11{
+            margin-top: 43px;
+        }
+
+    }
+
+    @media screen and (max-width: 991px) {
+        .posi-1{
+            margin-top: 117px;
+        }
+    
+        .posi-2{
+            margin-top: 143px;
+        }
+
+        .posi-11{
+            margin-top: 43px;
+        }
+
+    }
+
+    @media screen and (max-width: 767px) {
+        .posi-1{
+            margin-top: 0px;
+        }
+    
+        .posi-2{
+            margin-top: 0px;
+        }
+
+        .posi-11{
+            margin-top: 0px;
+        }
+
     }

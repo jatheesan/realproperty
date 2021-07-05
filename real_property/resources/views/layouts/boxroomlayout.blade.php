@@ -252,6 +252,7 @@
             popupTransitionOut: 'scaletobottom',
             skinsPath: 'assets/skins/'
         });
-    </script>    
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>    
 </body>
 </html>

@@ -163,6 +163,14 @@
                                             <input type="email" class="form-control" name="email" placeholder="Your Email">
                                         </div>
                                     </div>
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+                                        @if($errors->has('g-recaptcha-response'))
+                                        <span class="">
+                                            <!-- <strong>{{$errors->first('g-recaptcha-response')}}</strong> -->
+                                        </span>
+                                        @endif
+                                    </div>
                                     <div class="col-12 mb-10">
                                         <div class="form-group mb-0">
                                             <textarea class="form-control" name="message" placeholder="Message" rows="10"></textarea>
@@ -550,7 +558,7 @@
                                             <!-- Hosiptan data -->
                                             <div class="tab-pane tab-hide" id="tb-1" style="display: block;">
                                                 <div class="row g-3">
-                                                    <div class="col-md-6">
+                                                    <div class="col-lg-6">
                                                         <div class="property-overview border rounded bg-white p-30 mb-30">
                                                         <h4 class="mb-4">For Enquiries</h4>
                                                         @if(count($errors) > 0)
@@ -591,6 +599,9 @@
                                                             <div class="col-md-12 col-sm-12">
                                                                 <textarea class="form-control" id="message" rows="5" name="message" placeholder="Message"></textarea>
                                                             </div>
+                                                            <div class="col-md-12 col-sm-12">
+                                                                <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+                                                            </div>
                                                             <div class="col-md-12 col-sm-6">
                                                                 <button class="btn btn-primary" id="send" value="send" type="submit">Submit</button>
                                                             </div>
@@ -603,7 +614,7 @@
                                             <!-- Shpping Data -->
                                             <div class="tab-pane tab-hide" id="tb-2" style="display: block;">
                                                 <div class="row g-3">
-                                                    <div class="col-md-6">
+                                                    <div class="col-lg-6">
                                                         <div class="property-overview border border-info rounded bg-white p-30 mb-30">
                                                         <h4 class="mb-4">Property Seeing</h4>
                                                         @if(count($errors) > 0)
@@ -643,6 +654,9 @@
                                                             </div>
                                                             <div class="col-md-12 col-sm-12">
                                                                 <textarea class="form-control" id="message" rows="5" name="message" placeholder="Message"></textarea>
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12">
+                                                                <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
                                                             </div>
                                                             <div class="col-md-12 col-sm-6">
                                                                 <button class="btn btn-primary" id="send" value="send" type="submit">Submit</button>

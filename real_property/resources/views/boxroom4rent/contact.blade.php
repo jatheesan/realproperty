@@ -78,6 +78,14 @@
                                                 <div class="col-md-12 col-sm-12">
                                                     <textarea class="form-control" id="message" rows="5" name="message" placeholder="Message"></textarea>
                                                 </div>
+                                                <div class="col-md-12 col-sm-12">
+                                                    <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+                                                    @if($errors->has('g-recaptcha-response'))
+                                                    <span class="">
+                                                        <!-- <strong>{{$errors->first('g-recaptcha-response')}}</strong> -->
+                                                    </span>
+                                                    @endif
+                                                </div>
                                                 <div class="col-md-12 col-sm-6">
                                                     <button class="btn btn-primary" id="send" value="send" type="submit">Submit</button>
                                                 </div>

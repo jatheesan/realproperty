@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
 use App\Mail\MailSend;
+use App\Rules\Captcha;
 
 class sendEmailController extends Controller
 {
@@ -20,7 +21,8 @@ class sendEmailController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'subject' => 'required',
-            'message' => 'required'
+            'message' => 'required',
+            'g-recaptcha-response'=>new Captcha(),
         ]);
 
         $mail_data = array(
@@ -41,7 +43,8 @@ class sendEmailController extends Controller
         $this-> validate($request, [
             'name' => 'required',
             'email' => 'required|email',
-            'message' => 'required'
+            'message' => 'required',
+            'g-recaptcha-response'=>new Captcha(),
         ]);
 
         $mail_data = array(
@@ -65,7 +68,8 @@ class sendEmailController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'subject' => 'required',
-            'message' => 'required'
+            'message' => 'required',
+            'g-recaptcha-response'=>new Captcha(),
         ]);
 
         $mail_data = [

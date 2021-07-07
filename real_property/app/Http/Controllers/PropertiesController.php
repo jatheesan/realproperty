@@ -20,8 +20,12 @@ class PropertiesController extends Controller
     public function index()
     {
         $properties = Property::with('propertytype','owner')->paginate(25);
-
-        return view('properties.index', compact('properties'));
+        $sale_properties = Property::with('propertytype')->with('images')->where('catagery', 'for sale')->orderBy('updated_at', 'desc')->count();
+        $rent_properties = Property::with('propertytype')->with('images')->where('catagery', 'for let')->orderBy('updated_at', 'desc')->count();
+        $sold_properties = Property::with('propertytype')->with('images')->where('catagery', 'for sale')->where('is_sold', 1)->orderBy('updated_at', 'desc')->count();
+        $let_properties = Property::with('propertytype')->with('images')->where('catagery', 'for let')->where('is_let', 1)->orderBy('updated_at', 'desc')->count();
+        //dd($sale_properties);
+        return view('properties.index', compact('properties', 'sale_properties', 'rent_properties', 'sold_properties', 'let_properties'));
     }
 
     /**
@@ -49,7 +53,13 @@ class PropertiesController extends Controller
         else{
             $properties = Property::with('propertytype')->paginate(10);
         }
-        return View('properties.index', compact('properties'));
+
+        $sale_properties = Property::with('propertytype')->with('images')->where('catagery', 'for sale')->orderBy('updated_at', 'desc')->count();
+        $rent_properties = Property::with('propertytype')->with('images')->where('catagery', 'for let')->orderBy('updated_at', 'desc')->count();
+        $sold_properties = Property::with('propertytype')->with('images')->where('catagery', 'for sale')->where('is_sold', 1)->orderBy('updated_at', 'desc')->count();
+        $let_properties = Property::with('propertytype')->with('images')->where('catagery', 'for let')->where('is_let', 1)->orderBy('updated_at', 'desc')->count();
+
+        return View('properties.index', compact('properties', 'sale_properties', 'rent_properties', 'sold_properties', 'let_properties'));
 
         //$proparties = Proparty::with('propertytype')->paginate(25);
 
@@ -74,6 +84,11 @@ class PropertiesController extends Controller
             $properties = Property::with('propertytype')->where('is_sold', '=', 1)->paginate(5)->appends(request()->query());
         }
 
+        if($search == 'let')
+        {
+            $properties = Property::with('propertytype')->where('is_let', '=', 1)->paginate(5)->appends(request()->query());
+        }
+
         if($search == 'for sale')
         {
             $properties = Property::with('propertytype')->where('catagery', 'for sale')->paginate(5)->appends(request()->query());
@@ -89,7 +104,12 @@ class PropertiesController extends Controller
             $properties = Property::with('propertytype')->where('catagery', 'for shared')->paginate(5)->appends(request()->query());
         }
 
-        return View('properties.index', compact('properties'));
+        $sale_properties = Property::with('propertytype')->with('images')->where('catagery', 'for sale')->orderBy('updated_at', 'desc')->count();
+        $rent_properties = Property::with('propertytype')->with('images')->where('catagery', 'for let')->orderBy('updated_at', 'desc')->count();
+        $sold_properties = Property::with('propertytype')->with('images')->where('catagery', 'for sale')->where('is_sold', 1)->orderBy('updated_at', 'desc')->count();
+        $let_properties = Property::with('propertytype')->with('images')->where('catagery', 'for let')->where('is_let', 1)->orderBy('updated_at', 'desc')->count();
+
+        return View('properties.index', compact('properties', 'sale_properties', 'rent_properties', 'sold_properties', 'let_properties'));
     }
 
     /**

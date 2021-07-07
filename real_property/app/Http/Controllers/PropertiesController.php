@@ -43,7 +43,7 @@ class PropertiesController extends Controller
                     ->orWhere('post_country', 'like', '%'.$search.'%')
                     ->orWhere('heating_type', 'like', '%'.$search.'%');
             })
-            ->paginate(5);
+            ->paginate(5)->appends(request()->query());
             $properties->appends(['search_pro' => $search]);
         }
         else{
@@ -61,32 +61,32 @@ class PropertiesController extends Controller
         $search =  $request->input('search_pro');
         if($search == 'uncomplete')
         {
-            $properties = Property::with('propertytype')->where('is_complete', '=', 0)->paginate(5);
+            $properties = Property::with('propertytype')->where('is_complete', '=', 0)->paginate(5)->appends(request()->query());
         }
 
         if($search == 'unpublish')
         {
-            $properties = Property::with('propertytype')->where('is_publish', '=', 0)->paginate(5);
+            $properties = Property::with('propertytype')->where('is_publish', '=', 0)->paginate(5)->appends(request()->query());
         }
 
         if($search == 'sold')
         {
-            $properties = Property::with('propertytype')->where('is_sold', '=', 1)->paginate(5);
+            $properties = Property::with('propertytype')->where('is_sold', '=', 1)->paginate(5)->appends(request()->query());
         }
 
         if($search == 'for sale')
         {
-            $properties = Property::with('propertytype')->where('catagery', 'for sale')->paginate(5);
+            $properties = Property::with('propertytype')->where('catagery', 'for sale')->paginate(5)->appends(request()->query());
         }
 
         if($search == 'for let')
         {
-            $properties = Property::with('propertytype')->where('catagery', 'for let')->paginate(5);
+            $properties = Property::with('propertytype')->where('catagery', 'for let')->paginate(5)->appends(request()->query());
         }
 
         if($search == 'for shared')
         {
-            $properties = Property::with('propertytype')->where('catagery', 'for shared')->paginate(5);
+            $properties = Property::with('propertytype')->where('catagery', 'for shared')->paginate(5)->appends(request()->query());
         }
 
         return View('properties.index', compact('properties'));

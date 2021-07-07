@@ -28,12 +28,11 @@ class UserController extends Controller
         ]);
 
         $email = Auth::user()->email;
-        $profile = User::where('email' , '=', $email)->first();
 
         $image = $request->file('image');
 
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(700,400)->save('images/properties/'.$name_gen);
+        Image::make($image)->resize(700,400)->save('images/agent/'.$name_gen);
       
         $last_img = 'images/agent/'.$name_gen;
 
@@ -45,8 +44,12 @@ class UserController extends Controller
         //     'image' => $last_img
 
         // ]);
-        $user = $this->getData($request);
-        $profile->update($user);
+        DB::table('users')->where('email', '=', $email)
+            ->update(['name' => $request->get('name'),
+                      'email' => $request->get('email'),
+                      'phone' => $request->get('phone'),
+                      'address'=> $request->get('address'),
+                      'image' => $last_img]);
 
         return Redirect()->back()->with('success','profile updating successfully');
     }

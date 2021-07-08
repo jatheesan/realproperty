@@ -544,6 +544,14 @@
                                                             <div class="col-md-12 col-sm-12">
                                                                 <textarea class="form-control" id="message" rows="5" name="message" placeholder="Message"></textarea>
                                                             </div>
+                                                            <div class="col-md-12 col-sm-12">
+                                                                <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+                                                                @if($errors->has('g-recaptcha-response'))
+                                                                <span class="">
+                                                                    <!-- <strong>{{$errors->first('g-recaptcha-response')}}</strong> -->
+                                                                </span>
+                                                                @endif
+                                                            </div>
                                                             <div class="col-md-12 col-sm-6">
                                                                 <button class="btn btn-primary" id="send" value="send" type="submit">Submit</button>
                                                             </div>
@@ -598,14 +606,14 @@
         <!--============== Register Section End ==============-->
 
         <!--============== Footer Section Start ==============-->
-        <footer class="full-row p-0 footer-two bg-light">
+        <footer class="full-row p-0 footer-default-dark bg-secondary">
             <div class="full-row">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="footer-widget mb-5">
-                                <h1 class="widget-title mb-4 font-400 footer-title" style="color:#ff7f50; text-align: justify !important;"><span class="text-a">i</span><span>HOMES</span></h1>
-                                <p class="text-black" style="text-align: justify !important;">
+                                <h1 class="widget-title mb-4 font-400 footer-title" style="color:#ff7f50; text-align: justify !important;"><span class="text-c">i</span><span>HOMES</span></h1>
+                                <p class="text-white" style="text-align: justify !important;">
                                 iHOMES is the most advanced real estate and rental marketplace in London. 
                                 Our online platform offers various types of latest properties in London. 
                                 Whether you are buying, selling, letting or renting property, 
@@ -645,7 +653,7 @@
                                                             class="fas fa-phone banner-tagline font-large text-primary">{{ '  ' }}</span>
                                                     </th>
                                                     <td>
-                                                        <h6>(0208) 599 2555</h6>
+                                                        <h6 class="text-white">(0208) 599 2555</h6>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -653,7 +661,7 @@
                                                             class="fas fa-envelope-open banner-tagline font-large text-primary">{{ '  ' }}</span>
                                                     </th>
                                                     <td>
-                                                        <h6><a href="mailto:info@i-homes.net?subject=Website%20enquiry">info@i-homes.net</a></h6>
+                                                        <h6><a class="text-white" href="mailto:info@i-homes.net?subject=Website%20enquiry">info@i-homes.net</a></h6>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -695,20 +703,14 @@
             <div class="copyright-border text-secondary">
                 <div class="container py-4">
                     <div class="row row-cols-lg-2 row-cols-1">
-                        <div class="col foot text-center">
+                        <div class="col foot text-h">
                             <span>Copyright © 2021 ITi Repairs Ltd All right reserved</span>
                         </div>
-                        <div class="col foot text-center">
+                        <div class="col foot">
                             <ul class="line-menu float-lg-end list-color-secondary">
-                                <li><a href="#">Advertise</a></li>
-                                <li>|</li>
-                                <li><a href="#">Questions</a></li>
-                                <li>|</li>
-                                <li><a href="#">Disclaimer</a></li>
-                                <li>|</li>
-                                <li><a href="/privacy-policy">Privacy Policy</a></li>
-                                <li>|</li>
-                                <li><a href="https://www.google.com/maps/search/Ihomes,+976+Eastern+Avenue,+IG2+7JD/@51.577491,0.09895,16z?hl=en-GB" target="_blank">Site Map</a></li>
+                                <li><a href="/privacy-policy" style="color: #fff !important;">Privacy Policy</a></li>
+                                <li style="color: #ff7f50 !important;">|</li>
+                                <li><a href="https://www.google.com/maps/search/Ihomes,+976+Eastern+Avenue,+IG2+7JD/@51.577491,0.09895,16z?hl=en-GB" target="_blank" style="color: #fff !important;">Site Map</a></li>
                             </ul>
                         </div>
                     </div>

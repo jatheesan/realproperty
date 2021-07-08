@@ -31,8 +31,8 @@ class BoxRoomController extends Controller
     {
         $property = Property::with('propertytype')->findOrFail($id);
         $rooms = Room::with('roomimages')->where('property_id', '=', $id)->get();
-        //dd($rooms);
-        return view('boxroom4rent.property-single', compact('property', 'rooms'));
+        $properties = Property::with('propertytype')->with('images')->where('is_publish', 1)->where('is_complete', 1)->orderBy('updated_at', 'desc')->limit(15)->get();
+        return view('boxroom4rent.single-property', compact('property', 'rooms','properties'));
     }
 
     public function about()
@@ -53,5 +53,10 @@ class BoxRoomController extends Controller
     public function policy()
     {
         return view('boxroom4rent.privacy-policy');
+    }
+
+    public function single_pro()
+    {
+        return view('boxroom4rent.single-property');
     }
 }

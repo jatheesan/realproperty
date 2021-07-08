@@ -324,7 +324,7 @@
                                     </div>
                                     @foreach($property->images as $image)
                                         @if(($image->is_main) == 1)
-                                        <a href="{{ route('property.details', $property->id ) }}"><img src="{{asset($image->image)}}" alt="Image Not Found!"></a>
+                                        <a href="{{ route('property.details', $property->id ) }}"><img src="{{asset($image->image)}}" alt="iHOMES"></a>
                                         @endif
                                     @endforeach
                                     @if(isset($property->saleprice))

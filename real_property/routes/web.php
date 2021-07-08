@@ -39,6 +39,7 @@ Route::get('/about',[BoxRoomController::class,'about']);
 Route::get('/contact',[BoxRoomController::class,'contact']);
 Route::get('/iHOME-administrative',[BoxRoomController::class,'signin']);
 Route::get('/single/{id}',[BoxRoomController::class,'single'])->name('property.details');
+Route::get('/single_pro',[BoxRoomController::class,'single_pro']);
 
 Route::post('/sendmail/send', [sendEmailController::class, 'sendm']);
 Route::post('/sendmail/mail', [sendEmailController::class, 'mail']);

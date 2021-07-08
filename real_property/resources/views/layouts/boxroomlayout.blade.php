@@ -31,7 +31,7 @@
 
 <div id="page_wrapper" class="bg-light">
         <!--============== Header Section Start ==============-->
-        <header class="nav-on-top shadow-sm bg-white">
+        <header class="nav-on-top shadow-sm fixed-bg-dark">
             <div class="main-nav py-2 xs-p-0">
                 <div class="container">
                     <div class="row">
@@ -79,7 +79,7 @@
                         <div class="col-lg-4">
                             <div class="footer-widget mb-5">
                                 <h1 class="widget-title mb-4 font-400 footer-title" style="color:#ff7f50; text-align: justify !important;"><span class="text-c">i</span><span>HOMES</span></h1>
-                                <p style="text-align: justify !important; color:#fff;">
+                                <p class="text-white" style="text-align: justify !important;">
                                 iHOMES is the most advanced real estate and rental marketplace in London. 
                                 Our online platform offers various types of latest properties in London. 
                                 Whether you are buying, selling, letting or renting property, 
@@ -117,13 +117,13 @@
                                                 <tr>
                                                     <th scope="row"><span class="fas fa-phone banner-tagline font-large text-primary">{{ '  ' }}</span></th>
                                                     <td>
-                                                        <h6 style="color:#fff;">(0208) 599 2555</h6>
+                                                        <h6 class="text-white">(0208) 599 2555</h6>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row"><span class="fas fa-envelope-open banner-tagline font-large text-primary">{{ '  ' }}</span></th>
                                                     <td>
-                                                        <h6><a href="mailto:info@i-homes.net?subject=Website%20enquiry" style="color:#fff;">info@i-homes.net</a></h6>
+                                                        <h6><a class="text-white" href="mailto:info@i-homes.net?subject=Website%20enquiry">info@i-homes.net</a></h6>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -170,12 +170,6 @@
                         </div>
                         <div class="col foot">
                             <ul class="line-menu float-lg-end list-color-secondary">
-                                <li><a href="#" style="color: #fff !important;">Advertise</a></li>
-                                <li style="color: #ff7f50 !important;">|</li>
-                                <li><a href="#" style="color: #fff !important;">Questions</a></li>
-                                <li style="color: #ff7f50 !important;">|</li>
-                                <li><a href="#" style="color: #fff !important;">Disclaimer</a></li>
-                                <li style="color: #ff7f50 !important;">|</li>
                                 <li><a href="/privacy-policy" style="color: #fff !important;">Privacy Policy</a></li>
                                 <li style="color: #ff7f50 !important;">|</li>
                                 <li><a href="https://www.google.com/maps/search/Ihomes,+976+Eastern+Avenue,+IG2+7JD/@51.577491,0.09895,16z?hl=en-GB" target="_blank" style="color: #fff !important;">Site Map</a></li>

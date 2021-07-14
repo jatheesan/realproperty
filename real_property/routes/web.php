@@ -46,6 +46,10 @@ Route::post('/sendmail/mail', [sendEmailController::class, 'mail']);
 
 Route::get('/privacy-policy', [BoxRoomController::class, 'policy']);
 
+Route::get('/slider', function () {
+     return view('pages.slider');
+});
+
 Route::group(['middleware' => ['auth']], function() {
 
 

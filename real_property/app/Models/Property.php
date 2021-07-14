@@ -145,6 +145,11 @@ class Property extends Model
         
     }
 
+    public function scopePriceBetween(Builder $query, $from, $to): Builder
+    {
+        return $query->whereBetween('letamount', array($from, $to));      
+    }
+
     // /**
     //  * Set the condition_of_property.
     //  *

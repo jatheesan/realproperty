@@ -146,14 +146,20 @@
                                 </div>
                                 <div class="col">
                                     <div class="position-relative">
+                                    {{--<div id="mySlider"></div> <br>
+                                        <div class="inputs">
+                                            <label for="lowerlimit">Lower Limit: </label><input id="lowerlimit" type="number" name="filter[price_between][]" />
+                                            <label for="upperlimit">Upper Limit: </label><input id="upperlimit" type="number" name="filter[price_between][]" />
+                                        </div>--}}
                                         <button class="form-control price-toggle toggle-btn" data-target="#data-range-price">Price <i class="fas fa-angle-down font-mini icon-font y-center text-dark"></i></button>
-                                        {{--<div id="data-range-price" class="price_range price-range-toggle">
+                                        <div id="data-range-price" class="price_range price-range-toggle">
                                             <div class="area-filter price-filter">
-                                                <span class="price-slider">
-                                                <input class="filter_price" type="text" name="price" value="0;10000000" />
+                                            <span class="price-slider">
+                                                <input class="filter_price" type="number" id="saleprice" name="filter[price_between][]" value="100" />
+                                                <input class="filter_price" type="number" id="saleprice" name="filter[price_between][]" value="400" />
                                             </span>
                                             </div>
-                                        </div>--}}
+                                        </div>
                                     </div>
                                 </div>
                                 {{--<div class="col">
@@ -742,6 +748,36 @@
     <script src="{{ asset('boxroomstyle/js/mixitup.min.js') }}"></script>
     <script src="{{ asset('boxroomstyle/js/paraxify.js') }}"></script>
     <script src="{{ asset('boxroomstyle/js/custom.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+        
+            $('#mySlider').slider({
+                values: [25, 175],
+                min:0,
+                max:1000,
+                range: true,
+                smooth: true,
+                round: 0,
+                dimension: "£",
+                skin: "plastic",
+                create: attachSlider,
+                slide: attachSlider,
+                stop: attachSlider
+            })
+
+            function attachSlider() {
+                $('#lowerlimit').val($('#mySlider').slider("values", 0));
+                $('#upperlimit').val($('#mySlider').slider("values", 1));
+            }
+            
+            $('input').change(function(e) {
+                var setIndex = (this.id == "upperlimit") ? 1 : 0;
+                $('#mySlider').slider("values", setIndex, $(this).val())
+            })
+
+
+        });
+    </script>
     <script>
         $('#slider').layerSlider({
             sliderVersion: '6.0.0',

@@ -57,7 +57,7 @@ class FilterController extends Controller
                 AllowedFilter::scope('starts_between'),
                 AllowedFilter::exact('is_publish')->default('1'),
                 AllowedFilter::exact('is_complete')->default('1'),
-                AllowedFilter::custom('saleprice', new PriceFilters)
+                AllowedFilter::scope('price_between')
             ])
             ->paginate(12)
             ->appends(request()->query());
@@ -99,7 +99,7 @@ class FilterController extends Controller
                 AllowedFilter::scope('starts_between'),
                 AllowedFilter::exact('is_publish')->default('1'),
                 AllowedFilter::exact('is_complete')->default('1'),
-                AllowedFilter::custom('saleprice', new PriceFilters)
+                AllowedFilter::scope('price_between')
             ])
             ->paginate(9);
 

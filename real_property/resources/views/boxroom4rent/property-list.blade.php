@@ -55,19 +55,24 @@
                                         <i class="flaticon-placeholder flat-mini icon-font y-center text-dark"></i>
                                     </div>
                                 </div>
-                                {{--<div class="col">
+                                <div class="col">
                                     <div class="position-relative">
+                                    {{--<div id="mySlider"></div> <br>
+                                        <div class="inputs">
+                                            <label for="lowerlimit">Lower Limit: </label><input id="lowerlimit" type="number" name="filter[price_between][]" />
+                                            <label for="upperlimit">Upper Limit: </label><input id="upperlimit" type="number" name="filter[price_between][]" />
+                                        </div>--}}
                                         <button class="form-control price-toggle toggle-btn" data-target="#data-range-price">Price <i class="fas fa-angle-down font-mini icon-font y-center text-dark"></i></button>
                                         <div id="data-range-price" class="price_range price-range-toggle">
                                             <div class="area-filter price-filter">
-                                                <span class="price-slider">
-												<input class="filter_price" type="text" id="min" name="filter[saleprice]" value="0;1000000" />
-                                                <input class="filter_price" type="text" id="max" name="filter[saleprice]" value="0;100" />
-											</span>
+                                            <span class="price-slider">
+                                                <input class="filter_price" type="number" id="saleprice" name="filter[price_between][]" value="100" />
+                                                <input class="filter_price" type="number" id="saleprice" name="filter[price_between][]" value="400" />
+                                            </span>
                                             </div>
                                         </div>
                                     </div>
-                                </div>--}}
+                                </div>
                                 <div class="col">
                                     <select class="form-control" id="bedrooms" name="filter[bedrooms]">
 										<option value="">Bedrooms</option>

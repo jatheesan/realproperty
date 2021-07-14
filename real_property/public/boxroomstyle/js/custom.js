@@ -65,13 +65,26 @@
     if (document.querySelector('.filter_price') !== null) {
         $(".filter_price").slider({
             from: 0,
-            to: 1000000,
-            step: 1000,
+            to: 1000,
+            step: 100,
             smooth: true,
             round: 0,
             dimension: "£",
-            skin: "plastic"
+            skin: "plastic",
+            create: attachSlider,
+            slide: attachSlider,
+            stop: attachSlider
         });
+
+        function attachSlider() {
+            $('#lowerlimit').val($('.filter_price').slider("values", 0));
+            $('#upperlimit').val($('.filter_price').slider("values", 1));
+        }
+        
+        $('input').change(function(e) {
+            var setIndex = (this.id == "upperlimit") ? 1 : 0;
+            $('.filter_price').slider("values", setIndex, $(this).val())
+        })
     }
 
     if (document.querySelector('.area_filter') !== null) {

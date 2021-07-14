@@ -53,8 +53,7 @@ class CreatePropertiesTable extends Migration
             $table->decimal('internal_area', 5, 1)->nullable();
             $table->decimal('land_area', 5, 1)->nullable();
             $table->enum('area_unit', ['sq m','sq cm','sq mm','sq ft','sq inch'])->nullable();
-            $table->integer('saleprice')->nullable();
-            $table->integer('letamount')->nullable();
+            $table->integer('price')->nullable();
             $table->boolean('price_flag')->nullable();
             $table->enum('rent_frequency', ['Weekly','Monthly','Quarter','Half','Annual'])->nullable();
             $table->integer('deposite')->nullable();

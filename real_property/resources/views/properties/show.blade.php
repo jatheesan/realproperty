@@ -120,14 +120,20 @@
                             <dd>{{ $property->land_area }}</dd>
                             <dt>Area Unit</dt>
                             <dd>{{ $property->area_unit }}</dd>
+
+                            @if($property->catagery == 'for sale')
                             <dt>Sale Price</dt>
-                            <dd>{{ $property->saleprice }}</dd>
-                            <dt>Let Amont</dt>
-                            <dd>{{ $property->letamount }}</dd>
+                            <dd>{{ $property->price }}</dd>
+                            @elseif($property->catagery == 'for let')
+                            <dt>Rent Price</dt>
+                            <dd>{{ $property->price }}{{ ' | ' }}{{ $property->rent_frequency }}</dd>
+                            @else
+                            <dt>Shared Amount</dt>
+                            <dd>{{ $property->price }}{{ ' | ' }}{{ $property->rent_frequency }}</dd>
+                            @endif
+                            
                             <dt>Price Flag</dt>
                             <dd>{{ ($property->price_flag) ? 'Yes' : 'No' }}</dd>
-                            <dt>Rent Frequency</dt>
-                            <dd>{{ $property->rent_frequency }}</dd>
                             <dt>Deposite Minimum</dt>
                             <dd>{{ $property->deposite }}</dd>
                             <dt>Deposite Flag</dt>

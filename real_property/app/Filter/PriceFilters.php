@@ -22,7 +22,7 @@ class PriceFilters implements Filter
     {
         $query->where(function (Builder $query) use ($value) {
 
-            $query->whereBetween('saleprice', array($value));
+            $query->whereBetween('price', array($value));
              
          });
 

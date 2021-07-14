@@ -67,8 +67,7 @@ class Property extends Model
                   'internal_area',
                   'land_area',
                   'area_unit',
-                  'saleprice',
-                  'letamount',
+                  'price',
                   'price_flag',
                   'rent_frequency',
                   'deposite',
@@ -147,7 +146,7 @@ class Property extends Model
 
     public function scopePriceBetween(Builder $query, $from, $to): Builder
     {
-        return $query->whereBetween('letamount', array($from, $to));      
+        return $query->whereBetween('price', array($from, $to));      
     }
 
     // /**

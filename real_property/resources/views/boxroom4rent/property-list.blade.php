@@ -67,7 +67,7 @@
                                             <div class="area-filter price-filter">
                                             <span class="price-slider">
                                                 <input class="filter_price" type="number" id="saleprice" name="filter[price_between][]" value="100" />
-                                                <input class="filter_price" type="number" id="saleprice" name="filter[price_between][]" value="400" />
+                                                <input class="filter_price" type="number" id="saleprice" name="filter[price_between][]" value="600000" />
                                             </span>
                                             </div>
                                         </div>
@@ -332,11 +332,8 @@
                                         <a href="{{ route('property.details', $property->id ) }}"><img src="{{asset($image->image)}}" alt="iHOMES"></a>
                                         @endif
                                     @endforeach
-                                    @if(isset($property->saleprice))
-                                        <span class="price-on text-white font-medium font-500">£{{ $property->saleprice }}</span>
-                                    @endif
-                                    @if(isset($property->letamount))
-                                        <span class="price-on text-white font-medium font-500">£{{ $property->letamount }} @if(isset($property->rent_frequency)) <span style="color:#ff7f50 !important;">{{' | '}}</span>{{ $property->rent_frequency }} @endif</span>
+                                    @if(isset($property->price))
+                                        <span class="price-on text-white font-medium font-500">£{{ $property->price }} @if(isset($property->rent_frequency)) <span style="color:#ff7f50 !important;">{{' | '}}</span>{{ $property->rent_frequency }} @endif</span>
                                     @endif
                                     <ul class="position-absolute quick-meta">
                                         {{--<li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>

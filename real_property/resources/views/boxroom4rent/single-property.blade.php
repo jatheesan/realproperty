@@ -62,11 +62,8 @@
                         </div>
                     </div>
                     <div class="col-auto ms-sm-auto text-sm-end">
-                    @if(isset($property->saleprice))
-                        <span class="text-primary font-large font-500 d-table ms-sm-auto">£{{ $property->saleprice }}</span>
-                    @endif
-                    @if(isset($property->letamount))
-                        <span class="text-primary font-large font-500 d-table ms-sm-auto">£{{ $property->letamount }} @if(isset($property->rent_frequency)) <span style="color:#ff7f50 !important;">{{' | '}}</span>{{ $property->rent_frequency }} @endif</span>
+                    @if(isset($property->price))
+                        <span class="text-primary font-large font-500 d-table ms-sm-auto">£{{ $property->price }} @if(isset($property->rent_frequency)) <span style="color:#ff7f50 !important;">{{' | '}}</span>{{ $property->rent_frequency }} @endif</span>
                     @endif
                         {{--<span class="text-primary font-large font-500 d-table ms-sm-auto">£{{ $property->price }} @if(isset($property->rent_frequency)) <span style="color:#ff7f50 !important;">{{' | '}}</span>{{ $property->rent_frequency }} @endif</span>--}}
                         <span class="d-table mb-2 ms-sm-auto text-white">Fixed Amount</span>
@@ -115,11 +112,8 @@
                                                 <span>Shared</span>
                                             @endif
                                         </h6>
-                                    @if(isset($prop->saleprice))
-                                        <span class="text-primary d-table py-1">£{{ $prop->saleprice }}</span>
-                                    @endif
-                                    @if(isset($prop->letamount))
-                                        <span class="text-primary d-table py-1">£{{ $prop->letamount }} @if(isset($prop->rent_frequency)) <span style="color:#000 !important;">{{' | '}}</span>{{ $prop->rent_frequency }} @endif</span>
+                                    @if(isset($prop->price))
+                                        <span class="text-primary d-table py-1">£{{ $prop->price }} @if(isset($prop->rent_frequency)) <span style="color:#000 !important;">{{' | '}}</span>{{ $prop->rent_frequency }} @endif</span>
                                     @endif
                                         <div class="quantity">
                                             <ul class="d-flex">

@@ -65,7 +65,7 @@
     if (document.querySelector('.filter_price') !== null) {
         $(".filter_price").slider({
             from: 0,
-            to: 1000,
+            to: 1000000,
             step: 100,
             smooth: true,
             round: 0,

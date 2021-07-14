@@ -636,47 +636,35 @@
         <h4 class="color-b">Price & Terms</h4><hr color="orange"/>
     </div>
 
-    <div class="col-md-3">
-        <div class="form-group {{ $errors->has('saleprice') ? 'has-error' : '' }}">
-            <label for="saleprice" class="col-md-12 control-label">Sale Price</label>
+    @if(optional($property)->catagery == 'for sale')
+        <div class="col-md-8">
+    @else
+        <div class="col-md-4">
+    @endif
+        <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
+            @if(optional($property)->catagery == 'for sale')
+                <label for="price" class="col-md-12 control-label">Sale Price</label>
+            @elseif(optional($property)->catagery == 'for let')
+                <label for="price" class="col-md-12 control-label">Rent Price</label>
+            @else
+                <label for="price" class="col-md-12 control-label">Shared Price</label>
+            @endif
             <div class="col-md-12">
-                <input class="form-control" name="saleprice" type="number" id="saleprice" value="{{ old('saleprice', optional($property)->saleprice) }}" min="0" max="2147483647" placeholder="Enter saleprice here...">
-                {!! $errors->first('saleprice', '<p class="help-block">:message</p>') !!}
+                <input class="form-control" name="price" type="number" id="price" value="{{ old('price', optional($property)->price) }}" min="0" max="2147483647" placeholder="Enter price here...">
+                {!! $errors->first('price', '<p class="help-block">:message</p>') !!}
             </div>
         </div>
     </div>
 
-    <div class="col-md-3">
-        <div class="form-group {{ $errors->has('letamount') ? 'has-error' : '' }}">
-            <label for="letamount" class="col-md-12 control-label">Let Amont</label>
-            <div class="col-md-12">
-                <input class="form-control" name="letamount" type="number" id="letamount" value="{{ old('letamount', optional($property)->letamount) }}" min="0" max="2147483647" placeholder="Enter letamount here...">
-                {!! $errors->first('letamount', '<p class="help-block">:message</p>') !!}
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3">
-        <div class="form-group {{ $errors->has('price_flag') ? 'has-error' : '' }}">
-            <label for="price_flag" class="col-md-12 control-label">Price Flag</label>
-            <div class="col-md-12">
-                <label for="price_flag_1" class="checkbox-inline">
-                    <input id="price_flag_1" class="" name="price_flag" type="checkbox" value="1" {{ old('price_flag', optional($property)->price_flag) == '1' ? 'checked' : '' }}>
-                    Yes
-                </label>
-
-                {!! $errors->first('price_flag', '<p class="help-block">:message</p>') !!}
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3">
+    @if(optional($property)->catagery == 'for let' || optional($property)->catagery == 'for shared')
+    <div class="col-md-4">
         <div class="form-group {{ $errors->has('rent_frequency') ? 'has-error' : '' }}">
-            <label for="rent_frequency" class="col-md-12 control-label">Rent Frequency</label>
+            <label for="rent_frequency" class="col-md-12 control-label">Rental Frequency</label>
             <div class="col-md-12">
                 <select class="form-control" id="rent_frequency" name="rent_frequency">
                         
-                    @foreach (['Weekly' => 'Weekly',
+                    @foreach (['' => 'Select Rental Frequency',
+        'Weekly' => 'Weekly',
         'Monthly' => 'Monthly',
         'Quarter' => 'Quarter',
         'Half' => 'Half',
@@ -691,8 +679,23 @@
             </div>
         </div>
     </div>
+    @endif
 
-    <div class="col-md-6">
+    <div class="col-md-4">
+        <div class="form-group {{ $errors->has('price_flag') ? 'has-error' : '' }}">
+            <label for="price_flag" class="col-md-12 control-label">Price Flag</label>
+            <div class="col-md-12">
+                <label for="price_flag_1" class="checkbox-inline">
+                    <input id="price_flag_1" class="" name="price_flag" type="checkbox" value="1" {{ old('price_flag', optional($property)->price_flag) == '1' ? 'checked' : '' }}>
+                    Yes
+                </label>
+
+                {!! $errors->first('price_flag', '<p class="help-block">:message</p>') !!}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
         <div class="form-group {{ $errors->has('deposite') ? 'has-error' : '' }}">
             <label for="deposite" class="col-md-12 control-label">Deposite Minimum</label>
             <div class="col-md-12">
@@ -702,7 +705,7 @@
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group {{ $errors->has('deposite_flag') ? 'has-error' : '' }}">
             <label for="deposite_flag" class="col-md-12 control-label">Deposite Flag</label>
             <div class="col-md-12">

@@ -220,8 +220,7 @@
                                             <th>Internal Area</th>
                                             <th>Land Area</th>
                                             <th>Area Unit</th>--}}
-                                            <th>Sale Price</th>
-                                            <th>Let Amont</th>
+                                            <th>Price</th>
                                             {{--<th>Price Flag</th>
                                             <th>Rent Frequency</th>
                                             <th>Deposite Minimum</th>
@@ -289,8 +288,7 @@
                                             <td>{{ $property->internal_area }}</td>
                                             <td>{{ $property->land_area }}</td>
                                             <td>{{ $property->area_unit }}</td>--}}
-                                            <td>{{ $property->saleprice }}</td>
-                                            <td>{{ $property->letamount }}</td>
+                                            <td>{{ $property->price }}</td>
                                             {{--<td>{{ ($property->price_flag) ? 'Yes' : 'No' }}</td>
                                             <td>{{ $property->rent_frequency }}</td>
                                             <td>{{ $property->deposite }}</td>

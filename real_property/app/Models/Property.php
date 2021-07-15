@@ -137,6 +137,10 @@ class Property extends Model
         {
             return $query->Where('internal_area', '<', $to);
         }
+        elseif($to == "")
+        {
+            return $query->Where('internal_area', '>', $from);
+        }
         else
         {
             return $query->whereBetween('internal_area', array($from, $to));
@@ -146,7 +150,22 @@ class Property extends Model
 
     public function scopePriceBetween(Builder $query, $from, $to): Builder
     {
-        return $query->whereBetween('price', array($from, $to));      
+        if($from == "" && $to == "")
+        {
+            return $query->Where('price', '>', 0);
+        }
+        elseif($from == "")
+        {
+            return $query->Where('price', '<', $to);
+        }
+        elseif($to == "")
+        {
+            return $query->Where('price', '>', $from);
+        }
+        else
+        {
+        return $query->whereBetween('price', array($from, $to));
+        }      
     }
 
     // /**

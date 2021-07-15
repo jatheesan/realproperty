@@ -976,7 +976,7 @@ jSlider Style Start
     }
     
     .price-range-toggle {
-        width: 285px;
+        width: 500px;
         padding: 30px;
         background: #fff;
         border-radius: 6px;
@@ -988,6 +988,13 @@ jSlider Style Start
         visibility: hidden;
         opacity: 0;
         z-index: 0;
+    }
+
+    @media screen and (max-width: 450px){
+        .price-range-toggle {
+            width: 285px;
+            padding: 10px;
+        }
     }
     
     .price-range-toggle.visible {

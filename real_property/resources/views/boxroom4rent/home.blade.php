@@ -150,7 +150,7 @@
                                         <div class="inputs">
                                             <label for="lowerlimit">Lower Limit: </label><input id="lowerlimit" type="number" name="filter[price_between][]" />
                                             <label for="upperlimit">Upper Limit: </label><input id="upperlimit" type="number" name="filter[price_between][]" />
-                                        </div>--}}
+                                        </div>
                                         <button class="form-control price-toggle toggle-btn" data-target="#data-range-price">Price <i class="fas fa-angle-down font-mini icon-font y-center text-dark"></i></button>
                                         <div id="data-range-price" class="price_range price-range-toggle">
                                             <div class="area-filter price-filter">
@@ -158,6 +158,19 @@
                                                 <input class="filter_price" type="number" id="saleprice" name="filter[price_between][]" value="100" />
                                                 <input class="filter_price" type="number" id="saleprice" name="filter[price_between][]" value="600000" />
                                             </span>
+                                            </div>
+                                        </div>--}}
+                                        <button class="form-control price-toggle toggle-btn" data-target="#data-range-price">Price <i class="fas fa-angle-down font-mini icon-font y-center text-dark"></i></button>
+                                        <div id="data-range-price" class="price_range price-range-toggle">
+                                            <div class="area-filter price-filter">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <input type="number" min="0" step="100" class="form-control" id="min-price" name="filter[price_between][]" placeholder="Min Price">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="number" min="0" step="100" class="form-control" id="max-price" name="filter[price_between][]" placeholder="Max Price">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

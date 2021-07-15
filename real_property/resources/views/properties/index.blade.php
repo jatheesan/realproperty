@@ -70,7 +70,7 @@
                             <div class="h5 mb-0 font-weight-big text-gray-800">{{ $let_properties }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            <i class="fas fa-archway fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>

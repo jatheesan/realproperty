@@ -10,6 +10,9 @@
     <meta name="author" content="">
 
     <title>@yield('title', 'iHOMES')</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('boxroomstyle/images/icons8-home-48.png')}}">
+    
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link

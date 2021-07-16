@@ -24,6 +24,9 @@ class PropertiesController extends Controller
         $rent_properties = Property::with('propertytype')->with('images')->where('catagery', 'for let')->orderBy('updated_at', 'desc')->count();
         $sold_properties = Property::with('propertytype')->with('images')->where('catagery', 'for sale')->where('is_sold', 1)->orderBy('updated_at', 'desc')->count();
         $let_properties = Property::with('propertytype')->with('images')->where('catagery', 'for let')->where('is_let', 1)->orderBy('updated_at', 'desc')->count();
+        $shared_properties = Property::with('propertytype')->with('images')->where('catagery', 'for shared')->where('is_let', 1)->orderBy('updated_at', 'desc')->count();
+
+        $let_properties = $let_properties + $shared_properties;
         //dd($sale_properties);
         return view('properties.index', compact('properties', 'sale_properties', 'rent_properties', 'sold_properties', 'let_properties'));
     }
@@ -198,6 +201,46 @@ $owners = Owner::pluck('name','id')->all();
 
             return redirect()->route('properties.property.index')
                 ->with('success_message', 'Property was successfully updated.');
+        } catch (Exception $exception) {
+
+            return back()->withInput()
+                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
+        }        
+    }
+
+    public function complete($id, Request $request)
+    {
+        try {
+            if(isset($request->is_complete))
+            {
+            $complete = $request->get('is_complete');
+            Property::where('id', $id)->update(['is_complete' => $complete]);
+            $meg = 'Complete stage Updated.';
+            }
+
+            if(isset($request->is_publish))
+            {
+            $publish = $request->get('is_publish');
+            Property::where('id', $id)->update(['is_publish' => $publish]);
+            $meg = 'Publish stage Updated.';
+            }
+
+            if(isset($request->is_sold))
+            {
+            $sold = $request->get('is_sold');
+            Property::where('id', $id)->update(['is_sold' => $sold]);
+            $meg = 'Sold stage Updated.';
+            }
+
+            if(isset($request->is_let))
+            {
+            $let = $request->get('is_let');
+            Property::where('id', $id)->update(['is_let' => $let]);
+            $meg = 'Rental stage Updated.';
+            }
+
+            return redirect()->route('properties.property.index')
+                ->with('success_message', $meg);
         } catch (Exception $exception) {
 
             return back()->withInput()

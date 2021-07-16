@@ -19,6 +19,8 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('css/adminstyle.css') }}" rel="stylesheet">
     <link href="{{ asset('css/adminnav.css') }}" rel="stylesheet">
+    {{--<link rel="stylesheet" href="{{ asset('boxroomstyle/css/bootstrap2-toggle.min.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/bootstrap-toggle.min.css') }}">
 
 </head>
 
@@ -381,7 +383,8 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/adminmain.js') }}"></script>
-
+    {{--<script src="{{ asset('boxroomstyle/js/bootstrap2-toggle.min.js') }}"></script>--}}
+    <script src="{{ asset('boxroomstyle/js/bootstrap-toggle.min.js') }}"></script>
     <!-- Page level plugins -->
     {{--<script src="vendor/chart.js/Chart.min.js"></script>
 

@@ -303,10 +303,62 @@
                                             <td>{{ $property->property_details }}</td>
                                             <td>{{ ($property->property_details_display) ? 'Yes' : 'No' }}</td>--}}
                                             <td>{{ optional($property->owner)->name }}</td>
-                                            <td>{{ ($property->is_complete) ? 'Yes' : 'No' }}</td>
-                                            <td>{{ ($property->is_publish) ? 'Yes' : 'No' }}</td>
-                                            <td>{{ ($property->is_sold) ? 'Yes' : 'No' }}</td>
-                                            <td>{{ ($property->is_let) ? 'Yes' : 'No' }}</td>
+                                            <td>
+                                                <form action="{{ route('properties.property.complete.update', $property->id) }}" method="POST" id="complete_form">
+                                                {{ csrf_field() }}
+                                                <input name="_method" type="hidden" value="PUT">
+                                                    @if(($property->is_complete) == 1)
+                                                        <input name="is_complete" type="hidden" value="0">
+                                                        <button type="submit" class="btn passingID" style="background-color: #F07470; color: #fff">{{ ($property->is_complete) ? 'Yes' : 'No' }}</button>
+                                                    @else
+                                                        <input name="is_complete" type="hidden" value="1">
+                                                        <button type="submit" class="btn btn-danger passingID">{{ ($property->is_complete) ? 'Yes' : 'No' }}</button>
+                                                    @endif   
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form action="{{ route('properties.property.complete.update', $property->id) }}" method="POST" id="complete_form">
+                                                {{ csrf_field() }}
+                                                <input name="_method" type="hidden" value="PUT">
+                                                    @if(($property->is_publish) == 1)
+                                                        <input name="is_publish" type="hidden" value="0">
+                                                        <button type="submit" class="btn passingID" style="background-color: #898989; color: #fff">{{ ($property->is_publish) ? 'Yes' : 'No' }}</button>
+                                                    @else
+                                                        <input name="is_publish" type="hidden" value="1">
+                                                        <button type="submit" class="btn btn-dark passingID">{{ ($property->is_publish) ? 'Yes' : 'No' }}</button>
+                                                    @endif   
+                                                </form>
+                                            </td>
+                                            <td>
+                                                @if($property->catagery == 'for sale')
+                                                <form action="{{ route('properties.property.complete.update', $property->id) }}" method="POST" id="complete_form">
+                                                {{ csrf_field() }}
+                                                <input name="_method" type="hidden" value="PUT">
+                                                    @if(($property->is_sold) == 1)
+                                                        <input name="is_sold" type="hidden" value="0">
+                                                        <button type="submit" class="btn passingID" style="background-color: #FAE39B; color: #000">{{ ($property->is_sold) ? 'Yes' : 'No' }}</button>
+                                                    @else
+                                                        <input name="is_sold" type="hidden" value="1">
+                                                        <button type="submit" class="btn btn-warning passingID">{{ ($property->is_sold) ? 'Yes' : 'No' }}</button>
+                                                    @endif   
+                                                </form>
+                                                @endif
+                                            </td>
+                                            <td>
+                                            @if($property->catagery == 'for let' || $property->catagery == 'for shared')
+                                                <form action="{{ route('properties.property.complete.update', $property->id) }}" method="POST" id="complete_form">
+                                                {{ csrf_field() }}
+                                                <input name="_method" type="hidden" value="PUT">
+                                                    @if(($property->is_let) == 1)
+                                                        <input name="is_let" type="hidden" value="0">
+                                                        <button type="submit" class="btn passingID" style="background-color: #FF9A75; color: #fff">{{ ($property->is_let) ? 'Yes' : 'No' }}</button>
+                                                    @else
+                                                        <input name="is_let" type="hidden" value="1">
+                                                        <button type="submit" class="btn btn-org passingID">{{ ($property->is_let) ? 'Yes' : 'No' }}</button>
+                                                    @endif   
+                                                </form>
+                                            @endif
+                                            </td>
 
                                             <td>
 
@@ -370,4 +422,9 @@
             </div>
         </div>
     </div>
+    <script>
+        function iscomplete(){
+            document.getElementById("complete_form").submit();
+        }
+    </script>
 @endsection

@@ -176,6 +176,9 @@ Route::group(['middleware' => ['auth']], function() {
                ->name('properties.property.search');
           Route::any('/stage/search', [PropertiesController::class, 'uncompletesearch'])
                ->name('properties.property.uncompletesearch');
+
+          Route::put('property/{property}', [PropertiesController::class, 'complete'])
+               ->name('properties.property.complete.update')->where('id', '[0-9]+');
       });
 
      // multi image route

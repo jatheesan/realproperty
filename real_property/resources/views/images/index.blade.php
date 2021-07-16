@@ -40,7 +40,7 @@
                                     @foreach($images as $multi)
                                     <div class="col-md-4 mt-5">
                                         <div class="card" style="background-color: #ff7f50 !important">
-                                            <img src="{{asset($multi->image)}}" alt="">
+                                            <img src="{{asset($multi->image)}}" alt="iHOMES">
                                             <div class="row">
                                                 <div class="col-md-8 mt-2 ml-2" style="color: #fff !important">
                                                     <h3>{{ optional($multi->room)-> room_name }}</h3>
@@ -87,7 +87,7 @@
                                         <div class="row">
                                             @if(isset($main))
                                                 <div class="card">
-                                                    <img src="{{asset($main->image)}}" alt="">
+                                                    <img src="{{asset($main->image)}}" alt="iHOMES">
                                                 </div>
                                             @endif
                                             @foreach($images as $multi)
@@ -103,7 +103,7 @@
                                                     <input class="form-control form-control-user" name="property_id" type="hidden"
                                                     id="property_id" value="{{ $pro_id }}" min="0" max="4294967295"
                                                     required="true">
-                                                    <button type="submit"><img src="{{asset($multi->image)}}" width="50px" height= "40px"></button>
+                                                    <button type="submit"><img src="{{asset($multi->image)}}" width="50px" height= "40px" alt="iHOMES"></button>
                                                 </form>
                                                 
                                             </div>
@@ -123,7 +123,7 @@
 
                                                 <form action="{{route('image.delete', $multi->id)}}" method="POST" enctype="multipart/form-data">
                                                 @csrf
-                                                    <button type="submit"><img src="{{asset($multi->image)}}" width="50px" height= "40px"></button>
+                                                    <button type="submit"><img src="{{asset($multi->image)}}" width="50px" height= "40px" alt="iHOMES"></button>
                                                 </form>
                                                 
                                             </div>

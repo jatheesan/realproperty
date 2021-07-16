@@ -10,7 +10,7 @@
                         <div class="col-1">
                             <div class="hover-img-zoom overflow-hidden transation">
                                 <a href="{{asset($image->image)}}" data-fancybox="gallery" data-caption="Caption for single image">
-                                    <img class="transation" src="{{asset($image->image)}}" alt="Image not found!">
+                                    <img class="transation" src="{{asset($image->image)}}" alt="iHOMES">
                                 </a>
                             </div>
                         </div>
@@ -18,7 +18,7 @@
                     <div class="col-8">
                         <div class="hover-img-zoom overflow-hidden transation">
                             <a href="{{ asset('boxroomstyle/images/property_grid/property-grid-2.png') }}" data-fancybox="gallery" data-caption="Caption for single image">
-                                <img class="transation" src="{{ asset('boxroomstyle/images/property_grid/property-grid-2.png') }}" alt="Image not found!">
+                                <img class="transation" src="{{ asset('boxroomstyle/images/property_grid/property-grid-2.png') }}" alt="iHOMES">
                             </a>
                         </div>
                     </div>
@@ -27,14 +27,14 @@
                             <div class="col">
                                 <div class="hover-img-zoom overflow-hidden transation">
                                     <a href="{{ asset('boxroomstyle/images/property_grid/property-grid-3.png') }}" data-fancybox="gallery" data-caption="Caption for single image">
-                                        <img class="transation" src="{{ asset('boxroomstyle/images/property_grid/property-grid-3.png') }}" alt="Image not found!">
+                                        <img class="transation" src="{{ asset('boxroomstyle/images/property_grid/property-grid-3.png') }}" alt="iHOMES">
                                     </a>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="hover-img-zoom overflow-hidden transation">
                                     <a href="{{ asset('boxroomstyle/images/property_grid/property-grid-4.png') }}" data-fancybox="gallery" data-caption="Caption for single image">
-                                        <img class="transation" src="{{ asset('boxroomstyle/images/property_grid/property-grid-4.png') }}" alt="Image not found!">
+                                        <img class="transation" src="{{ asset('boxroomstyle/images/property_grid/property-grid-4.png') }}" alt="iHOMES">
                                     </a>
                                 </div>
                             </div>
@@ -55,25 +55,25 @@
                         <div class="ls-slide"
                             data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img
                                 width="1920" height="1280" src="{{asset($image->image)}}"
-                                class="ls-bg" alt="" /> </div>
+                                class="ls-bg" alt="iHOMES" /> </div>
                         @endforeach
                         <!-- Slide 1-->
                         <div class="ls-slide"
                             data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img
                                 width="1920" height="1280" src="{{ asset('boxroomstyle/images/slider/5.png') }}"
-                                class="ls-bg" alt="" /> </div>
+                                class="ls-bg" alt="iHOMES" /> </div>
 
                         <!-- Slide 2-->
                         <div class="ls-slide"
                             data-ls="duration:7500; transition2d:5; kenburnszoom:out; kenburnsscale:1.2;"> <img
                                 width="1920" height="1280" src="{{ asset('boxroomstyle/images/slider/6.png') }}"
-                                class="ls-bg" alt="" /> </div>
+                                class="ls-bg" alt="iHOMES" /> </div>
 
                         <!-- Slide 3-->
                         <div class="ls-slide"
                             data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img
                                 width="1920" height="1280" src="{{ asset('boxroomstyle/images/slider/8.png') }}"
-                                class="ls-bg" alt="" /> </div>
+                                class="ls-bg" alt="iHOMES" /> </div>
                     </div>
                 </div>
             </div>

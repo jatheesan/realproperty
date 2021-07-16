@@ -378,7 +378,7 @@
                                     <div class="img-box-a">
                                     @foreach($property->images as $image)
                                         @if(($image->is_main) == 1)
-                                        <img src="{{asset($image->image)}}" alt="" class="img-a img-fluid" style="height:500px !important;">
+                                        <img src="{{asset($image->image)}}" alt="iHOMES" class="img-a img-fluid" style="height:500px !important;">
                                         @endif
                                     @endforeach
                                     </div>
@@ -447,7 +447,7 @@
                     <div class="col-md-4">
                         <div class="card-box-a card-shadow">
                             <div class="img-box-a">
-                                <img src="{{ asset('images/properties/prop-1.jpg') }}" alt="" class="img-a img-fluid" style="height:500px !important;">
+                                <img src="{{ asset('images/properties/prop-1.jpg') }}" alt="iHOMES" class="img-a img-fluid" style="height:500px !important;">
                             </div>
                             <div class="card-overlay">
                                 <div class="card-overlay-a-content">
@@ -490,7 +490,7 @@
                     <div class="col-md-4">
                         <div class="card-box-a card-shadow">
                             <div class="img-box-a">
-                                <img src="{{ asset('images/properties/prop-2.jpg') }}" alt="" class="img-a img-fluid" style="height:500px !important;">
+                                <img src="{{ asset('images/properties/prop-2.jpg') }}" alt="iHOMES" class="img-a img-fluid" style="height:500px !important;">
                             </div>
                             <div class="card-overlay">
                                 <div class="card-overlay-a-content">
@@ -533,7 +533,7 @@
                     <div class="col-md-4">
                         <div class="card-box-a card-shadow">
                             <div class="img-box-a">
-                                <img src="{{ asset('images/properties/prop-3.jpg') }}" alt="" class="img-a img-fluid" style="height:500px !important;">
+                                <img src="{{ asset('images/properties/prop-3.jpg') }}" alt="iHOMES" class="img-a img-fluid" style="height:500px !important;">
                             </div>
                             <div class="card-overlay">
                                 <div class="card-overlay-a-content">
@@ -576,7 +576,7 @@
                     <div class="col-md-4">
                         <div class="card-box-a card-shadow">
                             <div class="img-box-a">
-                                <img src="{{ asset('images/properties/prop-4.jpg') }}" alt="" class="img-a img-fluid" style="height:500px !important;">
+                                <img src="{{ asset('images/properties/prop-4.jpg') }}" alt="iHOMES" class="img-a img-fluid" style="height:500px !important;">
                             </div>
                             <div class="card-overlay">
                                 <div class="card-overlay-a-content">
@@ -619,7 +619,7 @@
                     <div class="col-md-4">
                         <div class="card-box-a card-shadow">
                             <div class="img-box-a">
-                                <img src="{{ asset('images/properties/prop-5.jpg') }}" alt="" class="img-a img-fluid" style="height:500px !important;">
+                                <img src="{{ asset('images/properties/prop-5.jpg') }}" alt="iHOMES" class="img-a img-fluid" style="height:500px !important;">
                             </div>
                             <div class="card-overlay">
                                 <div class="card-overlay-a-content">
@@ -662,7 +662,7 @@
                     <div class="col-md-4">
                         <div class="card-box-a card-shadow">
                             <div class="img-box-a">
-                                <img src="{{ asset('images/properties/prop-6.jpg') }}" alt="" class="img-a img-fluid" style="height:500px !important;">
+                                <img src="{{ asset('images/properties/prop-6.jpg') }}" alt="iHOMES" class="img-a img-fluid" style="height:500px !important;">
                             </div>
                             <div class="card-overlay">
                                 <div class="card-overlay-a-content">

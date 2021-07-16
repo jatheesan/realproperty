@@ -13,17 +13,17 @@
                         <div class="ls-slide"
                             data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img
                                 width="1920" height="1280" src="{{asset($image->image)}}"
-                                class="ls-bg" alt="" /> </div>
+                                class="ls-bg" alt="iHOMES" /> </div>
                         @endforeach
                         @else
                             <!-- Slide 1-->
-                            <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1280" src="{{ asset('boxroomstyle/images/slider/5.png') }}" class="ls-bg" alt="" /> </div>
+                            <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1280" src="{{ asset('boxroomstyle/images/slider/5.png') }}" class="ls-bg" alt="iHOMES" /> </div>
 
                             <!-- Slide 2-->
-                            <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:out; kenburnsscale:1.2;"> <img width="1920" height="1280" src="{{ asset('boxroomstyle/images/slider/6.png') }}" class="ls-bg" alt="" /> </div>
+                            <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:out; kenburnsscale:1.2;"> <img width="1920" height="1280" src="{{ asset('boxroomstyle/images/slider/6.png') }}" class="ls-bg" alt="iHOMES" /> </div>
 
                             <!-- Slide 3-->
-                            <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1280" src="{{ asset('boxroomstyle/images/slider/8.png') }}" class="ls-bg" alt="" /> </div>
+                            <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1280" src="{{ asset('boxroomstyle/images/slider/8.png') }}" class="ls-bg" alt="iHOMES" /> </div>
                         @endif
                         </div>
                     </div>

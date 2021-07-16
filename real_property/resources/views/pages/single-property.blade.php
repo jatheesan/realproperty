@@ -40,7 +40,7 @@
                         <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property popup-gallery">
                             @foreach($property->images as $image)
                                 <div class="carousel-item-b">
-                                    <a data-toggle="modal" data-target="#GListModalGallery"><img src="{{asset($image->image)}}" class="property-image" alt="" /></a>
+                                    <a data-toggle="modal" data-target="#GListModalGallery"><img src="{{asset($image->image)}}" class="property-image" alt="iHOMES" /></a>
                                 </div>
                             @endforeach
                         </div>
@@ -56,9 +56,9 @@
                                 </div>
                                 <div class="modal-body">
                                     <div id="owl-modal">
-                                        <div class="item"><img src="{{ asset('images/single-property/single-prop-1.jpeg') }}" alt="" /></div>
-                                        <div class="item"><img src="{{ asset('images/single-property/single-prop-3.jpeg') }}" alt="" /></div>
-                                        <div class="item"><img src="{{ asset('images/single-property/single-prop-5.jpeg') }}" alt="" /></div>
+                                        <div class="item"><img src="{{ asset('images/single-property/single-prop-1.jpeg') }}" alt="iHOMES" /></div>
+                                        <div class="item"><img src="{{ asset('images/single-property/single-prop-3.jpeg') }}" alt="iHOMES" /></div>
+                                        <div class="item"><img src="{{ asset('images/single-property/single-prop-5.jpeg') }}" alt="iHOMES" /></div>
                                     </div>
                                 </div>
                             </div>

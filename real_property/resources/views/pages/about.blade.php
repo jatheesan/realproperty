@@ -34,7 +34,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="about-img-box">
-              <img src="{{ asset('images/properties/prop-8.jpg') }}" alt="" class="img-fluid">
+              <img src="{{ asset('images/properties/prop-8.jpg') }}" alt="iHOMES" class="img-fluid">
             </div>
             <div class="sinse-box">
               <h3 class="sinse-title">BoxRoom4Rent
@@ -47,7 +47,7 @@
           <div class="col-md-12 section-t8">
             <div class="row">
               <div class="col-md-6 col-lg-5">
-                <img src="{{ asset('images/properties/prop-9.jpg') }}" alt="" class="img-fluid" style="height:500px !important;">
+                <img src="{{ asset('images/properties/prop-9.jpg') }}" alt="iHOMES" class="img-fluid" style="height:500px !important;">
               </div>
               <div class="col-lg-2  d-none d-lg-block">
                 <div class="title-vertical d-flex justify-content-start">

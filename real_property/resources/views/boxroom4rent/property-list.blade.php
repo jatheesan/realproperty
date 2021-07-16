@@ -282,7 +282,7 @@
                                             <li><i class="fas fa-bath text-primary"></i> {{ $property-> bathrooms }}</li>
                                             @endif
                                             @if(isset($property-> halls))
-                                            <li><i class="fas fa-couch text-primary"></i></i> {{ $property-> halls }}</li>
+                                            <li><i class="fas fa-couch text-primary"></i> {{ $property-> halls }}</li>
                                             @endif
                                             <li><i class="fas fa-car text-primary"></i></li>
                                             <li><i class="fas fa-tree text-primary"></i></li>
@@ -305,30 +305,27 @@
                                         <span class="sale bg-secondary text-white">For Sale</span>
                                         <span class="featured bg-primary text-white">Featured</span>
                                     </div>
-                                    <a href="property-single-v1.html"><img src="{{ asset('boxroomstyle/images/property_grid/property-grid-2.png') }}" alt="Image Not Found!"></a>
-                                    <span class="price-on text-white font-medium font-500">$120,5500</span>
-                                    <ul class="position-absolute quick-meta">
-                                        <li><a href="#" title="Add Compare"><i class="flaticon-transfer flat-mini"></i></a></li>
-                                        <li><a href="#" title="Add Favourite"><i class="flaticon-like-1 flat-mini"></i></a></li>
-                                        <li class="md-mx-none"><a class="quick-view" href="#quick-view" title="Quick View"><i class="flaticon-zoom-increasing-symbol flat-mini"></i></a></li>
-                                    </ul>
+                                    <div class="cat position-absolute">
+                                        <span class="featured bg-primary text-white">Sold</span>
+                                    </div>
+                                    <a href="property-single-v1.html"><img src="{{ asset('boxroomstyle/images/property_grid/property-grid-2.png') }}" alt="iHOMES"></a>
+                                    <span class="price-on text-white font-medium font-500">£120,5500</span>
                                 </div>
                                 <div class="property_text p-3">
                                     <span class="d-inline-block text-primary">Condos</span>
                                     <h5 class="mt-2"><a class="font-400 text-secondary" href="property-single-v1.html">Luxury Condos Infront of River</a></h5>
-                                    <span class="my-3 d-block"><i class="fas fa-map-marker-alt text-primary"></i> 2305 Tree Frog Lane Overlandpk, MO </span>
+                                    <span class="my-3 d-block"><i class="fas fa-map-marker-alt text-primary"></i> 2305 Main Lane O Frogverlandpk, London </span>
                                     <div class="quantity">
                                         <ul class="d-flex">
-                                            <li><span>Rooms:</span> 5</li>
-                                            <li><span>Beds:</span> 3</li>
-                                            <li><span>Area:</span> 1100 Sqft<sup>2</sup></li>
+                                            <li><i class="fas fa-bed text-primary"></i> 5</li>
+                                            <li><i class="fas fa-bath text-primary"></i> 3</li>
+                                            <li><i class="fas fa-couch text-primary"></i> 1</li>
+                                            <li><i class="fas fa-car text-primary"></i></li>
+                                            <li><i class="fas fa-tree text-primary"></i></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center post-meta mt-2 p-3 border-top">
-                                    <div class="agent">
-                                        <a href="#" class="d-flex text-general align-items-center"><img class="rounded-circle me-2" src="assets/images/team/1.jpg" alt="avata"><span>Ali Tufan</span></a>
-                                    </div>
                                     <div class="post-date ms-auto"><span>2 Month Ago</span></div>
                                 </div>
                             </div>

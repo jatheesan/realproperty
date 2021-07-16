@@ -19,7 +19,7 @@
                                 @foreach($images as $multi)
                                     <div class="col-md-4 mt-5">
                                         <div class="card">
-                                            <img src="{{asset($multi->image)}}" alt="">
+                                            <img src="{{asset($multi->image)}}" alt="iHOMES">
                                         </div>
                                     </div>
                                  @endforeach

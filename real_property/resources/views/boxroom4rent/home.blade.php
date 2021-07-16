@@ -72,7 +72,7 @@
             <div id="slider" class="overflow-hidden" style="width:1200px; height:720px; margin:0 auto;margin-bottom: 0px;">
                 <!-- Slide 1-->
                 <div class="ls-slide" data-ls="kenburnsscale:1.2; duration:12000;">
-                    <img width="1920" height="1080" src="{{ asset('boxroomstyle/images/slider/london14.jpg') }}" class="ls-bg" alt="">
+                    <img width="1920" height="1080" src="{{ asset('boxroomstyle/images/slider/london14.jpg') }}" class="ls-bg" alt="iHOMES">
 
                     <div style="top:-100px; left:-7%; text-align:initial; font-weight:400; font-style:normal; text-decoration:none; mix-blend-mode:normal; height:140%; width:100%; opacity:1; border-radius: 50px; transform: rotate(20deg)" class="ls-l bg-primary ls-hide-phone"
                         data-ls="showinfo:1; delayin:0; fadein:false; offsetxin:-100lw; offsetxout:left; easingout:easeInQuint; skewxout:-10;"></div>
@@ -90,7 +90,7 @@
 
                 <!-- Slide 1-->
                 <div class="ls-slide" data-ls="kenburnsscale:1.2; duration:12000;">
-                    <img width="1920" height="1080" src="{{ asset('boxroomstyle/images/slider/london9.jpg') }}" class="ls-bg" alt="">
+                    <img width="1920" height="1080" src="{{ asset('boxroomstyle/images/slider/london9.jpg') }}" class="ls-bg" alt="iHOMES">
 
                     <div style="top:-100px; left:-7%; text-align:initial; font-weight:400; font-style:normal; text-decoration:none; mix-blend-mode:normal; height:140%; width:100%; opacity:1; border-radius: 50px; transform: rotate(20deg)" class="ls-l bg-primary ls-hide-phone"
                         data-ls="showinfo:1; delayin:0; fadein:false; offsetxin:-100lw; offsetxout:left; easingout:easeInQuint; skewxout:-10;"></div>
@@ -306,7 +306,7 @@
                             <div class="item-1">
                                 <div class="property-grid-2 property-block transation mb-3">
                                     <div class="overflow-hidden position-relative transation thumbnail-img rounded bg-secondary hover-img-zoom img-fluid">
-                                        <a href=""><img src="{{ asset('boxroomstyle/images/services/service8.jpg') }}" alt="Image Not Found!" class=""></a>
+                                        <a href=""><img src="{{ asset('boxroomstyle/images/services/service8.jpg') }}" alt="iHOMES" class=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -380,7 +380,7 @@
                             <div class="item-1">
                                 <div class="property-grid-2 property-block transation mb-3">
                                     <div class="overflow-hidden position-relative transation thumbnail-img rounded bg-secondary hover-img-zoom">
-                                        <a href=""><img src="{{ asset('boxroomstyle/images/services/service1.jpg') }}" alt="Image Not Found!"></a>
+                                        <a href=""><img src="{{ asset('boxroomstyle/images/services/service1.jpg') }}" alt="iHOMES"></a>
                                     </div>
                                 </div>
                             </div>
@@ -444,7 +444,7 @@
                             <div class="item-1">
                                 <div class="property-grid-2 property-block transation mb-3">
                                     <div class="overflow-hidden position-relative transation thumbnail-img rounded bg-secondary hover-img-zoom">
-                                        <a href=""><img src="{{ asset('boxroomstyle/images/services/service4.jpg') }}" alt="Image Not Found!"></a>
+                                        <a href=""><img src="{{ asset('boxroomstyle/images/services/service4.jpg') }}" alt="iHOMES"></a>
                                     </div>
                                 </div>
                             </div>

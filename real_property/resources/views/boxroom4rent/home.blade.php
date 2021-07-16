@@ -175,69 +175,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{--<div class="col">
-                                    <div class="position-relative">
-                                        <button class="form-control text-start toggle-btn" data-target="#aditional-check">Advanced <i class="fas fa-ellipsis-v font-mini icon-font y-center text-dark"></i></button>
-                                    </div>
-                                </div>--}}
                                 <div class="col">
                                     <button class="btn btn-primary w-100">Search</button>
-                                </div>
-                                <!-- Advance Features -->
-                                <div id="aditional-check" class="aditional-features p-5">
-                                    <h5 class="mb-3">Aditional Options</h5>
-                                    <ul class="row row-cols-lg-4 row-cols-md-2 row-cols-1 custom-check-box mb-4">
-                                        <li class="col">
-                                            <input type="checkbox" class="custom-control-input hide" id="customCheck1">
-                                            <label class="custom-control-label" for="customCheck1">Air Conditioning</label>
-                                        </li>
-                                        <li class="col">
-                                            <input type="checkbox" class="custom-control-input hide" id="customCheck2">
-                                            <label class="custom-control-label" for="customCheck2">Garage Facility</label>
-                                        </li>
-                                        <li class="col">
-                                            <input type="checkbox" class="custom-control-input hide" id="customCheck3">
-                                            <label class="custom-control-label" for="customCheck3">Swiming Pool</label>
-                                        </li>
-                                        <li class="col">
-                                            <input type="checkbox" class="custom-control-input hide" id="customCheck4">
-                                            <label class="custom-control-label" for="customCheck4">Fire Security</label>
-                                        </li>
-
-                                        <li class="col">
-                                            <input type="checkbox" class="custom-control-input hide" id="customCheck5">
-                                            <label class="custom-control-label" for="customCheck5">Fire Place Facility</label>
-                                        </li>
-                                        <li class="col">
-                                            <input type="checkbox" class="custom-control-input hide" id="customCheck6">
-                                            <label class="custom-control-label" for="customCheck6">Play Ground</label>
-                                        </li>
-                                        <li class="col">
-                                            <input type="checkbox" class="custom-control-input hide" id="customCheck7">
-                                            <label class="custom-control-label" for="customCheck7">Ferniture Include</label>
-                                        </li>
-                                        <li class="col">
-                                            <input type="checkbox" class="custom-control-input hide" id="customCheck8">
-                                            <label class="custom-control-label" for="customCheck8">Marbel Floor</label>
-                                        </li>
-
-                                        <li class="col">
-                                            <input type="checkbox" class="custom-control-input hide" id="customCheck9">
-                                            <label class="custom-control-label" for="customCheck9">Store Room</label>
-                                        </li>
-                                        <li class="col">
-                                            <input type="checkbox" class="custom-control-input hide" id="customCheck10">
-                                            <label class="custom-control-label" for="customCheck10">Hight Class Door</label>
-                                        </li>
-                                        <li class="col">
-                                            <input type="checkbox" class="custom-control-input hide" id="customCheck11">
-                                            <label class="custom-control-label" for="customCheck11">Floor Heating System</label>
-                                        </li>
-                                        <li class="col">
-                                            <input type="checkbox" class="custom-control-input hide" id="customCheck12">
-                                            <label class="custom-control-label" for="customCheck12">Garden Include</label>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
                         </form>
@@ -513,7 +452,7 @@
                             <p style="text-align: justify !important;">If you are thinking of letting your property to get a great rental return, your first step should be to get a free consultation.</p>
                             {{--<p style="text-align: justify !important;">Email us we will call you.</p>--}}
                             <div class="posi-2">
-                                <button type="button" class="btn btn-primary d-table" data-bs-toggle="modal" data-bs-target="#free-rental-valuation">
+                                <button type="button" id="showModal" class="btn btn-primary d-table" data-bs-toggle="modal" data-bs-target="#free-rental-valuation">
                                     Find out More
                                 </button>
                                 <!-- Modal -->
@@ -555,13 +494,16 @@
                                                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
                                                             </div>
                                                             <div class="col-md-12 col-sm-12">
+                                                                <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact No">
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12">
                                                                 <input type="hidden" class="form-control" id="subject" name="subject" value="free rental valuation" placeholder="subject">
                                                             </div>
                                                             <div class="col-md-12 col-sm-12">
                                                                 <textarea class="form-control" id="message" rows="5" name="message" placeholder="Message"></textarea>
                                                             </div>
                                                             <div class="col-md-12 col-sm-12">
-                                                                <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+                                                                <div class="g-recaptcha" id="captcha"></div>
                                                                 @if($errors->has('g-recaptcha-response'))
                                                                 <span class="">
                                                                     <!-- <strong>{{$errors->first('g-recaptcha-response')}}</strong> -->
@@ -804,6 +746,36 @@
             height: 860,
             skinsPath: 'assets/skins/'
         });
+    </script>
+
+    @if($errors->has('email') || $errors->has('name') || $errors->has('contact') || $errors->has('message') || $errors->has('g-recaptcha-response') || Session::get('success'))
+        <script>
+        $(function() {
+            $("#free-rental-valuation").modal("show");
+            setTimeout(function() {
+                createRecaptcha();
+            }, 100);
+        });
+        </script>
+    @endif
+
+    <script>
+        "use strict";
+
+        $("#showModal").click(function() {
+            $("#free-rental-valuation").modal("show");
+            setTimeout(function() {
+                createRecaptcha();
+            }, 100);
+        });
+
+        function createRecaptcha() {
+	        grecaptcha.render("captcha", {sitekey: "6LcAPHkbAAAAAAeHnoucA9T_BPNzj4oaxXQroTPi", theme: "light"});
+        }
+
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
     </script>
 
     @yield('scripts')    

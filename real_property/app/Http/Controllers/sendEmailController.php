@@ -21,6 +21,7 @@ class sendEmailController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'subject' => 'required',
+            'contact' => 'required',
             'message' => 'required',
             'g-recaptcha-response'=>new Captcha(),
         ]);
@@ -28,6 +29,7 @@ class sendEmailController extends Controller
         $mail_data = array(
             'name' => $request->name,
             'email' => $request->email,
+            'contact' => $request->contact,
             'subject' => $request->subject,
             'message' => $request->message
         );
@@ -43,6 +45,7 @@ class sendEmailController extends Controller
         $this-> validate($request, [
             'name' => 'required',
             'email' => 'required|email',
+            'contact' => 'required',
             'message' => 'required',
             'g-recaptcha-response'=>new Captcha(),
         ]);
@@ -52,6 +55,7 @@ class sendEmailController extends Controller
             'location' => $request->location,
             'name' => $request->name,
             'email' => $request->email,
+            'contact' => $request->contact,
             'subject' => $request->subject,
             'message' => $request->message
         );
@@ -67,6 +71,7 @@ class sendEmailController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'email' => 'required|email',
+            'contact' => 'required',
             'subject' => 'required',
             'message' => 'required',
             'g-recaptcha-response'=>new Captcha(),
@@ -75,6 +80,7 @@ class sendEmailController extends Controller
         $mail_data = [
             'name' => $request->input('name'),
             'email' => $request->input('email'),
+            'contact' => $request->contact,
             'subject' => $request->input('subject'),
             'message' => $request->input('message')
                 ];

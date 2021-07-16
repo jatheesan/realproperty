@@ -73,6 +73,9 @@
                                                     <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
                                                 </div>
                                                 <div class="col-md-12 col-sm-12">
+                                                    <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact No">
+                                                </div>
+                                                <div class="col-md-12 col-sm-12">
                                                     <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
                                                 </div>
                                                 <div class="col-md-12 col-sm-12">

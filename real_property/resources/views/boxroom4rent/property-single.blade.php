@@ -591,7 +591,10 @@
                                                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
                                                             </div>
                                                             <div class="col-md-12 col-sm-12">
-                                                                <input type="hidden" class="form-control" id="subject" name="subject" placeholder="Subject" value="Request for enquiring this property">
+                                                                <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact No">
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12">
+                                                                <input type="hidden" class="form-control" id="subject" name="subject" placeholder="Subject" value="Enquiring">
                                                             </div>
                                                             <div class="col-md-12 col-sm-12">
                                                                 <textarea class="form-control" id="message" rows="5" name="message" placeholder="Message"></textarea>
@@ -647,7 +650,10 @@
                                                                 <input class="form-control" id="email" name="email" placeholder="Email Address" type="text">
                                                             </div>
                                                             <div class="col-md-12 col-sm-12">
-                                                                <input type="hidden" class="form-control" id="subject" name="subject" placeholder="Subject" value="Request for seeing the this property">
+                                                                <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact No">
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12">
+                                                                <input type="hidden" class="form-control" id="subject" name="subject" placeholder="Subject" value="Viewing this property">
                                                             </div>
                                                             <div class="col-md-12 col-sm-12">
                                                                 <textarea class="form-control" id="message" rows="5" name="message" placeholder="Message"></textarea>

@@ -188,8 +188,7 @@
                                 @endif
                                 </span>
                                 <form class="view-category" method="get">
-                                    <button title="List" class="list-view" value="list" name="display" type="submit"><i class="flaticon-grid-1 flat-mini"></i></button>
-                                    <button title="Grid" class="grid-view active" value="grid" name="display" type="submit"><i class="flaticon-grid flat-mini"></i></button>
+                                    <button title="Grid" class="grid-view active" value="grid" name="display" type="submit"><i class="flaticon-grid-1 flat-mini"></i></button>
                                 </form>
                             </div>
                         </div>

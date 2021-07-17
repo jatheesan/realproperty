@@ -589,7 +589,9 @@
                         </div>
                         <div class="col-lg-8">
                             <div class="row row-cols-1 row-cols-sm-3">
-                                <div class="col-sm-6">
+                                <div class="col-sm-2">
+                                </div>
+                                <div class="col-sm-5">
                                     <div class="footer-widget contact-widget mb-4">
                                         <h3 class="widget-title mb-4 ms-4">Contact Info</h3>
                                         <table border="0">
@@ -626,7 +628,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-5">
                                     <div class="footer-widget footer-nav mb-5">
                                         <h4 class="widget-title ms-4 mb-4">The Company</h4>
                                         <ul class="ms-4">

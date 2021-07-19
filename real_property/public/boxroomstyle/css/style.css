@@ -2543,4 +2543,53 @@ Responsive Style Start
         padding-right: 8px;
         color: #ff7f50; /* Or a color you prefer */
         font-size: 30px;
+    }
+
+      .cookie-consent {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        height: 45px;
+        color: #fff;
+        line-height: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 14px;
+        background: #292929;
+        z-index: 120;
+        cursor: pointer;
+        border-radius: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+    
+    .allow-button {
+        height: 20px;
+        width: 104px;
+        color: #fff;
+        font-size: 12px;
+        line-height: 10px;
+        border-radius: 3px;
+        border: 1px solid green;
+        background-color: green
+    }
+
+    .js-cookie-consent{
+        bottom: 0px;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+        height: 60px;
+        background-color: #292929;
+        border-color: #fffacc;
+        border: solid 1px;
+      }
+
+      .js-cookie-consent-agree{
+        background-color: #ff7f50;
+        border: solid 1px;
+        border-radius: 5px;
+        padding: 5px;
+        margin-left: 20px;
       }

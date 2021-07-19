@@ -682,6 +682,9 @@
         <!-- Scroll to top -->
         <a href="#" class="text-general scroll-top-vertical xs-mx-none" id="scroll">Scroll to top</a>
         <!-- End Scroll To top -->
+        <!-- in your blade template -->
+        @include('cookieConsent::index')
+
     </div>
 
 <!-- Boxroom Javascript Files -->

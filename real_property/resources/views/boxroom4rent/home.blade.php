@@ -548,6 +548,46 @@
         </div>
         <!--============== Reg Banner End ==============-->
 
+        <!--============== governing bodies Logo Start ==============-->
+        <div class="full-row bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="text-center mb-5">
+                            <h5 class="d-table w-sm-100 ordenery-font mx-auto text-center">iHOMES have been a voluntary member of the key governing bodies working to raise standards within the industry. These include:</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-cols-lg-5 row-cols-md-5 row-cols-sm-2 row-cols-1">
+                    <div class="col">
+
+                    </div>
+                    <div class="col ml-5">
+                        <div class="hover-img-zoom mb-4">
+                            <div class="overflow-hidden transation thumbnail-img">
+                                <img src="{{ asset('boxroomstyle/images/logos/TPO.jpg') }}" alt="iHOMES" style="height:100px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-5">
+                        <div class="hover-img-zoom mb-4">
+                            <div class="overflow-hidden transation thumbnail-img">
+                                <img src="{{ asset('boxroomstyle/images/logos/DPS.jpg') }}" alt="iHOMES" style="height:100px; width:282px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-5">
+                        <div class="hover-img-zoom mb-4">
+                            <div class="overflow-hidden transation thumbnail-img">
+                                <img src="{{ asset('boxroomstyle/images/logos/CMP.png') }}" alt="iHOMES" style="height:100px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============== governing bodies Logo End ==============-->
+
         <!--============== Register Section Start ==============-->
         <div class="full-row bg-primary py-4">
             <div class="container">

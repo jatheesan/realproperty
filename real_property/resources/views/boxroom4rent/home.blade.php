@@ -1,44 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="unicoder">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'iHOMES')</title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('boxroomstyle/images/icons8-home-48.png')}}">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-
-    <!-- Required style of boxroom theme -->
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/bootstrap-select.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/webfonts/flaticon/flaticon.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/owl.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/jquery.fancybox.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/layerslider.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/template.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/colors/color-6.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/clock.css') }}">
-</head>
-<body>
-
-    <div id="page_wrapper" class="bg-light">
+@extends('layouts.app')
+@section('ihome_content')
         <!--============== Header Section Start ==============-->
-        <header class="nav-on-banner bg-transparent fixed-bg-dark shadow-none md-bg-secondary">
+        <header class="nav-on-banner bg-transparent fixed-bg-dark shadow-none bg-sm-secondary">
             <div class="main-nav py-2 xs-p-0">
                 <div class="container">
                     <div class="row">
                         <div class="col">
                             <nav class="navbar navbar-expand-lg nav-white nav-primary-hover nav-line-active">
-                                {{--<a class="navbar-brand" href="{{ url('/') }}"><img class="nav-logo" src="assets/images/logo/logo-full-white.png" alt="Image not found !"></a>--}}
-                                <a class="navbar-brand text-brand" href="{{ url('/') }}"><span class="text-b">i</span><span>HOMES</span></a>
+                                <a class="navbar-brand" href="{{ url('/') }}"><img class="nav-logo" src="{{ asset('boxroomstyle/images/logos/ihomes.png') }}" alt="iHOMES" style="background-color: #ffffffbb; border-radius: 5px;"></a>
+                                {{--<a class="navbar-brand text-brand" href="{{ url('/') }}"><span class="text-b">i</span><span>HOMES</span></a>--}}
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon flaticon-menu flat-small text-primary"></span>
                                   </button>
@@ -469,19 +439,19 @@
                                                 <div class="col">
                                                     @if(count($errors) > 0)
                                                         <div class="alert alert-danger">
-                                                            <button type="button" class="close" data-dismiss="alert">x</button>
                                                             <ul>
                                                                 @foreach($errors->all() as $error)
                                                                 <li>{{ $error}}</li>
                                                                 @endforeach
                                                             </ul>
+                                                            <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="alert"></button>
                                                         </div>
                                                     @endif
 
                                                     @if($message = Session::get('success'))
                                                         <div class="alert alert-success alert-block">
-                                                        <button type="button" class="close" data-dismiss="alert">x</button>
                                                         <strong>{{ $message }}</strong>
+                                                        <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="alert"></button>
                                                         </div>
                                                     @endif
                                                     <form class="contact_message form-boder" action="{{ url('/sendmail/send') }}" method="post" role="form" novalidate="novalidate">
@@ -572,7 +542,7 @@
                     <div class="col ml-5">
                         <div class="hover-img-zoom mb-4">
                             <div class="overflow-hidden transation thumbnail-img">
-                                <img src="{{ asset('boxroomstyle/images/logos/DPS.jpg') }}" alt="iHOMES" style="height:100px; width:282px;">
+                                <img src="{{ asset('boxroomstyle/images/logos/DPS.jpg') }}" alt="iHOMES" style="height:100px;">
                             </div>
                         </div>
                     </div>
@@ -719,110 +689,4 @@
             <!--============== Copyright Section End ==============-->
         </footer>
 
-        <!-- Scroll to top -->
-        <a href="#" class="text-general scroll-top-vertical xs-mx-none" id="scroll">Scroll to top</a>
-        <!-- End Scroll To top -->
-        <!-- in your blade template -->
-        @include('cookieConsent::index')
-
-    </div>
-
-<!-- Boxroom Javascript Files -->
-    <script src="{{ asset('boxroomstyle/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/greensock.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/layerslider.transitions.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/layerslider.kreaturamedia.jquery.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/popper.min.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/bootstrap-select.min.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/jquery.fancybox.min.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/owl.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/range/tmpl.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/range/jquery.dependClass.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/range/draggable.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/range/jquery.slider.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/wow.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/mixitup.min.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/paraxify.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/custom.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-        
-            $('#mySlider').slider({
-                values: [25, 175],
-                min:0,
-                max:1000,
-                range: true,
-                smooth: true,
-                round: 0,
-                dimension: "£",
-                skin: "plastic",
-                create: attachSlider,
-                slide: attachSlider,
-                stop: attachSlider
-            })
-
-            function attachSlider() {
-                $('#lowerlimit').val($('#mySlider').slider("values", 0));
-                $('#upperlimit').val($('#mySlider').slider("values", 1));
-            }
-            
-            $('input').change(function(e) {
-                var setIndex = (this.id == "upperlimit") ? 1 : 0;
-                $('#mySlider').slider("values", setIndex, $(this).val())
-            })
-
-
-        });
-    </script>
-    <script>
-        $('#slider').layerSlider({
-            sliderVersion: '6.0.0',
-            type: 'fullwidth',
-            responsiveUnder: 0,
-            maxRatio: 1,
-            slideBGSize: 'auto',
-            hideUnder: 0,
-            hideOver: 100000,
-            skin: 'numbers',
-            fitScreenWidth: true,
-            fullSizeMode: 'fitheight',
-            thumbnailNavigation: 'disabled',
-            height: 860,
-            skinsPath: 'assets/skins/'
-        });
-    </script>
-
-    @if($errors->has('email') || $errors->has('name') || $errors->has('contact') || $errors->has('message') || $errors->has('g-recaptcha-response') || Session::get('success'))
-        <script>
-        $(function() {
-            $("#free-rental-valuation").modal("show");
-            setTimeout(function() {
-                createRecaptcha();
-            }, 100);
-        });
-        </script>
-    @endif
-
-    <script>
-        "use strict";
-
-        $("#showModal").click(function() {
-            $("#free-rental-valuation").modal("show");
-            setTimeout(function() {
-                createRecaptcha();
-            }, 100);
-        });
-
-        function createRecaptcha() {
-	        grecaptcha.render("captcha", {sitekey: "6LcAPHkbAAAAAAeHnoucA9T_BPNzj4oaxXQroTPi", theme: "light"});
-        }
-
-    </script>
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-        async defer>
-    </script>
-
-    @yield('scripts')    
-</body>
-</html>
+@endsection

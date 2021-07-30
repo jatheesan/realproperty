@@ -286,7 +286,9 @@ a.hover-text-extra1:hover {
 .nav-dark-hover.nav-line-active .navbar-nav .active>.nav-link:before,
 .nav-dark-hover.nav-line-active .navbar-nav .active>.nav-link:before,
 .bg-dark {
-    background-color: var(--theme-dark-color) !important
+    background-color: var(--theme-dark-color) !important;
+    background-image: linear-gradient(0deg, #5b6467 0%, #ffffff 7%);
+
 }
 
 .bg-footer {

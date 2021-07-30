@@ -37,10 +37,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
-                <div class="sidebar-brand-icon rotate-n-0">
-                    <i class="fas fa-hotel"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">iHOMES</div>
+            <img class="nav-logo" src="{{ asset('boxroomstyle/images/logos/ihomes.png') }}" alt="iHOMES">
             </a>
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -85,12 +82,22 @@
                     <span>Rooms</span>
                 </a>
             </li>
+            
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('image') }}">
+                    <i class="fas fa-door-open"></i>
+                    <span>Images</span>
+                </a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            {{--<div class="sidebar-heading">
                 Addons
             </div>
 
@@ -108,11 +115,11 @@
                         <a href="" class="collapse-item" data-toggle="modal" data-target="#registerModal">{{ __('Sign Up') }}</a>
                         <a href="" class="collapse-item" data-toggle="modal" data-target="#forgetpasswordModal">{{ __('Forgot Password') }}</a>
                         <div class="collapse-divider"></div>
-                        {{--<h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="{{ url('/error') }}">404 Page</a>--}}
+                        <h6 class="collapse-header">Other Pages:</h6>
+                        <a class="collapse-item" href="{{ url('/error') }}">404 Page</a>
                     </div>
                 </div>
-            </li>
+            </li>--}}
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

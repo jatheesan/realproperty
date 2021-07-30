@@ -2344,7 +2344,7 @@ Responsive Style Start
 			height: auto !important;
 		}
         .bg-sm-secondary {
-            background-color: var(--theme-secondary-color);
+            background-color: var(--theme-general-color);
         }
         .aditional-features {
             top: 91%
@@ -2545,6 +2545,13 @@ Responsive Style Start
         font-size: 30px;
     }
 
+    .white-box {
+        position: absolute;
+        background-color: #FFFFFF;
+        width: 160px;
+        height: 100px;
+    }
+
       .cookie-consent {
         position: fixed;
         bottom: 0px;
@@ -2592,4 +2599,14 @@ Responsive Style Start
         border-radius: 5px;
         padding: 5px;
         margin-left: 20px;
+      }
+
+      @media screen and (max-width: 450px) {
+
+        .g-recaptcha{
+            transform:scale(0.77);
+            -webkit-transform:scale(0.77);
+            transform-origin:0 0;
+            -webkit-transform-origin:0 0;
+        }
       }

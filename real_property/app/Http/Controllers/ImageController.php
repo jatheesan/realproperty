@@ -12,7 +12,7 @@ class ImageController extends Controller
 {
     //////////this is for multi image all methods
     public function show(){
-        $images = Property_image::paginate(12);
+        $images = Property_image::paginate(18);
         return view('images.show', compact('images'));
     }
 

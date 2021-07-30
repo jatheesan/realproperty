@@ -1,35 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="unicoder">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'iHOMES')</title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('boxroomstyle/images/icons8-home-48.png')}}">
+@extends('layouts.app')
+@section('ihome_content')
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-
-    <!-- Required style of boxroom theme -->
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/bootstrap-select.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/webfonts/flaticon/flaticon.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/owl.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/jquery.fancybox.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/layerslider.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/template.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/colors/color-6.css') }}">
-    <link rel="stylesheet" href="{{ asset('boxroomstyle/css/clock.css') }}">
-</head>
-<body>
-
-<div id="page_wrapper" class="bg-light">
         <!--============== Header Section Start ==============-->
         <header class="nav-on-top shadow-sm fixed-bg-dark">
             <div class="main-nav py-2 xs-p-0">
@@ -37,8 +8,8 @@
                     <div class="row">
                         <div class="col">
                             <nav class="navbar navbar-expand-lg nav-white nav-primary-hover nav-line-active">
-                                {{--<a class="navbar-brand" href="#"><img class="nav-logo" src="assets/images/logo/logo-full-white.png" alt="Image not found !"></a>--}}
-                                <a class="navbar-brand text-brand" href="#" style="color:#ff7f50 !important;"><span class="text-b">i</span><span>HOMES</span></a>
+                                <a class="navbar-brand" href="#"><img class="nav-logo" src="{{ asset('boxroomstyle/images/logos/ihomes.png') }}" alt="iHOMES"></a>
+                                {{--<a class="navbar-brand text-brand" href="#" style="color:#ff7f50 !important;"><span class="text-b">i</span><span>HOMES</span></a>--}}
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon flaticon-menu flat-small text-primary"></span>
                                   </button>
@@ -183,72 +154,4 @@
             <!--============== Copyright Section End ==============-->
         </footer>
 
-        <!-- Scroll to top -->
-        <a href="#" class="text-general scroll-top-vertical xs-mx-none" id="scroll">Scroll to top</a>
-        <!-- End Scroll To top -->
-    </div>
-<!-- Boxroom Javascript Files -->
-    <script src="{{ asset('boxroomstyle/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/greensock.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/layerslider.transitions.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/layerslider.kreaturamedia.jquery.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/popper.min.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/bootstrap-select.min.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/jquery.fancybox.min.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/owl.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/range/tmpl.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/range/jquery.dependClass.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/range/draggable.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/range/jquery.slider.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/wow.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/mixitup.min.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/paraxify.js') }}"></script>
-    <script src="{{ asset('boxroomstyle/js/custom.js') }}"></script>
-    <script>
-        $('#slider').layerSlider({
-            sliderVersion: '6.0.0',
-            type: 'fullwidth',
-            responsiveUnder: 0,
-            maxRatio: 1,
-            slideBGSize: 'auto',
-            hideUnder: 0,
-            hideOver: 100000,
-            skin: 'numbers',
-            fitScreenWidth: true,
-            fullSizeMode: 'fitheight',
-            thumbnailNavigation: 'disabled',
-            height: 860,
-            skinsPath: 'assets/skins/'
-        });
-
-        $('#single-property').layerSlider({
-            sliderVersion: '6.5.0b2',
-            type: 'popup',
-            pauseOnHover: 'disabled',
-            skin: 'photogallery',
-            globalBGSize: 'cover',
-            navStartStop: false,
-            hoverBottomNav: true,
-            showCircleTimer: false,
-            thumbnailNavigation: 'always',
-            tnContainerWidth: '100%',
-            tnHeight: 70,
-            popupShowOnTimeout: 1,
-            popupShowOnce: false,
-            popupCloseButtonStyle: 'background: rgba(0,0,0,.5); border-radius: 2px; border: 0; left: auto; right: 10px;',
-            popupResetOnClose: 'disabled',
-            popupDistanceLeft: 20,
-            popupDistanceRight: 20,
-            popupDistanceTop: 20,
-            popupDistanceBottom: 20,
-            popupDurationIn: 750,
-            popupDelayIn: 500,
-            popupTransitionIn: 'scalefromtop',
-            popupTransitionOut: 'scaletobottom',
-            skinsPath: 'assets/skins/'
-        });
-    </script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>    
-</body>
-</html>
+@endsection
